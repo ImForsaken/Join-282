@@ -1,0 +1,84 @@
+body {
+    margin: 0px 0px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.bgr1 {
+    background-color: white;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90vw;
+    text-align: center;
+    background-color: rgb(243, 243, 243);
+    border-radius: 10px;
+    padding: 2px 6px;
+    margin: 12px 0px;
+    max-width: 800px;
+
+}
+
+.login-text {
+    margin-bottom: 4px;
+}
+
+.input {
+    border-radius: 10px;
+    border: 2px grey solid;
+    width: 90%;
+    margin-bottom: 4px;
+    max-width: 500px;
+    text-align: center;
+}
+
+.login-button {
+    border: none;
+    border-radius: 10px;
+    background-color: blue;
+    color: white;
+    font-size: x-large;
+    padding: 6px 70px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+
+
+
+
+
+
+
+
+
+/* ab hier das board */
+
+
+.board-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.column {
+    background-color: rgb(228, 227, 249);
+    width: 20vw;
+    min-height: 70vh;
+}
+
+.board-headline {
+    font-size: xx-large;
+    text-align: center;
+    font-weight: bold;
+}
