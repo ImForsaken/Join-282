@@ -1,0 +1,132 @@
+
+* {
+    text-decoration:none;
+    box-sizing:border-box;
+    padding:0px;
+    margin:0px;
+}
+h1 {
+    color: blue;
+}
+
+.inputfield {
+    display: block;
+    width: 100%;
+    border: none;
+    padding: 5px;
+    border: 1px solid lightgray;
+}
+
+.inputfield textarea {
+    height: 300px;
+}
+.navAndBody {
+    display: flex;
+    align-items: center;
+}
+
+/* addTaskPage */
+
+.addTaskBoard {  
+    background-color: #E3E3E3;
+    /* padding: 30px; */
+    height: 700px;
+    width: 90%;
+    
+    border-radius: 10px;
+    margin: 0% 5%;
+
+}
+
+/* .addTaskBoard input {
+    width: -webkit-fill-available;
+
+} */
+.taskBoard {
+    justify-content: space-evenly;
+    height: -webkit-fill-available;
+    align-items: center;
+}
+.taskContainer {
+    margin-right: 5px;
+    margin-bottom: 60px;
+
+}
+
+.inputManage {
+    flex-direction: column;
+}
+
+
+/* AvatarpickerCSS */
+.avatar {
+    height: 72px;
+    width: 72px;
+    border-radius: 50%;
+    opacity: 0.6;
+    cursor: pointer;
+    margin-right: 16px;
+    object-fit: cover;
+    border: 3px solid transparent;
+
+}
+
+.avatar:hover {
+    opacity: 1;
+}
+
+
+.avatar-selected {
+    opacity: 1;
+    border: 3px solid #3D49CA;
+
+}
+
+
+/* Navbar */
+
+
+.navbar-main {
+    background-color: #ffffff !important;
+    height: 100vh;
+    display: flex;
+    align-items: unset !important;
+    justify-content: space-between;
+    min-width: fit-content;
+
+}
+.container-fluid {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background-color: #2B2CA6;
+
+
+}
+.upperNavbar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo img{
+    height: 72px;
+    width: 72px;
+}
+
+.navbar-nav {
+    display: flex;
+    flex-direction: column !important;
+    font-size: 24px;
+    margin-top: 48px;
+}
+
+.navbar-nav a {
+    color: white !important;
+
+}
+.profileAvatar {
+    border-radius: 50%;
+    height: 48px;
+    width: 48px;
+}
