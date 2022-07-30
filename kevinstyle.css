@@ -11,14 +11,21 @@ h1 {
 
 .inputfield {
     display: block;
-    width: 100%;
-    border: none;
-    padding: 5px;
-    border: 1px solid lightgray;
+    width: 80%;
+    height: 60px;
+    padding: 10px;
+    border: 0.5px solid lightgray;
+    border-radius: 5px;
+
 }
 
-.inputfield textarea {
-    height: 300px;
+
+.inputfieldArea {
+    display: block;
+    width: 80%;
+    height: 140px;
+    border-radius: 5px;
+
 }
 .navAndBody {
     display: flex;
@@ -44,20 +51,41 @@ h1 {
 } */
 .taskBoard {
     justify-content: space-evenly;
-    height: -webkit-fill-available;
     align-items: center;
+    height: 100%;
 }
 .taskContainer {
-    margin-right: 5px;
-    margin-bottom: 60px;
-
+    margin-bottom: 70px;
+    height: 100px;
 }
 
 .inputManage {
     flex-direction: column;
+    width: 50%;
+    padding: 50px;
+}
+/* removes old input calendar icon */
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+    opacity: 0;   
+}
+/* new calendar icon */
+.dateSymbol {
+    background-image: url(img/icons8-calendar-150.png);
+    background-repeat: no-repeat;
+    background-position: right 20px center;
+    background-size: 25px;
 }
 
-
+/* arrow icon for inputs */
+.arrow {
+    background-image: url(img/chevron\ .png);
+    background-repeat: no-repeat;
+    background-position: right 20px center;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-size: 25px;
+}
 /* AvatarpickerCSS */
 .avatar {
     height: 72px;
