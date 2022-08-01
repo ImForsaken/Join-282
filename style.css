@@ -1,0 +1,52 @@
+/* Navbar */
+* {
+    text-decoration:none;
+    box-sizing:border-box;
+    padding:0px;
+    margin:0px;
+}
+
+.navbar-main {
+    background-color: #ffffff !important;
+    height: 100vh;
+    display: flex;
+    align-items: unset !important;
+    justify-content: space-between;
+    width: fit-content;
+
+}
+.container-fluid {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background-color: #2B2CA6;
+
+
+}
+.upperNavbar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo img{
+    height: 72px;
+    width: 72px;
+}
+
+.navbar-nav {
+    display: flex;
+    flex-direction: column !important;
+    font-size: 24px;
+    margin-top: 48px;
+}
+
+.navbar-nav a {
+    color: white !important;
+
+}
+.profileAvatar {
+    border-radius: 50%;
+    height: 48px;
+    width: 48px;
+}

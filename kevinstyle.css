@@ -16,7 +16,7 @@ h1 {
     padding: 10px;
     border: 0.5px solid lightgray;
     border-radius: 5px;
-
+    background-color: #ffffff;
 }
 
 
@@ -75,6 +75,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     background-repeat: no-repeat;
     background-position: right 20px center;
     background-size: 25px;
+    appearance: none;
+    /* filter: drop-shadow(0 0 1px black); */
 }
 
 /* arrow icon for inputs */
@@ -85,6 +87,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     -webkit-appearance: none;
     -moz-appearance: none;
     background-size: 25px;
+    appearance: none;
+}
+.arrow::after {
+    border-left: 1px solid #3C1C78;
 }
 /* AvatarpickerCSS */
 .avatar {
@@ -120,7 +126,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     display: flex;
     align-items: unset !important;
     justify-content: space-between;
-    min-width: fit-content;
+    min-width: max-content;
 
 }
 .container-fluid {

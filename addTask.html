@@ -6,8 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>addTask</title>
+    <script src="./mini_backend.js"></script>
     <script src="addTask.js"></script>
     <script src="avatar.js"></script>
+    <script src="backlog.js"></script>
+    <script src="includeHTML.js"></script>
+    <script>
+        setURL('https://gruppe-282.developerakademie.net/smallest_backend_ever');
+    </script>
+
+
 
     <!-- Bootstrap -->
     <!-- CSS only -->
@@ -21,40 +29,12 @@
     <!-- <link rel="style.css"> -->
     <link rel="stylesheet" href="kevinstyle.css">
 
+
 </head>
 
-<body onload="init()">
+<body onload="init(), includeHTML()">
     <div class="navAndBody">
-        <nav class="navbar navbar-main navbar-expand-lg bg-light">
-            <div class="container-fluid">
-                <div class="upperNavbar">
-                    <img class="logo" src="./img/logo.png">
-
-
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Board</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Backlog</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Add Task</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Help</a>
-                        </li>
-                    </ul>
-                </div>
-                <div>
-                    <img class="profileAvatar" src="./img/avatar1.JPG">
-                </div>
-            </div>
-        </nav>
-
+        <div w3-include-html="navbar.html"></div>
         <div class="addTaskBoard">
             <form id="taskForm" class="d-flex taskBoard" onsubmit="addTask()">
                 <div class="d-flex inputManage">
@@ -92,11 +72,14 @@
                     <div class="taskContainer">
                         <h1>Assigned to</h1>
                         <div>
-                            <div id="avatarPicker">
+                            <div class="d-none" id="avatarPicker">
 
                             </div>
-                            <button onclick="cancelTask()" type="button" class="btn btn-primary">Cancel</button>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <img src="./img/icon plus.png">
+                            <div>
+                                <button onclick="cancelTask()" type="button" class="btn btn-primary">Cancel</button>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
                         </div>
                     </div>
                 </div>
