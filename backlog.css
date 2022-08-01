@@ -1,0 +1,13 @@
+.navAndBody {
+    display: flex;
+    align-items: center;
+}
+
+.headContent{
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.blue {
+    color: blue;
+}

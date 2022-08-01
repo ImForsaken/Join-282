@@ -34,60 +34,65 @@
 
 <body onload="init(), includeHTML()">
     <div class="navAndBody">
-        <div w3-include-html="navbar.html"></div>
-        <div class="addTaskBoard">
-            <form id="taskForm" class="d-flex taskBoard" onsubmit="addTask()">
-                <div class="d-flex inputManage">
-                    <div class="taskContainer">
-                        <h1>Title</h1>
-                        <input class="inputfield" required type="text" id="title">
+        <div w3-include-html="./html templates/navbar.html"></div>
+        <div class="contentContainer">
+            <div class="headContent">
+                <h1>Add Task</h1>
+                <p class="blue">Learning Management System Project</p>
+            </div>
+            <div class="addTaskBoard">
+                <form id="taskForm" class="d-flex taskBoard" onsubmit="addTask()">
+                    <div class="d-flex inputManage">
+                        <div class="taskContainer">
+                            <h2>Title</h2>
+                            <input class="inputfield" required type="text" id="title">
+                        </div>
+                        <div class="taskContainer">
+                            <h2>Category</h2>
+                            <select class="inputfield arrow" id="category">
+                                <option>Management</option>
+                                <option>Designe</option>
+                                <option>Marketing</option>
+                            </select>
+                        </div>
+                        <div class="taskContainer">
+                            <h2>Description</h2>
+                            <textarea rows="4" class="inputfieldArea" required id="description"
+                                placeholder="Describe the Task"></textarea>
+                        </div>
                     </div>
-                    <div class="taskContainer">
-                        <h1>Category</h1>
-                        <select class="inputfield arrow" id="category">
-                            <option>Management</option>
-                            <option>Designe</option>
-                            <option>Marketing</option>
-                        </select>
-                    </div>
-                    <div class="taskContainer">
-                        <h1>Description</h1>
-                        <textarea rows="4" class="inputfieldArea" required id="description"
-                            placeholder="Describe the Task"></textarea>
-                    </div>
-                </div>
-                <div class="d-flex inputManage">
-                    <div class="taskContainer">
-                        <h1>Date</h1>
-                        <input class="inputfield dateSymbol" required type="date" id="date">
-                    </div>
-                    <div class="taskContainer">
-                        <h1>Urgency</h1>
-                        <select class="inputfield arrow" id="urgency">
-                            <option>Low</option>
-                            <option>Mid</option>
-                            <option>High</option>
-                        </select>
-                    </div>
-                    <div class="taskContainer">
-                        <h1>Assigned to</h1>
-                        <div>
-                            <div class="d-none" id="avatarPicker">
-
-                            </div>
-                            <img src="./img/icon plus.png">
+                    <div class="d-flex inputManage">
+                        <div class="taskContainer">
+                            <h2>Date</h2>
+                            <input class="inputfield dateSymbol" required type="date" id="date">
+                        </div>
+                        <div class="taskContainer">
+                            <h2>Urgency</h2>
+                            <select class="inputfield arrow" id="urgency">
+                                <option>Low</option>
+                                <option>Mid</option>
+                                <option>High</option>
+                            </select>
+                        </div>
+                        <div class="taskContainer">
+                            <h2>Assigned to</h2>
                             <div>
-                                <button onclick="cancelTask()" type="button" class="btn btn-primary">Cancel</button>
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <div class="d-none" id="avatarPicker">
+
+                                </div>
+                                <img src="./img/icon plus.png">
+                                <div>
+                                    <button onclick="cancelTask()" type="button" class="btn btn-primary">Cancel</button>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </form>
+                </form>
+            </div>
+
+
         </div>
-
-
-
 
     </div>
 
