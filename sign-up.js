@@ -3,14 +3,21 @@ function SignUp() {
     let firstName = document.getElementById('signup-first-name').value;
     let lastName = document.getElementById('signup-last-name').value;
     let password = document.getElementById('sign-up-password').value;
-    
-    team.push({
-        'ID': '${team.length + 1}',
-        'first-name': '${firstName}',
-        'last-name': '${lastName}',
-        'e-mail': '${email}',
-        'src': './img/avatar${team.length + 1}.jpg',
-        'password': '${password}'}
-    );
-}
 
+    let newUser = {
+        'ID': team.length + 1,
+        'first-name': firstName,
+        'last-name': lastName,
+        'e-mail': email,
+        'src': '',
+        'password': password
+        }
+        ;
+
+    team.push(newUser);
+    setTeam(team_key, team);
+    }
+
+function setTeam(team_key, team) {
+    backend.setItem(team_key, JSON.stringify(team));
+}

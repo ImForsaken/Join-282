@@ -1,6 +1,6 @@
 let team = [
     {
-        'ID': '1',
+        'ID': 1,
         'first-name': 'Kevin',
         'last-name': 'H..?',
         'e-mail': 'KevinH@join.com',
@@ -8,7 +8,7 @@ let team = [
         'password': ''
     },
     {
-        'ID': '2',
+        'ID': 2,
         'first-name': 'Johannes',
         'last-name': 'Günther',
         'e-mail': 'JohannesG@join.com',
