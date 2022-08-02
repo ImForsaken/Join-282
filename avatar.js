@@ -1,15 +1,19 @@
 let team = [
     {
         'ID': '1',
-        'name': 'Kevin',
+        'first-name': 'Kevin',
+        'last-name': 'H..?',
         'e-mail': 'KevinH@join.com',
-        'src': './img/avatar1.jpg'
+        'src': './img/avatar1.jpg',
+        'password': ''
     },
     {
         'ID': '2',
-        'name': 'Johannes',
+        'first-name': 'Johannes',
+        'last-name': 'Günther',
         'e-mail': 'JohannesG@join.com',
-        'src': './img/avatar2.jpg'
+        'src': './img/avatar2.jpg',
+        'password': '123456'
     }
 ]
 
