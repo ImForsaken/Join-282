@@ -1,12 +1,12 @@
 let team = [
     {
-        'ID': '1',
+        'ID': '0',
         'name': 'Kevin',
         'e-mail': 'KevinH@join.com',
         'src': './img/avatar1.jpg'
     },
     {
-        'ID': '2',
+        'ID': '1',
         'name': 'Johannes',
         'e-mail': 'JohannesG@join.com',
         'src': './img/avatar2.jpg'
