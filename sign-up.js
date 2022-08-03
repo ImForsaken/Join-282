@@ -18,6 +18,6 @@ function signUp() {
     setTeam('team_key', team);
     }
 
-function setTeam(team_key, team) {
-    backend.setItem(team_key, JSON.stringify(team));
+async function setTeam(team_key, team) {
+    await backend.setItem(team_key, JSON.stringify(team));
 }
