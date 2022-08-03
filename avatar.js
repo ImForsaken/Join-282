@@ -5,7 +5,7 @@ let team = [
         'last-name': 'H..?',
         'e-mail': 'KevinH@join.com',
         'src': './img/avatar1.jpg',
-        'password': ''
+        'password': '654321'
     },
     {
         'ID': 2,

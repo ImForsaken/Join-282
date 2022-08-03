@@ -1,4 +1,4 @@
-function SignUp() {
+function signUp() {
     let email = document.getElementById('signup-email').value;
     let firstName = document.getElementById('signup-first-name').value;
     let lastName = document.getElementById('signup-last-name').value;
@@ -15,7 +15,7 @@ function SignUp() {
         ;
 
     team.push(newUser);
-    setTeam(team_key, team);
+    setTeam('team_key', team);
     }
 
 function setTeam(team_key, team) {
