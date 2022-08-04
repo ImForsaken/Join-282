@@ -263,3 +263,16 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     border-radius: 10px;
     height: 100%;
 }
+
+.backlogSettings {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: fit-content;
+    height: 100%;
+}
+
+.backlogSettings img {
+    height: 24px;
+    width: 24px;
+}

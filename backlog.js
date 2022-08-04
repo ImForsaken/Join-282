@@ -2,7 +2,7 @@ async function initBacklogProcess() {
     await initBacklogDB();
     renderTasks();
 }
-
+// Render HTML code as task container
 function renderTasks() {
     for (let i = 0; i < allTasks.length; i++) {      
         renderTaskHTML(i);
@@ -28,8 +28,11 @@ function renderTaskHTML(i) {
                     </div>
                     <div>${allTasks[i].category}</div>
                     <textarea id="description${i}">${description}</textarea>
+                    <div class="backlogSettings">
+                    <img id="push${i}" src="./img/push.svg">
+                    <img id="delete${i}" src="./img/trash.svg">
+                    </div>
                 </div>
-    
     `;
 
     if (urgency == "Low") {

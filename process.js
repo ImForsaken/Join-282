@@ -7,8 +7,8 @@ async function initBacklogDB() {
     await downloadFromServer();
     allTasks = JSON.parse(backend.getItem('task')) || [];
     console.log(allTasks)
-}
+};
 // If need to delete all tasks
 async function deleteTaskDb() {
     await backend.deleteItem('task');
-  }
+  };
