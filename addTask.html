@@ -6,17 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>addTask</title>
-    <script src="./mini_backend.js"></script>
-    <script src="addTask.js"></script>
-    <script src="avatar.js"></script>
-    <script src="backlog.js"></script>
-    <script src="includeHTML.js"></script>
-    <script>
-        setURL('https://gruppe-282.developerakademie.net/smallest_backend_ever');
-    </script>
-
-
-
     <!-- Bootstrap -->
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -28,8 +17,13 @@
 
     <!-- <link rel="style.css"> -->
     <link rel="stylesheet" href="kevinstyle.css">
-
-
+    <!-- Local Javascript -->
+    <script src="./mini_backend.js"></script>
+    <script src="./process.js"></script>
+    <script src="addTask.js"></script>
+    <script src="avatar.js"></script>
+    <script src="backlog.js"></script>
+    <script src="includeHTML.js"></script>
 </head>
 
 <body onload="init(), includeHTML()">
@@ -41,7 +35,7 @@
                 <p class="blue">Learning Management System Project</p>
             </div>
             <div class="addTaskBoard">
-                <form id="taskForm" class="d-flex taskBoard" onsubmit="addTask()">
+                <form id="taskForm" class="d-flex taskBoard" onsubmit="addTask(); event.preventDefault();">
                     <div class="d-flex inputManage">
                         <div class="taskContainer">
                             <h2>Title</h2>
@@ -77,13 +71,19 @@
                         <div class="taskContainer">
                             <h2>Assigned to</h2>
                             <div>
-                                <div class="d-none" id="avatarPicker">
+                                <div class="assignToBox">
+                                    <div class="d-none memberList" id="avatarPicker">
+                                    </div>
+                                    <div id="memberBox">
 
+                                    </div>
+                                    <div>
+                                        <img onclick="openMemberList()" src="./img/icon plus.png">
+                                    </div>
                                 </div>
-                                <img src="./img/icon plus.png">
                                 <div>
                                     <button onclick="cancelTask()" type="button" class="btn btn-primary">Cancel</button>
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button id="formSubmit" type="submit" class="btn btn-primary">Submit</button>
                                 </div>
                             </div>
                         </div>

@@ -2,10 +2,10 @@ let team = [
     {
         'ID': 1,
         'first-name': 'Kevin',
-        'last-name': 'H..?',
+        'last-name': 'Herbst',
         'e-mail': 'KevinH@join.com',
         'src': './img/avatar1.jpg',
-        'password': ''
+        'password': '654321'
     },
     {
         'ID': 2,
@@ -18,6 +18,7 @@ let team = [
 ]
 
 let selectedUsers = [];
+
 
 function renderAvatar() {
    let avatar = document.getElementById('avatarPicker')
@@ -34,6 +35,15 @@ function renderAvatar() {
 
 }
 
+function assignedToBox() {
+    memberBox = document.getElementById('memberBox');
+    memberBox.innerHTML = "";
+    for (let i = 0; i < selectedUsers.length; i++) {
+        const element = selectedUsers[i];
+        memberBox.innerHTML += `<img class="avatar2" src="${element}">`
+    }
+}
+
 function selectUser(i) {
     let user = document.getElementById('user-' + i);
     user.classList.toggle('avatar-selected');
@@ -42,6 +52,7 @@ function selectUser(i) {
     } else {
     selectedUsers.push(team[i]['src']);
 }
+assignedToBox()
 }
 
 

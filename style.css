@@ -12,7 +12,7 @@
     display: flex;
     align-items: unset !important;
     justify-content: space-between;
-    width: fit-content;
+    width: max-content;
 
 }
 .container-fluid {

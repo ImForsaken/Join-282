@@ -7,8 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Backlog</title>
     <!-- Local Javascript -->
+    <script src="./mini_backend.js"></script>
+    <script src="./process.js"></script>
     <script src="backlog.js"></script>
     <script src="includeHTML.js"></script>
+    <script src="addTask.js"></script>
     <!-- Bootstrap -->
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -18,16 +21,35 @@
         integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
         crossorigin="anonymous"></script>
     <!-- Local CSS -->
-    <link rel="stylesheet" href="backlog.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="kevinstyle.css">
 </head>
 
-<body onload="includeHTML()">
+<body onload="includeHTML(), initBacklogProcess()">
     <div class="navAndBody">
         <div w3-include-html="html templates/navbar.html"></div>
-        <div class="headContent">
-            <h1>Add Task</h1>
-            <p class="blue">Learning Management System Project</p>
+        <div class="contentContainerBacklog">
+            <div class="headContent">
+                <h1>Backlog</h1>
+                <p class="blue">Learning Management System Project</p>
+            </div>
+            <div class="infoBar">
+                <h2>ASSIGNED TO</h2>
+                <h2>CATEGORY</h2>
+                <h2>DETAILS</h2>
+            </div>
+            <div class="bodyContent" id="taskContent">
+                <div class="taskContainerBacklog">
+                    <div class="taskBox">
+                        <img src="./img/avatar1.JPG" class="avatar2">
+                        <div>
+                            Kevin Herbst<br>
+                            Kevin@join.de
+                        </div>
+                    </div>
+                    <div>Marketing</div>
+                    <textarea>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus assumenda recusandae praesentium, quia nemo quos sapiente nisi dicta laborum, dolor ad! Ut exercitationem itaque laborum minima culpa magni reprehenderit amet?</textarea>
+                </div>
+            </div>
         </div>
     </div>
 </body>

@@ -1,9 +1,7 @@
-let allTasks = []
-
-function init() {
-    loadAllTasks();
+async function init() {
+    setURL('https://gruppe-282.developerakademie.net/smallest_backend_ever');
+    await initBacklogDB();
     renderAvatar();
-    // initBacklog()
 }
 
 async function addTask() {
@@ -29,20 +27,14 @@ async function addTask() {
     // localStorage.setItem('task', allTasksAsText);
     await backend.setItem('task', allTasksAsText);
     document.getElementById("taskForm").reset();
-
 }
 
 function cancelTask() {
     document.getElementById("taskForm").reset();
 }
 
-//loads all safed data and parse it to data
-async function loadAllTasks() {
-    await downloadFromServer();
-    // allTasksAsText = localStorage.getItem('task');
-    // allTasksAsText = backend.getItem('task');
-    // allTasks = JSON.parse(allTasksAsText);
-    allTasks = JSON.parse(backend.getItem('task')) || [];
-    console.log(allTasks)
-        // document.getElementById('list').innerHTML = allTasks[0]['createdAt'];
+
+function openMemberList() {
+    document.getElementById('avatarPicker').classList.remove('d-none');
 }
+

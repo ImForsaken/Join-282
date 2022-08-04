@@ -56,6 +56,7 @@ h2 {
 .headContent{
     margin-top: 20px;
     margin-bottom: 30px;
+    height: 80px;
 }
 .addTaskBoard {  
     background-color: #F3F3FA;
@@ -75,7 +76,7 @@ h2 {
 }
 .taskContainer {
     margin-bottom: 60px;
-    height: 100px;
+    /* height: 100px; */
 }
 
 .inputManage {
@@ -122,14 +123,41 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     margin-right: 16px;
     object-fit: cover;
     border: 3px solid transparent;
+}
 
+.avatar2 {
+    height: 72px;
+    width: 72px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-right: 16px;
+    object-fit: cover;
 }
 
 .avatar:hover {
     opacity: 1;
 }
 
+.assignToBox {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    height: 72px;
+}
 
+.memberList {
+    width: 300px;
+    height: 300px;
+    background-color: #2b2ca6;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
 .avatar-selected {
     opacity: 1;
     border: 3px solid #3D49CA;
@@ -187,4 +215,51 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     border-radius: 50%;
     height: 48px;
     width: 48px;
+}
+
+
+/* BACKLOG */
+
+.contentContainerBacklog {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+    margin: 0% 5%;
+}
+
+.infoBar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.bodyContent {   
+    height: 100%;
+}
+
+.taskContainerBacklog {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 120px;
+    width: 100%;
+    background-color: rgb(212, 212, 212);
+    border-radius: 10px;
+    margin-top: 5px;
+    padding: 10px;
+    border-left: 10px solid orange;
+}
+
+.taskBox {
+    display: flex;
+    align-items: center;
+}
+
+
+.taskContainerBacklog textarea {
+    width: 35%;
+    border: none;
+    background-color: rgb(212, 212, 212);
+    border-radius: 10px;
+    height: 100%;
 }
