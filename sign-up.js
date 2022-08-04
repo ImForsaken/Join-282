@@ -9,7 +9,7 @@ function signUp() {
         'first-name': firstName,
         'last-name': lastName,
         'e-mail': email,
-        'src': '',
+        'src': './img/avatar'+team.length+'.jpg',
         'password': password
         }
         ;
@@ -18,6 +18,16 @@ function signUp() {
     setTeam('team_key', team);
     }
 
-async function setTeam(team_key, team) {
-    await backend.setItem(team_key, JSON.stringify(team));
+function setTeam(team_key, team) {
+     backend.setItem(team_key, JSON.stringify(team));
 }
+
+async function getTeam() {
+    await downloadFromServer();
+    team = JSON.parse(backend.getItem('team_key'));
+}
+
+// function getarray(key) {
+//     return JSON.parse(localStorage.getItem(key));
+//   }
+
