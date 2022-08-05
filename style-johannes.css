@@ -68,6 +68,7 @@ h1 {
 .board-container {
     display: flex;
     justify-content: space-evenly;
+    width: 100%;
 }
 
 .column {
@@ -79,7 +80,7 @@ h1 {
 .board-headline {
     max-width: 20vw;
     /* object-fit: contain; */
-    font-size: 4vw;
+    font-size: 2.3vw;
     text-align: center;
     font-weight: bold;
 }

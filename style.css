@@ -50,3 +50,9 @@
     height: 48px;
     width: 48px;
 }
+
+.nav-link-hover:hover {
+    text-decoration: underline;
+    /* border-bottom: 3px solid white;
+    transition: all 225ms ease-in-out; */
+}
