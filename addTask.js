@@ -1,5 +1,4 @@
 async function init() {
-    setURL('https://gruppe-282.developerakademie.net/smallest_backend_ever');
     await initBacklogDB();
     renderAvatar();
 }
@@ -14,6 +13,7 @@ async function addTask() {
     
     //defines object will all info
     let task = {
+        "id": selectedId,
         "title": title.value,
         "date": date.value,
         "category": category.value,
@@ -33,8 +33,11 @@ function cancelTask() {
     document.getElementById("taskForm").reset();
 }
 
-
 function openMemberList() {
     document.getElementById('avatarPicker').classList.remove('d-none');
+}
+
+function closeMemberList() {
+    document.getElementById('avatarPicker').classList.add('d-none');
 }
 

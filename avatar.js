@@ -18,20 +18,17 @@ let team = [
 ]
 
 let selectedUsers = [];
-
+let selectedId = [];
 
 function renderAvatar() {
-   let avatar = document.getElementById('avatarPicker')
-//    avatar.innerHTML = '';
-//    avatar.innerHTML += `
-//    <h1>Assigned to</h1>
-//    `
+   let assignBox = document.getElementById('assignAbleMember');
    for (let i = 0; i < team.length; i++) {
     const member = team[i]['src'];
-    avatar.innerHTML += `
-    <img id="user-${i}" onclick="selectUser(${i})" class="avatar" src="${member}">
+    const id = team[i]['ID'];
+    assignBox.innerHTML += `
+    <img value="${id}" id="user-${i}" onclick="selectUser(${i})" class="avatar" src="${member}">
     `
-   }
+   };
 
 }
 
@@ -40,7 +37,8 @@ function assignedToBox() {
     memberBox.innerHTML = "";
     for (let i = 0; i < selectedUsers.length; i++) {
         const element = selectedUsers[i];
-        memberBox.innerHTML += `<img class="avatar2" src="${element}">`
+        const id = team[i]['ID'];
+        memberBox.innerHTML += `<img class="avatar2" value="${id}" src="${element}">`
     }
 }
 
@@ -51,6 +49,7 @@ function selectUser(i) {
         selectedUsers = selectedUsers.filter(a => a != team[i]['src'])
     } else {
     selectedUsers.push(team[i]['src']);
+    selectedId.push(team[i]['ID']);
 }
 assignedToBox()
 }

@@ -12,6 +12,7 @@ function renderTasks() {
 function renderTaskHTML(i) {
     let taskContent = document.getElementById('taskContent');
     let title = allTasks[i].title;
+    let id = allTasks[i].id;
     let date = allTasks[i].date;
     let category = allTasks[i].category;
     let urgency = allTasks[i].urgency;
@@ -23,11 +24,12 @@ function renderTaskHTML(i) {
                         <img src="./img/avatar1.JPG" class="avatar2">
                         <div>
                             Kevin Herbst<br>
-                            Kevin@join.de
+                            Kevin@join.de<br>
+                            ${id}
                         </div>
                     </div>
-                    <div>${allTasks[i].category}</div>
-                    <textarea id="description${i}">${description}</textarea>
+                    <div class="category">${allTasks[i].category}</div>
+                    <textarea rows="2" cols="3" id="description${i}">${description}</textarea>
                     <div class="backlogSettings">
                     <img id="push${i}" src="./img/push.svg">
                     <img id="delete${i}" src="./img/trash.svg">

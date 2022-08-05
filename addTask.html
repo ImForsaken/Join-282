@@ -35,7 +35,8 @@
                 <p class="blue">Learning Management System Project</p>
             </div>
             <div class="addTaskBoard">
-                <form id="taskForm" class="d-flex taskBoard" onsubmit="addTask(); event.preventDefault();">
+                <form action="/backlog.html" method="get" target="_blank" id="taskForm" class="d-flex taskBoard"
+                    onsubmit="addTask()">
                     <div class="d-flex inputManage">
                         <div class="taskContainer">
                             <h2>Title</h2>
@@ -73,6 +74,10 @@
                             <div>
                                 <div class="assignToBox">
                                     <div class="d-none memberList" id="avatarPicker">
+                                        <img onclick="closeMemberList()" src="./img/cancel.png" class="closeMemberlist">
+                                        <div class="assignAbleMember" id="assignAbleMember">
+
+                                        </div>
                                     </div>
                                     <div id="memberBox">
 
