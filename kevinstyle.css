@@ -8,13 +8,14 @@
 
 h1 {
     display: unset;
+    color: #1f3291 !important;
 }
 h2 {
-    color: blue;
+    color: #1f3291 !important;
 }
 
 .blue {
-    color: blue;
+    color: #1f3291 !important;
 }
 
 .inputfield {
@@ -89,6 +90,7 @@ h2 {
 input[type="date"]::-webkit-inner-spin-button,
 input[type="date"]::-webkit-calendar-picker-indicator {
     opacity: 0;   
+    
 }
 /* new calendar icon */
 .dateSymbol {
@@ -148,7 +150,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .memberList {
     width: 300px;
     height: 300px;
-    background-color: #2b2ca6;
+    background-color: #1e3190;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -190,9 +192,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     display: flex;
     flex-direction: column;
     padding: 10px;
-    background-color: #2B2CA6;
-
-
+    background-color: #1e3190;
 }
 .upperNavbar {
     display: flex;
@@ -260,7 +260,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     align-items: center;
     height: 120px;
     width: 100%;
-    background-color: rgb(212, 212, 212);
+    background-color: #f4f3fb;
     border-radius: 10px;
     margin-top: 5px;
     padding: 10px;
@@ -278,7 +278,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .taskContainerBacklog textarea {
     width: 35%;
     border: none;
-    background-color: rgb(212, 212, 212);
+    background-color: #f4f3fb;
     border-radius: 10px;
 }
 

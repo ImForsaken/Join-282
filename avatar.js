@@ -1,18 +1,18 @@
 let team = [
     {
-        'ID': 1,
+        'ID': 0,
         'first-name': 'Kevin',
         'last-name': 'Herbst',
         'e-mail': 'KevinH@join.com',
-        'src': './img/avatar1.jpg',
+        'src': './img/avatar0.jpg',
         'password': '654321'
     },
     {
-        'ID': 2,
+        'ID': 1,
         'first-name': 'Johannes',
         'last-name': 'Günther',
         'e-mail': 'JohannesG@join.com',
-        'src': './img/avatar2.jpg',
+        'src': './img/avatar1.jpg',
         'password': '123456'
     }
 ]
@@ -24,9 +24,8 @@ function renderAvatar() {
    let assignBox = document.getElementById('assignAbleMember');
    for (let i = 0; i < team.length; i++) {
     const member = team[i]['src'];
-    const id = team[i]['ID'];
     assignBox.innerHTML += `
-    <img value="${id}" id="user-${i}" onclick="selectUser(${i})" class="avatar" src="${member}">
+    <img id="user-${i}" onclick="selectUser(${i})" class="avatar" src="${member}">
     `
    };
 
@@ -37,21 +36,22 @@ function assignedToBox() {
     memberBox.innerHTML = "";
     for (let i = 0; i < selectedUsers.length; i++) {
         const element = selectedUsers[i];
-        const id = team[i]['ID'];
-        memberBox.innerHTML += `<img class="avatar2" value="${id}" src="${element}">`
-    }
+        memberBox.innerHTML += `<img class="avatar2" src="${element}">`
+    };
 }
 
 function selectUser(i) {
     let user = document.getElementById('user-' + i);
     user.classList.toggle('avatar-selected');
-    if(selectedUsers.includes(team[i]['src'])) {
-        selectedUsers = selectedUsers.filter(a => a != team[i]['src'])
+    if(selectedUsers.includes(team[i]['src']) && selectedId.includes(team[i]['ID'])) {
+        selectedUsers = selectedUsers.filter(a => a != team[i]['src']);
+        selectedId = selectedId.filter(e => e != team[i]['ID']);
     } else {
     selectedUsers.push(team[i]['src']);
     selectedId.push(team[i]['ID']);
+    // Hier statt die ID den Namen, Email etc weitergeben und abspeichern unter selected user als weiteres Object
 }
-assignedToBox()
+assignedToBox();
 }
 
 

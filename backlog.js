@@ -9,6 +9,16 @@ function renderTasks() {
     }
 }
 
+function getID() {
+    for (let i = 0; i < team.length; i++) {
+        const element = team[i];
+        
+    }
+    let email = team[i]['e-mail'];
+    let member = team[i]['first-name'];
+
+}
+
 function renderTaskHTML(i) {
     let taskContent = document.getElementById('taskContent');
     let title = allTasks[i].title;
@@ -16,7 +26,8 @@ function renderTaskHTML(i) {
     let date = allTasks[i].date;
     let category = allTasks[i].category;
     let urgency = allTasks[i].urgency;
-    let description = allTasks[i]['description'];
+    let description = allTasks[i].description;
+    console.log(id);
     taskContent.innerHTML +=
     `
     <div id="taskContainer${i}" class="taskContainerBacklog">
@@ -24,11 +35,11 @@ function renderTaskHTML(i) {
                         <img src="./img/avatar1.JPG" class="avatar2">
                         <div>
                             Kevin Herbst<br>
-                            Kevin@join.de<br>
+                            KevinHerbst@Join.de<br>
                             ${id}
                         </div>
                     </div>
-                    <div class="category">${allTasks[i].category}</div>
+                    <div class="category">${category}</div>
                     <textarea rows="2" cols="3" id="description${i}">${description}</textarea>
                     <div class="backlogSettings">
                     <img id="push${i}" src="./img/push.svg">
