@@ -23,6 +23,7 @@
 
     <!-- <link rel="style.css"> -->
     <link rel="stylesheet" href="kevinstyle.css">
+    <link rel="stylesheet" href="style.css">
     <!-- Local Javascript -->
     <script src="./mini_backend.js"></script>
     <script src="./process.js"></script>
@@ -92,9 +93,11 @@
                                         <img onclick="openMemberList()" src="./img/icon plus.png">
                                     </div>
                                 </div>
-                                <div>
-                                    <button onclick="cancelTask()" type="button" class="btn btn-primary">Cancel</button>
-                                    <button id="formSubmit" type="submit" class="btn btn-primary">Submit</button>
+                                <div style="display: flex; justify-content: end;">
+                                    <button onclick="cancelTask()" type="button"
+                                        class="btn btn-primary cancelButton">CANCEL</button>
+                                    <button id="formSubmit" type="submit" class="btn btn-primary"
+                                        style="margin-left: 30px;">CREATE TASK</button>
                                 </div>
                             </div>
                         </div>

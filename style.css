@@ -3,7 +3,7 @@
     box-sizing:border-box;
     padding:0px;
     margin:0px;
-    font-family: 'PT Sans', sans-serif;
+    font-family: 'PT Sans', sans-serif !important;
 }
 
 /* Navbar */
@@ -55,6 +55,8 @@
     border-radius: 50%;
     height: 48px;
     width: 48px;
+    border: white 2px solid;
+    object-fit: cover;
 }
 
 .nav-link-hover:hover {
@@ -75,4 +77,31 @@ h2 {
 
 .blue {
     color: #1f3291 !important;
+}
+
+/* AVATAR PICKER */
+
+/* AvatarpickerCSS */
+.avatar {
+    height: 72px;
+    width: 72px;
+    border-radius: 50%;
+    opacity: 0.6;
+    cursor: pointer;
+    margin-right: 16px;
+    object-fit: cover;
+    border: 3px solid transparent;
+}
+
+.avatar:hover {
+    opacity: 1;
+}
+
+.avatar2 {
+    height: 72px;
+    width: 72px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-right: 16px;
+    object-fit: cover;
 }
