@@ -3,19 +3,20 @@ function signUp() {
     let firstName = document.getElementById('signup-first-name').value;
     let lastName = document.getElementById('signup-last-name').value;
     let password = document.getElementById('sign-up-password').value;
-
+    let icon = firstName.charAt(0) + lastName.charAt(0);
     let newUser = {
-        'ID': team.length + 1,
+        'ID': team.length,
         'first-name': firstName,
         'last-name': lastName,
         'e-mail': email,
-        'src': './img/avatar'+team.length+'.jpg',
+        'icon': icon,
         'password': password
-        }
-        ;
+        };
 
     team.push(newUser);
     setTeam('team_key', team);
+    teammember = newUser['ID'];
+    setTeamMember();
     }
 
 function setTeam(team_key, team) {

@@ -59,6 +59,15 @@
     object-fit: cover;
 }
 
+.member-icon {
+    border-radius: 50%;
+    height: 48px;
+    width: 48px;
+    background-color: gray;
+    color:white;
+    font-size: larger;
+}
+
 .nav-link-hover:hover {
     text-decoration: underline;
     /* border-bottom: 3px solid white;
