@@ -21,8 +21,7 @@ function renderTaskHTML(i) {
     let category = allTasks[i].category;
     let urgency = allTasks[i].urgency;
     let description = allTasks[i].description;
-
-    backlogHTML(taskContent, i, category, description);
+    backlogHTML(taskContent, i, category, description, date);
 
     getTaskMembers(i);
     if (urgency == "Low") {
@@ -41,9 +40,14 @@ function getTaskMembers(i) {
 
     for (let j = 0; j < allTasks[i].assignedMember.length; j++) {
         let assignedTo = document.getElementById('assignedMember' + i);
+        let avatarBox = document.getElementById('avatarBox' + i);
         const firstName = allTasks[i].assignedMember[j].firstName;
         const lastName = allTasks[i].assignedMember[j].lastName;
         const email = allTasks[i].assignedMember[j].eMail;
+        let src = allTasks[i].assignedMember[j].src;
+        avatarBox.innerHTML += `
+        <img src=${src} class="avatar2">
+        `
         assignedTo.innerHTML += `
         <b>${firstName} ${lastName}</b><br>
         <a href="${email}">${email}</a><br>
@@ -51,14 +55,17 @@ function getTaskMembers(i) {
     };
 }
 
-function backlogHTML(taskContent, i, category, description) {
+function backlogHTML(taskContent, i, category, description, date) {
     return taskContent.innerHTML += `
     <div id="taskContainer${i}" class="taskContainerBacklog">
                     <div class="taskBox">
-                        <img src="./img/avatar1.JPG" class="avatar2">
+                    <div id="avatarBox${i}" class="avatarBox">
+                        
+                    </div>
                         <div id="assignedMember${i}">
                         </div>
                     </div>
+                    <div class="category"><b>Due Date</b><br><b>${date}</b></div>
                     <div class="category"><b>${category}</b></div>
                     <textarea rows="2" cols="3" id="description${i}">${description}</textarea>
                     <div class="backlogSettings">
@@ -71,7 +78,7 @@ function backlogHTML(taskContent, i, category, description) {
 
 async function pushTaskToBoard(i) {
     boardTasks.push(allTasks[i]);
-    allTasks.splice(allTasks[i], 1);
+    allTasks.splice(i, 1);
     
     await setBoardTask();
     await setTask();

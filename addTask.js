@@ -11,7 +11,6 @@ async function addTask() {
     let urgency = document.getElementById('urgency');
     let description = document.getElementById('description');
 
-    
     //defines object will all info
     if (selectedUsers.length === 0) {
         alert("Please select Member for this Task");
@@ -29,6 +28,7 @@ async function addTask() {
         //add object to array and morph it to text to save it in locaStorage
         allTasks.push(task);
         setTask();
+        selectedUsers = [];
         document.getElementById("memberBox").innerHTML = "";
         document.getElementById("taskForm").reset();
         setTimeout(init, 1500); 

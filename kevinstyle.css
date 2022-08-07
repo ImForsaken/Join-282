@@ -221,8 +221,17 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     width: 33%;
 }
 
+.avatarBox {
+    display: flex;
+    flex-direction: column;
+}
+
 .category {
     width: 32%;
+}
+
+.category:nth-child(2) {
+    text-align: center;
 }
 .taskContainerBacklog textarea {
     width: 35%;
