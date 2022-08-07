@@ -46,7 +46,6 @@
 
 .addTaskBoard {  
     background-color: #F3F3FA;
-    /* padding: 30px; */
     height: 700px;
     border-radius: 10px;
 }
@@ -111,11 +110,31 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     height: 72px;
 }
 
+.assignAbleMember img:hover {
+    transform: scale(1.1);
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.asiContainer {
+    width: 70px;
+    display: flex;
+    justify-content: center;
+}
+.openMemberBtn:hover {
+    transform: scale(1.1);
+    border-radius: 50%;
+    border: 2px solid white;
+}
 .cancelButton {
     background-color: transparent;
     border: none;
     color: #1f3291 !important;
     font-weight: 700;
+}
+
+.btnCancel:hover {
+    color: white !important;
 }
 
 .submitButton {
@@ -135,6 +154,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     flex-direction: column;
     align-items: center;
     border-radius: 10px;
+    z-index: 1;
 }
 
 .closeMemberlist {
@@ -187,6 +207,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     justify-content: space-between;
     align-items: center;
     height: 120px;
+    max-height: fit-content;
     width: 100%;
     background-color: #f4f3fb;
     border-radius: 10px;

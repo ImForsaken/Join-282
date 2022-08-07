@@ -1,6 +1,7 @@
 async function init() {
-    await initBacklogDB();
+    await initAllDbData();
     renderAvatar();
+    return
 }
 
 async function addTask() {
@@ -12,22 +13,28 @@ async function addTask() {
 
     
     //defines object will all info
-    let task = {
-        "id": selectedId,
-        "title": title.value,
-        "date": date.value,
-        "category": category.value,
-        "urgency": urgency.value,
-        "description": description.value,
-        "createdAt": new Date().getTime()
+    if (selectedUsers.length === 0) {
+        alert("Please select Member for this Task");
+    } else {
+        let task = {
+            "title": title.value,
+            "assignedMember": selectedUsers,
+            "date": date.value,
+            "category": category.value,
+            "urgency": urgency.value,
+            "description": description.value,
+            "createdAt": new Date().getTime(),
+            "status": "todo"
+        };
+        //add object to array and morph it to text to save it in locaStorage
+        allTasks.push(task);
+        setTask();
+        document.getElementById("memberBox").innerHTML = "";
+        document.getElementById("taskForm").reset();
+        setTimeout(init, 1500); 
     };
-    //add object to array and morph it to text to save it in locaStorage
-    allTasks.push(task);
-    allTasksAsText = JSON.stringify(allTasks);
-    // localStorage.setItem('task', allTasksAsText);
-    await backend.setItem('task', allTasksAsText);
-    document.getElementById("taskForm").reset();
 }
+
 
 function cancelTask() {
     document.getElementById("taskForm").reset();
@@ -41,3 +48,7 @@ function closeMemberList() {
     document.getElementById('avatarPicker').classList.add('d-none');
 }
 
+function checkIfMemberSelected() {
+    memberList = document.getElementById('avatarPicker').innerHTML;
+
+}
