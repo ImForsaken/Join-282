@@ -2,6 +2,7 @@ async function initBacklogProcess() {
     await initAllDbData();
     renderTasks();
 }
+
 // Render HTML code as task container
 function renderTasks() {
     let taskContent = document.getElementById('taskContent');
@@ -9,7 +10,6 @@ function renderTasks() {
     for (let i = 0; i < allTasks.length; i++) {      
         renderTaskHTML(i, taskContent);
     }
-    console.log(allTasks);
 }
 
 function renderTaskHTML(i) {
@@ -69,26 +69,43 @@ function backlogHTML(taskContent, i, category, description, date) {
                     <textarea rows="2" cols="3" id="description${i}">${description}</textarea>
                     <div class="backlogSettings">
                     <img id="push${i}" onclick="pushTaskToBoard(${i})" src="./img/push.svg">
-                    <img id="delete${i}" src="./img/trash.svg">
+                    <img id="edit${i}" onclick="editDescription(${i})" src="./img/edit.svg">
+                    <img id="delete${i}" onclick="deleteTaskBacklog(${i})" src="./img/trash.svg">
                     </div>
                 </div>
     `;
 }
 
 async function pushTaskToBoard(i) {
+    // allTasks[i].status = "board";
     await initAllDbData();
+
     boardTasks.push(allTasks[i]);
+    boardTasks[boardTasks.length -1].status = "board"; // HIER MUSS AN DER STELLE J DER STATUS VERÄNDERT WERDEN DA DER WERT VON i ZU HOCH IST UND NICHT MIT BOARD ÜBEREINSTIMMT oder MIT i ABER DANN BEVOR MAN DEN TASK PUSHT VERÄNDERN
+    allTasks.splice(i, 1); 
+    await setBoardTask();
+    await setTask();
+
+    await initBacklogProcess();
+}
+
+async function deleteTaskBacklog(i) {
+    await initAllDbData();
     allTasks.splice(i, 1);
+    await setBoardTask();
+    await setTask();
+
+    await initBacklogProcess();
+}
+
+
+async function editDescription(i) {
+    await initAllDbData();
+    let description = document.getElementById('description' + i);
+    allTasks[i].description = description.value;
 
     await setBoardTask();
     await setTask();
 
     await initBacklogProcess();
-
-}
-
-async function pushTaskToBackend(task) {
-    allTasks.push(task);
-    await setBoardTask();
-    await setTask();
 }

@@ -35,6 +35,11 @@ async function addTask() {
     };
 }
 
+async function pushTaskToBackend(task) {
+    allTasks.push(task);
+    await setBoardTask();
+    await setTask();
+}
 
 function cancelTask() {
     document.getElementById("taskForm").reset();

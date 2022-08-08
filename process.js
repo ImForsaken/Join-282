@@ -1,4 +1,4 @@
-// array container for all tasks after being downloaded from servr
+// array container for all tasks after being downloaded from server
 let allTasks = [];
 let boardTasks = [];
 
