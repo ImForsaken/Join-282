@@ -5,8 +5,8 @@ let boardTasks = [];
 // download data from server
 
 async function initAllDbData() {
-    initBacklogDB();
-    initBoardDB();
+    await initBacklogDB();
+    await initBoardDB();
 }
 async function initBacklogDB() {    
     setURL('https://gruppe-282.developerakademie.net/smallest_backend_ever');

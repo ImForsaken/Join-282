@@ -5,6 +5,7 @@ async function init() {
 }
 
 async function addTask() {
+    await initAllDbData();
     let title = document.getElementById('title');
     let date = document.getElementById('date');
     let category = document.getElementById('category');
@@ -26,8 +27,7 @@ async function addTask() {
             "status": "todo"
         };
         //add object to array and morph it to text to save it in locaStorage
-        allTasks.push(task);
-        setTask();
+        pushTaskToBackend(task);
         selectedUsers = [];
         document.getElementById("memberBox").innerHTML = "";
         document.getElementById("taskForm").reset();

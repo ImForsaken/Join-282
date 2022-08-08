@@ -1,6 +1,5 @@
 async function initBacklogProcess() {
-    await initBacklogDB();
-    await initBoardDB();
+    await initAllDbData();
     renderTasks();
 }
 // Render HTML code as task container
@@ -77,12 +76,19 @@ function backlogHTML(taskContent, i, category, description, date) {
 }
 
 async function pushTaskToBoard(i) {
+    await initAllDbData();
     boardTasks.push(allTasks[i]);
     allTasks.splice(i, 1);
-    
+
     await setBoardTask();
     await setTask();
 
     await initBacklogProcess();
 
+}
+
+async function pushTaskToBackend(task) {
+    allTasks.push(task);
+    await setBoardTask();
+    await setTask();
 }
