@@ -5,7 +5,8 @@ let team = [
         'lastName': 'Herbst',
         'eMail': 'KevinH@join.com',
         'src': './img/avatar0.jpg',
-        'password': '654321'
+        'password': '654321',
+        'icon': 'KH'
     },
     {
         'id': 1,
@@ -13,9 +14,11 @@ let team = [
         'lastName': 'Günther',
         'eMail': 'JohannesG@join.com',
         'src': './img/avatar1.jpg',
-        'password': '123456'
+        'password': '123456',
+        'icon': 'JG'
     }
 ]
+
 
 let selectedUsers = [];
 

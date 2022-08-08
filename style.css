@@ -66,6 +66,9 @@
     background-color: gray;
     color:white;
     font-size: larger;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .nav-link-hover:hover {

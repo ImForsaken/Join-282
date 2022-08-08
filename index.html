@@ -16,6 +16,8 @@
     <script src="avatar.js"></script>
     <script src="sign-up.js"></script>
     <script src="log-in.js"></script>
+    <script src="process.js"></script>
+
     <script>
         setURL('https://gruppe-282.developerakademie.net/smallest_backend_ever');
     </script>
@@ -26,7 +28,7 @@
     <div class="bgr1">
         <h1>WELCOME TO JOIN</h1>
 
-        <form class="login-container" onsubmit="login(); return false;">
+        <form class="login-container" onsubmit="login()"" action="/board.html">
             <h3>Please log-in</h3>
             <span class="login-text">Enter your e-mail</span>
             <input id="login-email" required type="email" placeholder="Your e-mail" class="input">

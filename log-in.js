@@ -1,4 +1,4 @@
-let teammember; // this is the number of the current user, who just logged in or signed up
+let currentMember; // this is the email of the current user, who just logged in or signed up
  
  function login(){
     getTeam();
@@ -11,7 +11,8 @@ let teammember; // this is the number of the current user, who just logged in or
     for (let i = 0; i < team.length; i++) {
         const element = team[i];
         if (loginemail == element['e-mail'] && loginpassword == element['password']) {
-            teammember = i;
+            teammember = element['e-mail'];
+            setCurrentMember('currentmember', currentMember)
         } else {
             alert('Login Daten fehlerhaft')
         }
@@ -19,6 +20,38 @@ let teammember; // this is the number of the current user, who just logged in or
  }
 
  function customizeApp() {
-    let icon = team[teammember]['icon'];
-    document.getElementById('member-icon').innerHTML = `${icon}`;
+    for (let i = 0; i < team.length; i++) {
+        const element = team[i];
+        if (element['e-mail'] == currentMember) {
+            let icon = element['icon'];
+            document.getElementById('member-icon').innerHTML = `${icon}`;
+        }
+    }
+
  }
+
+
+ function setCurrentMember(key, currentMember) {
+        localStorage.setItem(key, currentMember);
+      }
+
+ function getCurrentMember(key) {
+    return localStorage.getItem(key);
+  }
+
+  function findOutWhoLoggedIn() {
+    currentMember = getCurrentMember('currentmember');
+    customizeApp();
+  }
+
+  
+
+
+//  function setarray(key, array) {
+//     localStorage.setItem(key, JSON.stringify(array));
+//   }
+//   // diese obige funktion rufen wir also öfters auf und geben ihr immer andere werte
+  
+//   function getarray(key) {
+//     return JSON.parse(localStorage.getItem(key));
+//   }
