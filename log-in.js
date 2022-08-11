@@ -11,8 +11,9 @@ let currentMember; // this is the email of the current user, who just logged in 
     for (let i = 0; i < team.length; i++) {
         const element = team[i];
         if (loginemail == element['e-mail'] && loginpassword == element['password']) {
-            teammember = element['e-mail'];
-            setCurrentMember('currentmember', currentMember)
+          currentMember = element['e-mail'];
+            setCurrentMember('currentmember', currentMember);
+            window.open('board.html', '_self') // weiterleitung zum board
         } else {
             alert('Login Daten fehlerhaft')
         }
