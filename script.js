@@ -13,7 +13,7 @@ async function addUser() {
 
 async function init() {
     await downloadFromServer();
-    team = JSON.parse(backend.getItem('team_key')) || [];
+    team = JSON.parse(backend.getItem('team')) || [];
 }
 
 async function deleteUser(name) {

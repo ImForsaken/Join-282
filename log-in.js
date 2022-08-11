@@ -1,7 +1,8 @@
 let currentMember; // this is the email of the current user, who just logged in or signed up
  
- function login(){
-    getTeam();
+ async function login(){
+    await initAllDbData();
+    await getTeam();
     checkEmailMatchesPassword();
  }
 

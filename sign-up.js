@@ -11,21 +11,28 @@ function signUp() {
         'e-mail': email,
         'icon': icon,
         'password': password
-        };
+    };
 
     team.push(newUser);
     setTeam('team_key', team);
     teammember = newUser['ID'];
     setTeamMember();
-    }
-
-function setTeam(team_key, team) {
-     backend.setItem(team_key, JSON.stringify(team));
 }
 
+// async function setTeam() {
+//     await backend.setItem(team_key, JSON.stringify(team));
+// }
+
+async function setTeam() {
+    teamAsText = JSON.stringify(team);
+    await backend.setItem('team', teamAsText);
+  }
+
 async function getTeam() {
+    setURL('https://gruppe-282.developerakademie.net/smallest_backend_ever');
     await downloadFromServer();
-    team = JSON.parse(backend.getItem('team_key'));
+    team = JSON.parse(backend.getItem('team')) || [];
+    console.log('team:', team);
 }
 
 // function getarray(key) {
