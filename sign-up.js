@@ -31,8 +31,8 @@ async function setTeam() {
 async function getTeam() {
     setURL('https://gruppe-282.developerakademie.net/smallest_backend_ever');
     await downloadFromServer();
-    team = JSON.parse(backend.getItem('team')) || [];
-    console.log('team:', team);
+    team = JSON.parse(backend.getItem('team'));
+    // console.log('team:', team);
 }
 
 // function getarray(key) {

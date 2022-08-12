@@ -26,7 +26,7 @@ let currentMember; // this is the email of the current user, who just logged in 
         const element = team[i];
         if (element['e-mail'] == currentMember) {
             let icon = element['icon'];
-            document.getElementById('member-icon').innerHTML = `${icon}`;
+            document.getElementById('member-icon').innerHTML = icon;
         }
     }
 
