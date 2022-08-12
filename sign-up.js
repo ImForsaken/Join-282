@@ -19,21 +19,11 @@ function signUp() {
     setTeamMember();
 }
 
-// async function setTeam() {
-//     await backend.setItem(team_key, JSON.stringify(team));
-// }
-
 async function setTeam() {
-    teamAsText = JSON.stringify(team);
-    await backend.setItem('team', teamAsText);
-  }
-
-async function getTeam() {
-    setURL('https://gruppe-282.developerakademie.net/smallest_backend_ever');
-    await downloadFromServer();
-    team = JSON.parse(backend.getItem('team'));
-    // console.log('team:', team);
+    await backend.setItem('team, JSON.stringify(team));
 }
+
+
 
 // function getarray(key) {
 //     return JSON.parse(localStorage.getItem(key));

@@ -19,7 +19,6 @@ let team = [];
 //     'icon': 'JG'
 // }
 
-
 let selectedUsers = [];
 
 function renderAvatar() {

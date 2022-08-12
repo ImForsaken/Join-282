@@ -1,6 +1,7 @@
 async function initBacklogProcess() {
     await initAllDbData();
     renderTasks();
+    
 }
 
 // Render HTML code as task container
@@ -14,13 +15,13 @@ function renderTasks() {
 
 function renderTaskHTML(i) {
     let title = allTasks[i].title;
-    let name = allTasks[i].name;
-    let id = allTasks[i].id;
     let date = allTasks[i].date;
     let category = allTasks[i].category;
     let urgency = allTasks[i].urgency;
     let description = allTasks[i].description;
-    backlogHTML(taskContent, i, category, description, date);
+    let everything = [title, date, category, urgency]
+    console.log(everything);
+    backlogHTML(taskContent, i, category, description, date, everything);
 
     getTaskMembers(i);
     if (urgency == "Low") {
@@ -54,7 +55,8 @@ function getTaskMembers(i) {
     };
 }
 
-function backlogHTML(taskContent, i, category, description, date) {
+function backlogHTML(taskContent, i, category, description, date, everything) {
+    console.log(everything)
     return taskContent.innerHTML += `
     <div id="taskContainer${i}" class="taskContainerBacklog" onclick="openTaskInfoCard(${i})">
                     <div class="taskBox">
@@ -78,6 +80,7 @@ function backlogHTML(taskContent, i, category, description, date) {
 
 function openTaskInfoCard(i) {
     document.getElementById('backlogTaskInfoCard').classList.remove('d-none');
+  
     infoCard = document.getElementById('backlogInfoCard');
     infoCard.innerHTML = "";
     infoCard.innerHTML = `

@@ -7,6 +7,7 @@ let boardTasks = [];
 async function initAllDbData() {
     await initBacklogDB();
     await initBoardDB();
+    await getTeam();
     findOutWhoLoggedIn();
     getCurrentMember('currentmember');
 }
@@ -23,6 +24,22 @@ async function initBoardDB() {
     boardTasks = JSON.parse(backend.getItem('allBoardTasks')) || [];
     console.log('BOARDTASKS', boardTasks);
 }
+
+
+// TEAMDATA 
+
+async function setTeam() {
+  teamAsText = JSON.stringify(team);
+  await backend.setItem('team_key', teamAsText);
+}
+
+async function getTeam() {
+  setURL('https://gruppe-282.developerakademie.net/smallest_backend_ever');
+  await downloadFromServer();
+  team = JSON.parse(backend.getItem('team_key'));
+  console.log('team:', team);
+}
+
 // If need to delete all tasks
 async function deleteAllData() {
     await backend.deleteItem('task');
@@ -36,6 +53,11 @@ async function deleteTaskDb() {
 
   async function deleteBoardDb() {
     await backend.deleteItem('allBoardTasks');
+    initAllDbData();
+  };
+
+  async function deleteTeam() {
+    await backend.deleteItem('team_key');
     initAllDbData();
   };
 
