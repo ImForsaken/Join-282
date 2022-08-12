@@ -56,7 +56,7 @@ function getTaskMembers(i) {
 
 function backlogHTML(taskContent, i, category, description, date) {
     return taskContent.innerHTML += `
-    <div id="taskContainer${i}" class="taskContainerBacklog">
+    <div id="taskContainer${i}" class="taskContainerBacklog" onclick="openTaskInfoCard(${i})">
                     <div class="taskBox">
                     <div id="avatarBox${i}" class="avatarBox">
                         
@@ -76,16 +76,26 @@ function backlogHTML(taskContent, i, category, description, date) {
     `;
 }
 
-async function pushTaskToBoard(i) {
-    // allTasks[i].status = "board";
-    await initAllDbData();
+function openTaskInfoCard(i) {
+    document.getElementById('backlogTaskInfoCard').classList.remove('d-none');
+    infoCard = document.getElementById('backlogInfoCard');
+    infoCard.innerHTML = "";
+    infoCard.innerHTML = `
+    <p>${i}</p>
+    `;
+}
 
+function closeTaskInfoCard() {
+    document.getElementById('backlogTaskInfoCard').classList.add('d-none');
+}
+
+async function pushTaskToBoard(i) {
+    await initAllDbData();
+    allTasks[i].status = "board";
     boardTasks.push(allTasks[i]);
-    boardTasks[boardTasks.length -1].status = "board"; // HIER MUSS AN DER STELLE J DER STATUS VERÄNDERT WERDEN DA DER WERT VON i ZU HOCH IST UND NICHT MIT BOARD ÜBEREINSTIMMT oder MIT i ABER DANN BEVOR MAN DEN TASK PUSHT VERÄNDERN
     allTasks.splice(i, 1); 
     await setBoardTask();
     await setTask();
-
     await initBacklogProcess();
 }
 
@@ -94,7 +104,6 @@ async function deleteTaskBacklog(i) {
     allTasks.splice(i, 1);
     await setBoardTask();
     await setTask();
-
     await initBacklogProcess();
 }
 
@@ -103,9 +112,7 @@ async function editDescription(i) {
     await initAllDbData();
     let description = document.getElementById('description' + i);
     allTasks[i].description = description.value;
-
     await setBoardTask();
     await setTask();
-
     await initBacklogProcess();
 }
