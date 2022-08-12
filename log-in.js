@@ -43,7 +43,7 @@ let currentMember; // this is the email of the current user, who just logged in 
 
   function findOutWhoLoggedIn() {
     currentMember = getCurrentMember('currentmember');
-    customizeApp();
+    // customizeApp();
   }
 
   

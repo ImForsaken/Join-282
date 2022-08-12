@@ -8,7 +8,6 @@ async function initAllDbData() {
     await initBacklogDB();
     await initBoardDB();
     findOutWhoLoggedIn();
-    getCurrentMember('currentmember');
 }
 async function initBacklogDB() {    
     setURL('https://gruppe-282.developerakademie.net/smallest_backend_ever');
