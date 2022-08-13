@@ -1,7 +1,7 @@
 let currentMember; // this is the email of the current user, who just logged in or signed up
  
  async function login(){
-    await initAllDbData();
+    findOutWhoLoggedIn();
     await getTeam();
     checkEmailMatchesPassword();
  }
@@ -11,25 +11,14 @@ let currentMember; // this is the email of the current user, who just logged in 
     let loginpassword = document.getElementById('login-password').value;
     for (let i = 0; i < team.length; i++) {
         const element = team[i];
-        if (loginemail == element['e-mail'] && loginpassword == element['password']) {
-          currentMember = element['e-mail'];
+        if (loginemail == element['eMail'] && loginpassword == element['password']) {
+            currentMember = element['eMail'];
             setCurrentMember('currentmember', currentMember);
             window.open('board.html', '_self') // weiterleitung zum board
         } else {
-            alert('Login Daten fehlerhaft')
+            // alert('Login Daten fehlerhaft')
         }
     }
- }
-
- function customizeApp() {
-    for (let i = 0; i < team.length; i++) {
-        const element = team[i];
-        if (element['e-mail'] == currentMember) {
-            let icon = element['icon'];
-            document.getElementById('member-icon').innerHTML = icon;
-        }
-    }
-
  }
 
 

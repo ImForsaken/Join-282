@@ -9,6 +9,7 @@ async function initAllDbData() {
     await initBoardDB();
     await getTeam();
     findOutWhoLoggedIn();
+    customizeApp();
 }
 async function initBacklogDB() {    
     setURL('https://gruppe-282.developerakademie.net/smallest_backend_ever');
@@ -29,13 +30,13 @@ async function initBoardDB() {
 
 async function setTeam() {
   teamAsText = JSON.stringify(team);
-  await backend.setItem('team_key', teamAsText);
+  await backend.setItem('team', teamAsText);
 }
 
 async function getTeam() {
   setURL('https://gruppe-282.developerakademie.net/smallest_backend_ever');
   await downloadFromServer();
-  team = JSON.parse(backend.getItem('team_key'));
+  team = JSON.parse(backend.getItem('team'));
   console.log('team:', team);
 }
 
@@ -56,7 +57,7 @@ async function deleteTaskDb() {
   };
 
   async function deleteTeam() {
-    await backend.deleteItem('team_key');
+    await backend.deleteItem('team');
     initAllDbData();
   };
 
@@ -71,3 +72,14 @@ async function deleteTaskDb() {
     boardTasksAsText = JSON.stringify(boardTasks);
     await backend.setItem('allBoardTasks', boardTasksAsText);
   }
+
+  // after finding out who logged in an customizes the page with the individual data for that teammember
+  function customizeApp() {
+    for (let i = 0; i < team.length; i++) {
+        const element = team[i];
+        if (element['eMail'] == currentMember) {
+            let icon = element['icon'];
+            document.getElementById('member-icon').innerHTML = icon;
+        }
+    }
+ }

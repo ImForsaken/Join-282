@@ -25,7 +25,7 @@
 
 </head>
 
-<body onload="includeHTML(); getTeam()">
+<body onload="getTeam()">
     <div class="bgr1">
         <h1>WELCOME TO JOIN</h1>
 
@@ -38,7 +38,7 @@
             <button class="login-button">LOGIN</button>
         </form>
 
-        <form class="login-container" onsubmit="signUp()" action="/board.html">
+        <form class="login-container" onsubmit="signUp(); return false">
             <h3>You're new to this page? Create an account!</h3>
             <span class="login-text">Enter your e-mail</span>
             <input id="signup-email" required type="email" placeholder="Your e-mail" class="input">
