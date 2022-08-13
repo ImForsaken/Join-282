@@ -19,9 +19,9 @@ function signUp() {
     setTeamMember();
 }
 
-async function setTeam() {
-    await backend.setItem('team, JSON.stringify(team));
-}
+// async function setTeam() {
+//     await backend.setItem('team, JSON.stringify(team));
+// }
 
 
 
