@@ -215,6 +215,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     padding: 10px;
 }
 
+.taskContainerBacklog:hover {
+    box-shadow: -2px 0px 6px 0px rgba(255, 153, 0, 0.2);
+    transform: scale(1.02);
+}
 .taskBox {
     display: flex;
     align-items: center;
@@ -251,4 +255,34 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .backlogSettings img {
     height: 24px;
     width: 24px;
+}
+
+.backlogTaskInfoCard {
+    background: rgba(0, 0, 0, 0.5);
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 4;
+
+}
+
+.backlogInfoCard {
+    background-color: white;
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 100;
+    opacity: 1;
+    padding: 10px;
+    border-radius: 10px;
+
 }
