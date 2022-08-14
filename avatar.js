@@ -20,11 +20,11 @@ let team = [];
 // }
 
 let selectedUsers = [];
-
+// BEACHTEN DAS IN DER VORSCHLAFE EINE CONSTANT 2 EINGEFÜGT WURDE - NACHHER ÄNDERN AUF TEAM.LENGTH ABER IMO TEAM NICHT ANGEPASST.
 function renderAvatar() {
    let assignBox = document.getElementById('assignAbleMember');
    assignBox.innerHTML = "";
-   for (let i = 0; i < team.length; i++) {
+   for (let i = 0; i < 2; i++) {
     const member = team[i]['src'];
     assignBox.innerHTML += `
     <img id="user-${i}" onclick="selectUser(${i})" class="avatar" src="${member}">
@@ -37,7 +37,7 @@ function assignedToBox() {
     memberBox.innerHTML = "";
     for (let i = 0; i < selectedUsers.length; i++) {
         const element = selectedUsers[i]['src'];
-        memberBox.innerHTML += `<img class="avatar2" src="${element}">`
+        memberBox.innerHTML += `<img class="avatar3" src="${element}">`
     };
 }
 
@@ -47,13 +47,7 @@ function selectUser(i) {
     if(selectedUsers.includes(team[i])) {
         selectedUsers = selectedUsers.filter(a => a != team[i]);
     } else {
-        // selectedMembers = {
-        //     "firstName": team[i]['firstName'],
-        //     "lastName": team[i]['lastName'],
-        //     "src": team[i]['src']
-        // }
     selectedUsers.push(team[i]);
-    // Hier statt die ID den Namen, Email etc weitergeben und abspeichern unter selected user als weiteres Object
 }
 assignedToBox();
 }
