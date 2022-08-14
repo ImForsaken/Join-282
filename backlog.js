@@ -1,7 +1,6 @@
 async function initBacklogProcess() {
     await initAllDbData();
     renderTasks();
-    
 }
 
 // Render HTML code as task container
@@ -61,23 +60,22 @@ function backlogHTML(taskContent, i, category, description, date) {
     return taskContent.innerHTML += `
     <div id="taskContainer${i}" class="taskContainerBacklog" onclick="openTaskInfoCard(${i})">
         <div class="innerContainer">
-                    <div class="taskBox">
+            <div class="taskBox">
                     <div id="avatarBox${i}" class="avatarBox">
-                        
                     </div>
-                        <div id="assignedMember${i}">
-                        </div>
+                    <div id="assignedMember${i}">
                     </div>
-                    <div class="category"><b>Due Date</b><br><b>${date}</b></div>
-                    <div class="category"><b>${category}</b></div>
-                    <textarea  onclick="event.stopPropagation()" class="scroll" rows="2" cols="3" id="description${i}">${description}</textarea>
-                    <div class="backlogSettings">
-                    <img id="push${i}"  onclick="pushTaskToBoard(${i}), event.stopPropagation())" src="./img/push.svg">
-                    <img id="edit${i}" onclick="editDescription(${i}, event.stopPropagation())" src="./img/edit.svg">
-                    <img id="delete${i}" onclick="deleteTaskBacklog(${i}, event.stopPropagation())" src="./img/trash.svg">
-                    </div>
+            </div>
+            <div class="category"><b>Due Date</b><br><b>${date}</b></div>
+            <div class="category"><b>${category}</b></div>
+            <textarea  onclick="event.stopPropagation()" class="scroll" rows="2" cols="3" id="description${i}">${description}</textarea>
+            <div class="backlogSettings">
+                <img id="push${i}"  onclick="pushTaskToBoard(${i}), event.stopPropagation())" src="./img/push.svg">
+                <img id="edit${i}" onclick="editDescription(${i}, event.stopPropagation())" src="./img/edit.svg">
+                <img id="delete${i}" onclick="deleteTaskBacklog(${i}, event.stopPropagation())" src="./img/trash.svg">
+            </div>
         </div
-                </div>
+    </div>
     `;
 }
 
@@ -88,7 +86,6 @@ function openTaskInfoCard(i) {
     let description = allTasks[i].description;
     let urgency = allTasks[i].urgency;
     let category = allTasks[i].category;
-    let member = allTasks[i].assignedMember;
     infoCard = document.getElementById('backlogInfoCard');
     infoCard.innerHTML = "";
     infoCard.innerHTML = `
@@ -96,7 +93,12 @@ function openTaskInfoCard(i) {
         <img src="../img/logo.png" class="card-img" alt="Join">
         <div class="card-img-overlay">
             <h3 class="card-title">${title}</h3>
-            <p class="card-text">${description}</p>
+            <div class="card-text">
+                <h4 id="todoUrgency"><b>Todo:</b></h4>
+                <div class="descriptionBox">
+                    ${description}
+                </div>
+            </div>
             <div class="card-infos" id="cardInfos${i}">
                 <p class="card-text1" id="cardUrgency">${urgency}</p>
                 <p class="card-text2">This Task is assigned to the: <b>${category}</b> Team</p>
@@ -112,12 +114,15 @@ function openTaskInfoCard(i) {
 function getUrgencyBackground(urgency) {
     if (urgency == "Low") {
         document.getElementById('cardUrgency').style.backgroundColor = "green";
+        document.getElementById('todoUrgency').style.color = "green";
     }
     else if (urgency == "Mid") {
         document.getElementById('cardUrgency').style.background = "purple";
+        document.getElementById('todoUrgency').style.color = "purple";
     }
     else if (urgency == "High") {
         document.getElementById('cardUrgency').style.background = "orange";
+        document.getElementById('todoUrgency').style.color = "orange";
     }
 }
 
@@ -135,9 +140,16 @@ function getTaskMembersforInfoCard(i) {
 
         assignedTo.innerHTML += `
         <div class="memberCardInfo">
-            <b>${firstName} ${lastName}</b><br>
-            <a href="${email}">${email}</a><br>
+            <div>
+                <b>${firstName} ${lastName}</b><br>
+                <a href="${email}">${email}</a><br>
+            </div>
+            <div class="memberCardInfoBox">
+                <img src="${src}" alt"avatar" class="avatar2">
+            </div>
         </div>
+
+
         `;      
     };
 }
