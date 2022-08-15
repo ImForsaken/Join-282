@@ -20,9 +20,11 @@ async function signUp() {
     window.open('board.html', '_self') // weiterleitung zum board
 }
 
-// async function setTeam() {
-//     await backend.setItem('team', JSON.stringify(team));
-// }
+async function setTeam() {
+    await backend.setItem('team', JSON.stringify(team));
+}
+
+
 
 // function getarray(key) {
 //     return JSON.parse(localStorage.getItem(key));

@@ -103,6 +103,7 @@ h2 {
     margin-right: 16px;
     object-fit: cover;
     border: 3px solid transparent;
+
 }
 
 .avatar:hover {
@@ -112,6 +113,16 @@ h2 {
 .avatar2 {
     height: 48px;
     width: 48px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-right: 16px;
+    object-fit: cover;
+    margin-bottom: 4px;
+}
+
+.avatar3 {
+    height: 60px;
+    width: 60px;
     border-radius: 50%;
     cursor: pointer;
     margin-right: 16px;
