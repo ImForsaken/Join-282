@@ -10,6 +10,7 @@ async function initAllDbData() {
     await getTeam();
     findOutWhoLoggedIn();
     customizeApp();
+    renderTasksToBoard();
 }
 async function initBacklogDB() {    
     setURL('https://gruppe-282.developerakademie.net/smallest_backend_ever');
@@ -22,7 +23,7 @@ async function initBoardDB() {
     setURL('https://gruppe-282.developerakademie.net/smallest_backend_ever');
     await downloadFromServer();
     boardTasks = JSON.parse(backend.getItem('allBoardTasks')) || [];
-    console.log('BOARDTASKS', boardTasks);
+    console.log('boardTasks', boardTasks);
 }
 
 
