@@ -72,9 +72,17 @@
 }
 
 .nav-link-hover:hover {
-    text-decoration: underline;
-    /* border-bottom: 3px solid white;
-    transition: all 225ms ease-in-out; */
+    transition: all 550ms ease-in-out;
+    background-color: white;
+}
+
+.nav-link-hover2:hover {
+    text-decoration: none;
+    color:  #2B2CA6 !important;
+}
+
+.border-radius-30px {
+    border-radius: 30px;
 }
 
 /* neutral classes */
