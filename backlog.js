@@ -24,19 +24,6 @@ function renderTaskHTML(i) {
     getBorderColor(i, urgency);
 }
 
-function getBorderColor(i, urgency) {
-    if (urgency == "Low") {
-        document.getElementById('taskContainer' + i).style.borderLeft = "10px solid green";
-    }
-    else if (urgency == "Mid") {
-        document.getElementById('taskContainer' + i).style.borderLeft = "10px solid purple";
-    }
-    else if (urgency == "High") {
-        document.getElementById('taskContainer'+ i).style.borderLeft = "10px solid orange";
-    }
-
-}
-
 function getTaskMembers(i) {
 
     for (let j = 0; j < allTasks[i].assignedMember.length; j++) {
@@ -127,6 +114,18 @@ function getUrgencyBackground(urgency) {
 }
 
 
+function getBorderColor(i, urgency) {
+    if (urgency == "Low") {
+        document.getElementById('taskContainer' + i).style.borderLeft = "10px solid green";
+    }
+    else if (urgency == "Mid") {
+        document.getElementById('taskContainer' + i).style.borderLeft = "10px solid purple";
+    }
+    else if (urgency == "High") {
+        document.getElementById('taskContainer'+ i).style.borderLeft = "10px solid orange";
+    }
+
+}
 
 function getTaskMembersforInfoCard(i) {
 

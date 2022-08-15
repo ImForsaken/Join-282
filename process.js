@@ -10,7 +10,7 @@ async function initAllDbData() {
     await getTeam();
     findOutWhoLoggedIn();
     customizeApp();
-    renderTasksToBoard();
+    // renderTasksToBoard();
 }
 async function initBacklogDB() {    
     setURL('https://gruppe-282.developerakademie.net/smallest_backend_ever');
