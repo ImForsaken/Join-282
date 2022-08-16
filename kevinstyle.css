@@ -16,7 +16,6 @@
 }
 .navAndBody {
     display: flex;
-    align-items: center;
 }
 
 /* addTaskPage */
