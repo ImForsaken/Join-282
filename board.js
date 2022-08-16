@@ -8,7 +8,7 @@ async function renderTasksToBoard() {
                 <div><b>${task['title']}</b></div>
                 <div>${task['category']}</div>
                 <div class="task-container-subheadline">
-                    <span>${task['createdAt']}</span>
+                    <span>${new Date(task['createdAt'])}</span>
                     <span id="urgency-${i}"><b>Urgency: </b></span>
                 </div>
                 <div id="assigned-to-${i}"><b>Assigned to: </b></div>
