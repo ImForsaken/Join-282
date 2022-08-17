@@ -38,25 +38,25 @@
         <div class="board-container">
             <div class="task-content">
                 <div class="board-headline">TO DO</div>
-                <div id="to-do" class="column padding4px">
+                <div ondrop="moveTo('to-do')" ondragover="allowDrop(event)" id="to-do" class="column padding4px">
                     
                 </div>
             </div>
             <div>
                 <div class="board-headline">IN PROGRESS</div>
-                <div id="in-progress" class="column">
+                <div ondrop="moveTo('in-progress')" ondragover="allowDrop(event)" id="in-progress" class="column">
 
                 </div>
             </div>
             <div>
                 <div class="board-headline">TESTING</div>
-                <div id="testing" class="column">
+                <div ondrop="moveTo('testing')" ondragover="allowDrop(event)" id="testing" class="column">
 
                 </div>
             </div>
             <div>
                 <div class="board-headline">DONE</div>
-                <div id="done" class="column">
+                <div ondrop="moveTo('done')" ondragover="allowDrop(event)" id="done" class="column">
 
                 </div>
             </div>

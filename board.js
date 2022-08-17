@@ -4,7 +4,7 @@ async function renderTasksToBoard() {
         const task = boardTasks[i];
         if (task['status'] = 'todo') {
             document.getElementById('to-do').innerHTML += /*html*/ `
-            <div id="task-${i}" class="task-container">
+            <div dragable="true" ondragover="startDragging(${i})" id="task-${i}" class="task-container">
                 <div><b>${task['title']}</b></div>
                 <div>${task['category']}</div>
                 <div class="task-container-subheadline">
@@ -37,7 +37,19 @@ async function renderTasksToBoard() {
     }
 }
 
+let currentDraggedElement;
 
+function startDragging(id){
+    currentDraggedElement = id;
+}
+
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function moveTo(category) {
+    allTasks[currentDraggedElement]['status'] = category;
+}
 
 
 // renderToDo();

@@ -93,9 +93,10 @@ h1 {
     align-items: center;
     flex-direction: column;
     background-color: white;
-    padding: 12px;
+    padding: 8px;
     text-align: center;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
+    z-index: 2;
 }
 
 .task-description{
