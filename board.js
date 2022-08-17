@@ -5,7 +5,7 @@ async function renderTasksToBoard() {
         if (task['status'] = 'todo') {
             document.getElementById('to-do').innerHTML += /*html*/ `
             <div dragable="true" ondragover="startDragging(${i})" id="task-${i}" class="task-container">
-                <div><b>${task['title']}</b></div>
+                <h3><b>${task['title']}</b></h3>
                 <div>${task['category']}</div>
                 <div class="task-container-subheadline">
                     <span>${new Date(task['createdAt']).toLocaleDateString('eu-DE')}</span>
