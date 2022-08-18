@@ -24,7 +24,8 @@ async function addTask() {
             "urgency": urgency.value,
             "description": description.value,
             "createdAt": new Date().getTime(),
-            "status": "todo"
+            "status": "todo",
+            "lastEdit": ""
         };
         //add object to array and morph it to text to save it in locaStorage
         pushTaskToBackend(task);

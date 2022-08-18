@@ -57,9 +57,9 @@ function backlogHTML(taskContent, i, category, description, date) {
             <div class="category"><b>${category}</b></div>
             <textarea  onclick="event.stopPropagation()" class="scroll" rows="2" cols="3" id="description${i}">${description}</textarea>
             <div class="backlogSettings">
-                <img id="push${i}"  onclick="pushTaskToBoard(${i}), event.stopPropagation())" src="./img/push.svg">
-                <img id="edit${i}" onclick="editDescription(${i}, event.stopPropagation())" src="./img/edit.svg">
-                <img id="delete${i}" onclick="deleteTaskBacklog(${i}, event.stopPropagation())" src="./img/trash.svg">
+                <img class="pushBacklogButton" id="push${i}"  onclick="pushTaskToBoard(${i}), event.stopPropagation()" src="./img/push.svg">
+                <img class="editBacklogButton"  id="edit${i}" onclick="editDescription(${i}), event.stopPropagation()" src="./img/edit.svg">
+                <img class="deleteBacklogTaskButton"  id="delete${i}" onclick="deleteTaskBacklog(${i}), event.stopPropagation()" src="./img/trash.svg">
             </div>
         </div
     </div>
@@ -67,12 +67,15 @@ function backlogHTML(taskContent, i, category, description, date) {
 }
 
 function openTaskInfoCard(i) {
+
+
     document.getElementById('backlogTaskInfoCard').classList.remove('d-none');
     let title = allTasks[i].title;
     let date = allTasks[i].date;
     let description = allTasks[i].description;
     let urgency = allTasks[i].urgency;
     let category = allTasks[i].category;
+    let lastEdit = new Date(allTasks[i].lastEdit).toLocaleTimeString('eu-DE');
     infoCard = document.getElementById('backlogInfoCard');
     infoCard.innerHTML = "";
     infoCard.innerHTML = `
@@ -80,22 +83,26 @@ function openTaskInfoCard(i) {
         <img src="../img/logo.png" class="card-img" alt="Join">
         <div class="card-img-overlay">
             <h3 class="card-title">${title}</h3>
-            <div class="card-text">
+            <div class="card-text cardTextContainer">
                 <h4 id="todoUrgency"><b>Todo:</b></h4>
                 <div class="descriptionBox">
                     ${description}
                 </div>
             </div>
-            <div class="card-infos" id="cardInfos${i}">
+            <div class="card-infos" id="cardInfos">
                 <p class="card-text1" id="cardUrgency">${urgency}</p>
                 <p class="card-text2">This Task is assigned to the: <b>${category}</b> Team</p>
             </div>
-            <p class="card-text3">Last updated 3 mins ago</p>
+            <p class="card-text3" id="lastUpdate">Last edit: ${lastEdit}</p>
         </div>
     </div>
     `;
-    getTaskMembersforInfoCard(i);
     getUrgencyBackground(urgency);
+    getTaskMembersforInfoCard(i);
+    if (allTasks[i].lastEdit === "") {
+        let createdAt = new Date(allTasks[i].createdAt).toString()
+        document.getElementById('lastUpdate').innerHTML = createdAt;
+    }
 }
 
 function getUrgencyBackground(urgency) {
@@ -130,7 +137,7 @@ function getBorderColor(i, urgency) {
 function getTaskMembersforInfoCard(i) {
 
     for (let j = 0; j < allTasks[i].assignedMember.length; j++) {
-        let assignedTo = document.getElementById('cardInfos' + i);
+        let assignedTo = document.getElementById('cardInfos');
 
         const firstName = allTasks[i].assignedMember[j].firstName;
         const lastName = allTasks[i].assignedMember[j].lastName;
@@ -144,11 +151,9 @@ function getTaskMembersforInfoCard(i) {
                 <a href="${email}">${email}</a><br>
             </div>
             <div class="memberCardInfoBox">
-                <img src="${src}" alt"avatar" class="avatar2">
+                <img src="${src}" alt"avatar" class="avatar4">
             </div>
         </div>
-
-
         `;      
     };
 }
@@ -159,29 +164,44 @@ function closeTaskInfoCard() {
 }
 
 async function pushTaskToBoard(i) {
-    await initAllDbData();
-    allTasks[i].status = "board";
-    boardTasks.push(allTasks[i]);
-    allTasks.splice(i, 1); 
-    await setBoardTask();
-    await setTask();
-    await initBacklogProcess();
+
+    if (confirm("Are you sure?") == true) {
+        await initAllDbData();
+        allTasks[i].status = "board";
+        boardTasks.push(allTasks[i]);
+        allTasks.splice(i, 1); 
+        await setBoardTask();
+        await setTask();
+        await initBacklogProcess();
+    } else {
+        alert('Canceled');
+    }
 }
 
 async function deleteTaskBacklog(i) {
+
+    if (confirm("Are you sure?") == true) {
     await initAllDbData();
     allTasks.splice(i, 1);
     await setBoardTask();
     await setTask();
     await initBacklogProcess();
+} else {
+    alert('Canceled');
+}
 }
 
 
 async function editDescription(i) {
+    if (confirm("Are you sure?") == true) {
     await initAllDbData();
     let description = document.getElementById('description' + i);
     allTasks[i].description = description.value;
+    allTasks[i].lastEdit = new Date().getTime();
     await setBoardTask();
     await setTask();
     await initBacklogProcess();
+} else {
+    alert('Canceled');
+}
 }
