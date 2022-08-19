@@ -32,31 +32,31 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body onload="includeHTML(); initAllDbData(); renderTasksToBoard()">
+<body onload="includeHTML(); initAllDbData(); initBoard()">
     <div class="navAndBody">
         <div w3-include-html="html templates/navbar.html"></div>
         <div class="board-container">
             <div class="task-content">
                 <div class="board-headline">TO DO</div>
-                <div ondrop="moveTo('to-do')" ondragover="allowDrop(event)" id="to-do" class="column padding4px">
+                <div ondrop="moveTo('to-do')" ondragleave="removeHighlight('to-do')" ondragover="allowDrop(event); highlight('to-do')" id="to-do" class="column padding4px">
                     
                 </div>
             </div>
             <div>
                 <div class="board-headline">IN PROGRESS</div>
-                <div ondrop="moveTo('in-progress')" ondragover="allowDrop(event)" id="in-progress" class="column">
+                <div ondrop="moveTo('in-progress')" ondragleave="removeHighlight('in-progress')" ondragover="allowDrop(event); highlight('in-progress')" id="in-progress" class="column">
 
                 </div>
             </div>
             <div>
                 <div class="board-headline">TESTING</div>
-                <div ondrop="moveTo('testing')" ondragover="allowDrop(event)" id="testing" class="column">
+                <div ondrop="moveTo('testing')" ondragleave="removeHighlight('testing')" ondragover="allowDrop(event); highlight('testing')" id="testing" class="column">
 
                 </div>
             </div>
             <div>
                 <div class="board-headline">DONE</div>
-                <div ondrop="moveTo('done')" ondragover="allowDrop(event)" id="done" class="column">
+                <div ondrop="moveTo('done')" ondragleave="removeHighlight('done')" ondragover="allowDrop(event); highlight('done')" id="done" class="column">
 
                 </div>
             </div>
