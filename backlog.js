@@ -91,7 +91,8 @@ function openTaskInfoCard(i) {
             </div>
             <div class="card-infos" id="cardInfos">
                 <p class="card-text1" id="cardUrgency">${urgency}</p>
-                <p class="card-text2">This Task is assigned to the: <b>${category}</b> Team</p>
+                <p class="card-text2">This Task is assigned to the:</p>
+                <p>  <b>${category}</b> Team
             </div>
             <p class="card-text3" id="lastUpdate">Last edit: ${lastEdit}</p>
         </div>
@@ -101,7 +102,7 @@ function openTaskInfoCard(i) {
     getTaskMembersforInfoCard(i);
     if (allTasks[i].lastEdit === "") {
         let createdAt = new Date(allTasks[i].createdAt).toString()
-        document.getElementById('lastUpdate').innerHTML = createdAt;
+        document.getElementById('lastUpdate').innerHTML = `Task created: ${createdAt}`;
     }
 }
 

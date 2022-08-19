@@ -47,6 +47,8 @@
             <div class="addTaskBoard">
                 <form action="/backlog.html" method="get" target="_blank" id="taskForm" class="d-flex taskBoard"
                     onsubmit="addTask(); event.preventDefault();">
+                    <div id="successBox" class="alert alert-success successBox d-none" role="alert">
+                    </div>
                     <div class="d-flex inputManage">
                         <div class="taskContainer">
                             <h2>Title</h2>
@@ -107,7 +109,6 @@
                     </div>
                 </form>
             </div>
-
 
         </div>
 
