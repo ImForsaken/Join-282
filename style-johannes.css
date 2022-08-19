@@ -99,6 +99,10 @@ h1 {
     z-index: 2;
 }
 
+.task-container:hover {
+    cursor:grab;
+}
+
 .task-description{
     text-align: justify;
     margin-bottom: 0px;
@@ -140,4 +144,8 @@ h1 {
 .position-sticky {
     position: sticky;
     top: 0px;
+}
+
+.highlight {
+    background-color: rgb(213, 213, 222);
 }
