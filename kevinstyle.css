@@ -151,6 +151,25 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     border: 2px solid white;
 }
 
+.iconNames {
+    background: black;
+    border-radius: 50%;
+    width: 72px;
+    font-size: 30px;
+    height: 72px;
+    border: 1px solid white;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.iconNames:hover {
+    transform: scale(1.1);
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
 .asiContainer {
     width: 70px;
     display: flex;
