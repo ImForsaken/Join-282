@@ -167,7 +167,7 @@ async function pushTaskToBoard(i) {
 
     if (confirm("Are you sure?") == true) {
         await initAllDbData();
-        allTasks[i].status = "board";
+        allTasks[i].status = "to-do";
         boardTasks.push(allTasks[i]);
         allTasks.splice(i, 1); 
         await setBoardTask();
