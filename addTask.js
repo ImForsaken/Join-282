@@ -1,7 +1,6 @@
 async function init() {
     await initAllDbData();
     renderAvatar();
-    return
 }
 
 async function addTask() {
@@ -62,6 +61,7 @@ function cancelTask() {
 }
 
 function openMemberList() {
+    renderAvatar();
     document.getElementById('avatarPicker').classList.remove('d-none');
 }
 

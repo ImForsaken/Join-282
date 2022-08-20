@@ -29,10 +29,9 @@ function renderAvatar() {
     const icon = team[i].icon;
     assignBox.innerHTML += `
     <img id="user-${i}" onclick="selectUser(${i})" class="avatar" src="${member}">
-    <p class="iconNames">${icon}</p>
     `
    };
-}
+};
 
 function assignedToBox() {
     memberBox = document.getElementById('memberBox');
@@ -41,7 +40,7 @@ function assignedToBox() {
         const element = selectedUsers[i]['src'];
         memberBox.innerHTML += `<img class="avatar3" src="${element}">`
     };
-}
+};
 
 function selectUser(i) {
     let user = document.getElementById('user-' + i);
@@ -50,8 +49,8 @@ function selectUser(i) {
         selectedUsers = selectedUsers.filter(a => a != team[i]);
     } else {
     selectedUsers.push(team[i]);
-}
+};
 assignedToBox();
-}
+};
 
 
