@@ -24,11 +24,11 @@ let selectedUsers = [];
 function renderAvatar() {
    let assignBox = document.getElementById('assignAbleMember');
    assignBox.innerHTML = "";
-   for (let i = 0; i < 2; i++) {
+   for (let i = 0; i < team.length; i++) {
     const member = team[i]['src'];
     const icon = team[i].icon;
     assignBox.innerHTML += `
-    <img id="user-${i}" onclick="selectUser(${i})" class="avatar" src="${member}">
+    <p id="user-${i}" onclick="selectUser(${i})" class="avatar4">${icon}</p>
     `
    };
 };
@@ -37,8 +37,8 @@ function assignedToBox() {
     memberBox = document.getElementById('memberBox');
     memberBox.innerHTML = "";
     for (let i = 0; i < selectedUsers.length; i++) {
-        const element = selectedUsers[i]['src'];
-        memberBox.innerHTML += `<img class="avatar3" src="${element}">`
+        const icon = selectedUsers[i].icon;
+        memberBox.innerHTML += `<p onclick="unSelectUser(${i})" class="avatar4">${icon}</p>`
     };
 };
 
@@ -53,4 +53,12 @@ function selectUser(i) {
 assignedToBox();
 };
 
+function unSelectUser(i){
+    if(selectedUsers.includes(team[i])) {
+        selectedUsers = selectedUsers.filter(a => a != team[i]);
+    } else {
+        selectedUsers.splice(i, 1);
+};
+assignedToBox();
+}
 

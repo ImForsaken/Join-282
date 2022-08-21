@@ -83,3 +83,4 @@ async function deleteTaskDb() {
         }
     }
  }
+document.getElementById('coolerButton').innerHTML
