@@ -281,12 +281,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 
 .taskContainerBacklog {
-    height: 120px;
     max-height: fit-content;
     width: 100%;
     background-color: #f4f3fb;
     border-radius: 10px;
     margin-top: 5px;
+
 }
 
 .taskContainerBacklog:hover {
@@ -338,6 +338,13 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .backlogSettings img {
     height: 24px;
     width: 24px;
+}  
+
+.pushBacklogButton {
+    width: 48px;
+    height: 48px;
+    background: url("./img/push.svg");
+    border: none;
 }
 
 .pushBacklogButton:hover {
@@ -346,10 +353,25 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     border-radius: 10%;
 }
 
+.editBacklogButton {
+    width: 48px;
+    height: 48px;
+    background: url("./img/edit.png");
+    border: none;
+    background-position: center;
+}
+
 .editBacklogButton:hover {
     transform: scale(1.35);
     background-color: #2B2CA6;
     border-radius: 10%;
+}
+
+.deleteBacklogTaskButton {
+    width: 48px;
+    height: 48px;
+    background: url("./img/trash.svg");
+    border: none;
 }
 
 .deleteBacklogTaskButton:hover {
@@ -447,14 +469,30 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     text-align: center;
 }
 
-.card-text1 {
-    text-align: center;
-    width: 100%;   
+.card-infos h2 {
+    color: white !important;
 }
 
-.card-text3 {
-    padding: 5px;
-    margin-bottom: 0;
+.card-text1 {
+    text-align: center;
+    width: 100%;
+    font-weight: bold;   
+}
+
+.cardTeamInfos {
+    display: flex;
+    justify-content: center;
+    border: 1px solid black;
+    background-color: black;
+}
+
+.cardTeamInfos h2 {
+    margin-bottom: 0px !important;
+}
+
+.memberCardInfoContainer {
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .memberCardInfo {
@@ -462,7 +500,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     opacity: 0.978;
     color: black;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     padding: 5px;
 }
 
+.card-text3 {
+    padding: 5px;
+    margin-bottom: 0;
+}

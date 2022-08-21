@@ -71,6 +71,11 @@
     align-items: center;
 }
 
+.member-icon:hover {
+    border: 2px solid white;
+    cursor: pointer;
+}
+
 .nav-link-hover:hover {
     transition: all 550ms ease-in-out;
     background-color: white;
@@ -97,6 +102,10 @@ h2 {
 
 .blue {
     color: #1f3291 !important;
+}
+
+.ml-5 {
+    margin-left: 5px;
 }
 
 /* AVATAR PICKER */
