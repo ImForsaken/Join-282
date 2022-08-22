@@ -122,10 +122,12 @@ function allowDrop(ev) {
     ev.preventDefault();
 }
 
-function moveTo(category) {
+async function moveTo(category) {
     boardTasks[currentDraggedElement]['status'] = category;
     renderTasksToBoard();
-    removeHighlight(category)
+    removeHighlight(category);
+    await setBoardTask();
+    await setTask();
 }
 
 function highlight(category) {
