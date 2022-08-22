@@ -32,13 +32,16 @@ function getTaskMembers(i) {
         const firstName = allTasks[i].assignedMember[j].firstName;
         const lastName = allTasks[i].assignedMember[j].lastName;
         const email = allTasks[i].assignedMember[j].eMail;
-        let src = allTasks[i].assignedMember[j].src;
-        avatarBox.innerHTML += `
-        <img src=${src} class="avatar2">
-        `
+        let icon = allTasks[i].assignedMember[j].icon;
+ 
         assignedTo.innerHTML += `
-        <b>${firstName} ${lastName}</b><br>
-        <a href="${email}">${email}</a><br>
+        <div class="d-flex">
+            <p class="avatar4">${icon}</p>
+            <div class="ml-5">
+                <b>${firstName} ${lastName}</b><br>
+                <a href="${email}">${email}</a><br>
+            </div>    
+        </div>
         `;      
     };
 }
@@ -57,9 +60,13 @@ function backlogHTML(taskContent, i, category, description, date) {
             <div class="category"><b>${category}</b></div>
             <textarea  onclick="event.stopPropagation()" class="scroll" rows="2" cols="3" id="description${i}">${description}</textarea>
             <div class="backlogSettings">
-                <img class="pushBacklogButton" id="push${i}"  onclick="pushTaskToBoard(${i}), event.stopPropagation()" src="./img/push.svg">
-                <img class="editBacklogButton"  id="edit${i}" onclick="editDescription(${i}), event.stopPropagation()" src="./img/edit.svg">
-                <img class="deleteBacklogTaskButton"  id="delete${i}" onclick="deleteTaskBacklog(${i}), event.stopPropagation()" src="./img/trash.svg">
+            
+                <button class="pushBacklogButton" id="push${i}" onclick="pushTaskToBoard(${i}), event.stopPropagation()"></button>
+                
+                <button class="editBacklogButton" id="edit${i}" onclick="editDescription(${i}), event.stopPropagation()"></button>
+
+                <button class="deleteBacklogTaskButton"  id="delete${i}" onclick="deleteTaskBacklog(${i}), event.stopPropagation()"></button>
+
             </div>
         </div
     </div>
@@ -91,7 +98,12 @@ function openTaskInfoCard(i) {
             </div>
             <div class="card-infos" id="cardInfos">
                 <p class="card-text1" id="cardUrgency">${urgency}</p>
-                <p class="card-text2">This Task is assigned to the: <b>${category}</b> Team</p>
+                <p class="card-text2">This Task is assigned to the:</p>
+                <div class="cardTeamInfos">
+                    <h2><b>${category} Team</b></h2>
+                </div>
+            </div>
+            <div class="memberCardInfoContainer" id="memberCardInfoContainer">
             </div>
             <p class="card-text3" id="lastUpdate">Last edit: ${lastEdit}</p>
         </div>
@@ -101,7 +113,7 @@ function openTaskInfoCard(i) {
     getTaskMembersforInfoCard(i);
     if (allTasks[i].lastEdit === "") {
         let createdAt = new Date(allTasks[i].createdAt).toString()
-        document.getElementById('lastUpdate').innerHTML = createdAt;
+        document.getElementById('lastUpdate').innerHTML = `Task created: ${createdAt}`;
     }
 }
 
@@ -137,12 +149,12 @@ function getBorderColor(i, urgency) {
 function getTaskMembersforInfoCard(i) {
 
     for (let j = 0; j < allTasks[i].assignedMember.length; j++) {
-        let assignedTo = document.getElementById('cardInfos');
+        let assignedTo = document.getElementById('memberCardInfoContainer');
 
         const firstName = allTasks[i].assignedMember[j].firstName;
         const lastName = allTasks[i].assignedMember[j].lastName;
         const email = allTasks[i].assignedMember[j].eMail;
-        let src = allTasks[i].assignedMember[j].src;
+        const icon = allTasks[i].assignedMember[j].icon;
 
         assignedTo.innerHTML += `
         <div class="memberCardInfo">
@@ -151,7 +163,7 @@ function getTaskMembersforInfoCard(i) {
                 <a href="${email}">${email}</a><br>
             </div>
             <div class="memberCardInfoBox">
-                <img src="${src}" alt"avatar" class="avatar4">
+                <p class="avatar4">${icon}</p>
             </div>
         </div>
         `;      

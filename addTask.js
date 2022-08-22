@@ -1,7 +1,6 @@
 async function init() {
     await initAllDbData();
     renderAvatar();
-    return
 }
 
 async function addTask() {
@@ -32,8 +31,23 @@ async function addTask() {
         selectedUsers = [];
         document.getElementById("memberBox").innerHTML = "";
         document.getElementById("taskForm").reset();
-        setTimeout(init, 1500); 
+        displaySuccessMessage();
+        setTimeout(init, 1500);
+        setTimeout(hideSuccessMessage, 1500);
+        
     };
+}
+
+function displaySuccessMessage() {
+    let success = document.getElementById("successBox");
+    success.innerHTML = "This is a success alert—check it out!";
+    success.classList.remove('d-none');
+}
+
+function hideSuccessMessage() {
+    let success = document.getElementById("successBox");
+    success.innerHTML = "";
+    success.classList.add('d-none');
 }
 
 async function pushTaskToBackend(task) {
@@ -47,6 +61,7 @@ function cancelTask() {
 }
 
 function openMemberList() {
+    renderAvatar();
     document.getElementById('avatarPicker').classList.remove('d-none');
 }
 

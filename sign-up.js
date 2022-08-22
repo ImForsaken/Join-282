@@ -7,8 +7,8 @@ async function signUp() {
     let icon = firstName.charAt(0) + lastName.charAt(0);
     let newUser = {
         'ID': team.length,
-        'first-name': firstName,
-        'last-name': lastName,
+        'firstName': firstName,
+        'lastName': lastName,
         'eMail': email,
         'icon': icon,
         'password': password
