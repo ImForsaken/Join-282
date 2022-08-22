@@ -26,8 +26,8 @@ async function addTask() {
             "status": "backlog",
             "lastEdit": ""
         };
-        //add object to array and morph it to text to save it in locaStorage
-        pushTaskToBackend(task);
+        //add object to array and morph it to text to save it in backend
+        await pushTaskToBackend(task);
         selectedUsers = [];
         document.getElementById("memberBox").innerHTML = "";
         document.getElementById("taskForm").reset();
@@ -67,6 +67,7 @@ function openMemberList() {
 
 function closeMemberList() {
     document.getElementById('avatarPicker').classList.add('d-none');
+    // document.getElementById('avatarPicker').classList.toggle('avatar-selected');
 }
 
 function checkIfMemberSelected() {
