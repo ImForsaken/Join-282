@@ -58,7 +58,9 @@ function backlogHTML(taskContent, i, category, description, date) {
             </div>
             <div class="category"><b>Due Date</b><br><b>${date}</b></div>
             <div class="category"><b>${category}</b></div>
-            <textarea  onclick="event.stopPropagation()" class="scroll" rows="2" cols="3" id="description${i}">${description}</textarea>
+            <div class="descriptionBacklogBox">
+                <textarea  onclick="event.stopPropagation()" class="scroll" rows="2" cols="3" id="description${i}">${description}</textarea>
+            </div>
             <div class="backlogSettings">
             
                 <button class="pushBacklogButton" id="push${i}" onclick="pushTaskToBoard(${i}), event.stopPropagation()"></button>
@@ -87,7 +89,7 @@ function openTaskInfoCard(i) {
     infoCard.innerHTML = "";
     infoCard.innerHTML = `
     <div class="bCard text-bg-dark">
-        <img src="../img/logo.png" class="card-img" alt="Join">
+        <img src="./img/logo.png" class="card-img" alt="Join">
         <div class="card-img-overlay">
             <h3 class="card-title">${title}</h3>
             <div class="card-text cardTextContainer">
