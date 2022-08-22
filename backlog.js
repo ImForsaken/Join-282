@@ -35,7 +35,7 @@ function getTaskMembers(i) {
         let icon = allTasks[i].assignedMember[j].icon;
  
         assignedTo.innerHTML += `
-        <div class="d-flex">
+        <div class="d-flex memberCardTag">
             <p class="avatar4">${icon}</p>
             <div class="ml-5">
                 <b>${firstName} ${lastName}</b><br>
@@ -45,15 +45,13 @@ function getTaskMembers(i) {
         `;      
     };
 }
-
+//<div id="avatarBox${i}" class="avatarBox"></div>
 function backlogHTML(taskContent, i, category, description, date) {
     return taskContent.innerHTML += `
     <div id="taskContainer${i}" class="taskContainerBacklog" onclick="openTaskInfoCard(${i})">
         <div class="innerContainer">
             <div class="taskBox">
-                    <div id="avatarBox${i}" class="avatarBox">
-                    </div>
-                    <div id="assignedMember${i}">
+                    <div id="assignedMember${i}" class="assignedMember">
                     </div>
             </div>
             <div class="category"><b>Due Date</b><br><b>${date}</b></div>

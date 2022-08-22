@@ -13,6 +13,7 @@
     width: 100%;
     height: 120px;
     border-radius: 5px;
+    padding: 10px;
 }
 .navAndBody {
     display: flex;
@@ -310,6 +311,14 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     flex-direction: column;
 }
 
+.assignedMember p {
+    margin-bottom: 0px;
+}
+
+.memberCardTag {
+    margin-bottom: 10px;
+}
+
 .category {
     width: 15%;
     display: flex;
@@ -342,7 +351,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .backlogSettings {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
     width: fit-content;
     margin-left: 7px;
 }
@@ -370,7 +379,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .editBacklogButton {
     width: 36px;
     height: 36px;
-    background: url("./img/edit2.svg");
+    background: url("./img/edit.svg");
     border: none;
 }
 
@@ -517,6 +526,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     display: flex;
     justify-content: space-between;
     padding: 5px;
+}
+
+.memberCardInfoBox p {
+    margin-bottom: 0px !important;
 }
 
 .card-text3 {

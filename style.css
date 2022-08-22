@@ -162,3 +162,7 @@ h2 {
     font-size: 20px;
     font-weight: bold;
 }
+
+.avatar4 p {
+    margin-bottom: 0px !important;
+}
