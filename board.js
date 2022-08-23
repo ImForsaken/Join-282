@@ -5,7 +5,7 @@ async function initBoard() {
 }
 
 async function renderTasksToBoard() {
-    document.getElementById('to-do').innerHTML = '';
+    document.getElementById('todo').innerHTML = '';
     document.getElementById('in-progress').innerHTML = '';
     document.getElementById('testing').innerHTML = '';
     document.getElementById('done').innerHTML = '';
@@ -13,8 +13,8 @@ async function renderTasksToBoard() {
     for (let i = 0; i < boardTasks.length; i++) {
         const task = boardTasks[i];
         // to-do column
-        if (task['status'] == 'to-do') {
-            document.getElementById('to-do').innerHTML += /*html*/ `
+        if (task['status'] == 'todo') {
+            document.getElementById('todo').innerHTML += /*html*/ `
             <div draggable="true" ondragstart="startDragging(${i})" id="task-${i}" class="task-container">
                 <h3><b>${task['title']}</b></h3>
                 <div>${task['category']}</div>

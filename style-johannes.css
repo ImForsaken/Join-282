@@ -106,6 +106,8 @@ h1 {
 .task-description{
     text-align: justify;
     margin-bottom: 0px;
+    max-width: 100%;
+
 }
 
 .task-container-subheadline {
