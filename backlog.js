@@ -47,7 +47,7 @@ function getTaskMembers(i) {
 }
 //<div id="avatarBox${i}" class="avatarBox"></div>
 function backlogHTML(taskContent, i, category, description, date) {
-    return taskContent.innerHTML += `
+    return taskContent.innerHTML += /*html*/ `
     <div id="taskContainer${i}" class="taskContainerBacklog" onclick="openTaskInfoCard(${i})">
         <div class="innerContainer">
             <div class="taskBox">
