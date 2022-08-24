@@ -1,7 +1,6 @@
-
 async function initBoard() {
     await initBoardDB();
-    renderTasksToBoard();
+    await renderTasksToBoard();
 }
 
 async function renderTasksToBoard() {
@@ -124,10 +123,10 @@ function allowDrop(ev) {
 
 async function moveTo(category) {
     boardTasks[currentDraggedElement]['status'] = category;
-    renderTasksToBoard();
-    removeHighlight(category);
     await setBoardTask();
     await setTask();
+    removeHighlight(category);
+    renderTasksToBoard();
 }
 
 function highlight(category) {
