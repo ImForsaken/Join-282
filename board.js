@@ -160,7 +160,7 @@ async function renderTasksToBoard() {
         document.getElementById('assigned-to-' + i).innerHTML = '';
         for (let j = 0; j < task['assignedMember'].length; j++) {
             const assignedMember = task['assignedMember'][j];
-            document.getElementById('assigned-to-' + i).innerHTML += `<br><div class="assigned-to-list-member"><b>${assignedMember['firstName']} ${assignedMember['lastName']}</b></div>`
+            document.getElementById('assigned-to-' + i).innerHTML += `<div class="assigned-to-list-member"><b>${assignedMember['firstName']} ${assignedMember['lastName']}</b></div>`
         }
     }
 
