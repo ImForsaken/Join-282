@@ -83,3 +83,22 @@ async function deleteTaskDb() {
         }
     }
  }
+
+ // burgermenu
+
+ function openSideBar() {
+    document.getElementById('burger-menu-open').classList.add ('d-none');
+    document.getElementById('burger-menu-close').classList.remove ('d-none');
+    document.getElementById('navbar-links').classList.remove('d-none-mobile');
+    document.getElementById('navbar').classList.remove ('navbar-mobile');
+    document.getElementById('navbar').classList.add ('navbar-mobile-open');
+
+ }
+
+ function closeSideBar() {
+  document.getElementById('burger-menu-open').classList.remove ('d-none');
+  document.getElementById('burger-menu-close').classList.add ('d-none');
+  document.getElementById('navbar-links').classList.add('d-none-mobile');
+  document.getElementById('navbar').classList.add ('navbar-mobile');
+  document.getElementById('navbar').classList.remove ('navbar-mobile-open');
+ }

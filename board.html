@@ -16,6 +16,8 @@
     <script src="log-in.js"></script>
     <script src="avatar.js"></script>
     <script src="board.js"></script>
+    <script src="./html templates/task.js"></script>
+
 
     <!-- Bootstrap -->
     <!-- CSS only -->
@@ -37,26 +39,24 @@
         <div class="board-container">
             <div class="task-content">
                 <div class="board-headline">TO DO</div>
-                <div ondrop="moveTo('todo')" ondragleave="removeHighlight('todo')" 
-                ondragover="allowDrop(event); highlight('todo')" id="todo" class="column padding4px">
-
+                <div ondrop="moveTo('todo')" ondragleave="removeHighlight('todo')"
+                    ondragover="allowDrop(event); highlight('todo')" id="todo" class="column padding4px">
                 </div>
             </div>
-            <div>
+            <div class="task-content">
                 <div class="board-headline">IN PROGRESS</div>
                 <div ondrop="moveTo('in-progress')" ondragleave="removeHighlight('in-progress')"
                     ondragover="allowDrop(event); highlight('in-progress')" id="in-progress" class="column">
-
                 </div>
             </div>
-            <div>
+            <div class="task-content">
                 <div class="board-headline">TESTING</div>
                 <div ondrop="moveTo('testing')" ondragleave="removeHighlight('testing')"
                     ondragover="allowDrop(event); highlight('testing')" id="testing" class="column">
 
                 </div>
             </div>
-            <div>
+            <div class="task-content">
                 <div class="board-headline">DONE</div>
                 <div ondrop="moveTo('done')" ondragleave="removeHighlight('done')"
                     ondragover="allowDrop(event); highlight('done')" id="done" class="column">

@@ -1,8 +1,11 @@
 <nav class="navbar navbar-main navbar-expand-lg bg-light position-sticky">
-    <div class="container-fluid">
+    <div id="navbar" class="container-fluid navbar-mobile">
         <div class="upperNavbar">
             <img class="logo" src="./img/logo.png">
-            <ul class="navbar-nav">
+            <img id="burger-menu-open" class="burger-menu only-mobile" src="./img/menu-4-48.png" onclick="openSideBar();">
+            <img id="burger-menu-close" class="burger-menu only-mobile d-none" src="./img/menu-4-48.png" onclick="closeSideBar();">
+            
+            <ul id="navbar-links" class="navbar-nav d-none-mobile">
                 <li class="nav-item">
                     <a class="nav-link nav-link-hover nav-link-hover2 border-radius-30px" href="board.html">Board</a>
                 </li>
@@ -24,3 +27,4 @@
     </div>
 </nav>
 
+burger-menu-close
