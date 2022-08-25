@@ -40,7 +40,7 @@ async function addTask() {
 
 function displaySuccessMessage() {
     let success = document.getElementById("successBox");
-    success.innerHTML = "This is a success alert—check it out!";
+    success.innerHTML = "Task safed!";
     success.classList.remove('d-none');
 }
 
@@ -67,7 +67,6 @@ function openMemberList() {
 
 function closeMemberList() {
     document.getElementById('avatarPicker').classList.add('d-none');
-    // document.getElementById('avatarPicker').classList.toggle('avatar-selected');
 }
 
 function checkIfMemberSelected() {
