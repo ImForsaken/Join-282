@@ -85,7 +85,7 @@ h1 {
 .column {
     background-color: rgb(228, 227, 249);
     width: 20vw;
-    min-height: 100%;
+    height: 97%;
 }
 
 .board-headline {
