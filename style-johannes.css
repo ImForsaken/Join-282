@@ -324,7 +324,7 @@ h1 {
     }
 
     .taskContainer {
-        height: 22%;
+        height: unset;
       }
 
     .taskBoard {
@@ -385,5 +385,9 @@ h1 {
         border: 3px groove rgb(213, 213, 222);
         border-radius: 10px;
         width: 67vw;
+    }
+
+    .textarea {
+        background-color: white;
     }
 }
