@@ -34,11 +34,12 @@ function resetDeleteArea() {
 
 
 async function deleteBoardTask() {
-    await initAllDbData();
-    allTasks.splice(currentDraggedElement, 1);
+    boardTasks.splice(currentDraggedElement, 1);
     await setBoardTask();
-    await setTask();
-    await initBacklogProcess();
+    // await setTask();
+    // await initBacklogProcess();
+    await initBoard();
+    playDropSound();
 }
 
 async function renderTasksToBoard() {

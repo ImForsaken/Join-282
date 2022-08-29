@@ -58,10 +58,11 @@
             </div>
             <div class="task-content">
                 <div class="board-headline">DONE</div>
-                <div ondragstart="playDragSound()"ondrop="moveTo('done') ; playDropSound()" ondragleave="removeHighlight('done')"
+                <div ondragstart="playDragSound()" ondrop="moveTo('done') ; playDropSound()" ondragleave="removeHighlight('done')"
                     ondragover="allowDrop(event); highlight('done')" id="done" class="column padding4px">
                 </div>
             </div>
+            
             <div ondragover="dragOverDeleteArea()" ondragleave="resetDeleteArea()" ondrop="deleteBoardTask()" id="deleteTaskArea" class="deleteTaskArea d-none">
                 <img class="deleteTaskIcon" src="./img/trash.png">
             </div>

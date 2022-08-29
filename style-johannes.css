@@ -254,6 +254,10 @@ h1 {
     .bold-mobile {
         font-size: 1.1em;
     }
+
+    .inputManage {
+        padding: 2vw;
+    }
 }
 
 @media (max-width: 700px) { 
@@ -312,5 +316,74 @@ h1 {
     .only-mobile {  
         display: flex;
         }
-      
+
+
+    .inputManage {
+        padding: 6px;
+        width: 100%;
+    }
+
+    .taskContainer {
+        height: 22%;
+      }
+
+    .taskBoard {
+        flex-direction: column;
+    }
+
+    .addTaskBoard {
+        height: 100%;
+        text-align: center;
+      }
+
+    .inputfield {
+        height: min-content
+    }
+
+    h2 {
+        font-size: 1.4em;
+    }
+
+    .contentContainer {
+        margin: 0px;
+        margin-right: 2vw; 
+        margin-left: 2vw;
+    }
+
+    .contentContainerBacklog {
+        width: 77%;
+        margin: 0% 2%;
+    }
+
+    .bodyContent {
+        padding: 0;
+    }
+
+    .innerContainer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .backlogSettings {
+        flex-direction: row;
+        width: 50vw;
+        justify-content: space-between;
+        margin-top: 6px;
+    }
+
+    .taskContainerBacklog {
+        width: 97%;
+        
+    }
+
+    .category {
+        width: unset;
+        text-align: center;
+    }
+
+    .descriptionBacklogBox {
+        border: 3px groove rgb(213, 213, 222);
+        border-radius: 10px;
+        width: 67vw;
+    }
 }
