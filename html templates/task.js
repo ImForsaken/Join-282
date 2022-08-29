@@ -1,6 +1,6 @@
 function returnTaskHTML(i, task, status) {
     return document.getElementById(status).innerHTML += /*html*/ `
-    <div draggable="true" ondragstart="startDragging(${i})" id="task-${i}" class="task-container">
+    <div draggable="true" ondragstart="startDragging(${i})" ondragend="hideDeleteArea();" id="task-${i}" class="task-container">
         <h3><b>${task['title']}</b></h3>
         <div class="task-information-container">
             <div class="task-information-content mobile-center">

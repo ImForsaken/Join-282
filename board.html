@@ -39,33 +39,35 @@
         <div class="board-container">
             <div class="task-content">
                 <div class="board-headline">TO DO</div>
-                <div ondrop="moveTo('todo')" ondragleave="removeHighlight('todo')"
+                <div ondragstart="playDragSound()" ondrop="moveTo('todo'); playDropSound()" ondragleave="removeHighlight('todo')"
                     ondragover="allowDrop(event); highlight('todo')" id="todo" class="column padding4px">
                 </div>
             </div>
             <div class="task-content">
                 <div class="board-headline">IN PROGRESS</div>
-                <div ondrop="moveTo('in-progress')" ondragleave="removeHighlight('in-progress')"
+                <div ondragstart="playDragSound()" ondrop="moveTo('in-progress') ; playDropSound()" ondragleave="removeHighlight('in-progress')"
                     ondragover="allowDrop(event); highlight('in-progress')" id="in-progress" class="column padding4px">
                 </div>
             </div>
             <div class="task-content">
                 <div class="board-headline">TESTING</div>
-                <div ondrop="moveTo('testing')" ondragleave="removeHighlight('testing')"
+                <div ondragstart="playDragSound()" ondrop="moveTo('testing') ; playDropSound()" ondragleave="removeHighlight('testing')"
                     ondragover="allowDrop(event); highlight('testing')" id="testing" class="column padding4px">
 
                 </div>
             </div>
             <div class="task-content">
                 <div class="board-headline">DONE</div>
-                <div ondrop="moveTo('done')" ondragleave="removeHighlight('done')"
+                <div ondragstart="playDragSound()"ondrop="moveTo('done') ; playDropSound()" ondragleave="removeHighlight('done')"
                     ondragover="allowDrop(event); highlight('done')" id="done" class="column padding4px">
-
                 </div>
             </div>
-
+            <div ondragover="dragOverDeleteArea()" ondragleave="resetDeleteArea()" ondrop="deleteBoardTask()" id="deleteTaskArea" class="deleteTaskArea d-none">
+                <img class="deleteTaskIcon" src="./img/trash.png">
+            </div>
         </div>
     </div>
+
 </body>
 
 </html>

@@ -3,7 +3,43 @@ async function initBoard() {
     await renderTasksToBoard();
 }
 
+let AUDIO_DRAG = new Audio('audio/drag1.mp3');
+let AUDIO_DROP = new Audio('audio/drop1.mp3');
 
+function playDragSound() {
+    AUDIO_DRAG.play();
+}
+
+function playDropSound() {
+    AUDIO_DROP.play();
+}
+
+function showDeleteArea() {
+    document.getElementById('deleteTaskArea').classList.remove('d-none');
+}
+
+function hideDeleteArea() {
+    document.getElementById('deleteTaskArea').classList.add('d-none');
+}
+
+function dragOverDeleteArea() {
+    document.getElementById('deleteTaskArea').classList.remove('deleteTaskArea');
+    document.getElementById('deleteTaskArea').classList.add('deleteTaskAreaHover');
+}
+
+function resetDeleteArea() {
+    document.getElementById('deleteTaskArea').classList.remove('deleteTaskAreaHover');
+    document.getElementById('deleteTaskArea').classList.add('deleteTaskArea');
+}
+
+
+async function deleteBoardTask() {
+    await initAllDbData();
+    allTasks.splice(currentDraggedElement, 1);
+    await setBoardTask();
+    await setTask();
+    await initBacklogProcess();
+}
 
 async function renderTasksToBoard() {
     document.getElementById('todo').innerHTML = '';
@@ -67,6 +103,7 @@ async function renderTasksToBoard() {
 
     function startDragging(id) {
         currentDraggedElement = id;
+        showDeleteArea();
     }
 
     function allowDrop(ev) {
