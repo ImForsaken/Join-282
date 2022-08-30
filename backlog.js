@@ -185,6 +185,7 @@ async function pushTaskToBoard(i) {
         await setBoardTask();
         await setTask();
         await initBacklogProcess();
+        playDropSound();
     } else {
         alert('Canceled');
     }

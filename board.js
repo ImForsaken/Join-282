@@ -3,17 +3,6 @@ async function initBoard() {
     await renderTasksToBoard();
 }
 
-let AUDIO_DRAG = new Audio('audio/drag1.mp3');
-let AUDIO_DROP = new Audio('audio/drop1.mp3');
-
-function playDragSound() {
-    AUDIO_DRAG.play();
-}
-
-function playDropSound() {
-    AUDIO_DROP.play();
-}
-
 function showDeleteArea() {
     document.getElementById('deleteTaskArea').classList.remove('d-none');
 }
@@ -36,8 +25,7 @@ function resetDeleteArea() {
 async function deleteBoardTask() {
     boardTasks.splice(currentDraggedElement, 1);
     await setBoardTask();
-    // await setTask();
-    // await initBacklogProcess();
+    await initBoardDB();
     await initBoard();
     playDropSound();
 }
