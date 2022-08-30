@@ -8,6 +8,10 @@
 
 /* Navbar */
 
+.cursor-pointer {
+    cursor: pointer;
+}
+
 .navbar-main {
     background-color: #ffffff !important;
     height: 100vh;

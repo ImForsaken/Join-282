@@ -15,6 +15,7 @@ async function addTask() {
     if (selectedUsers.length === 0) {
         alert("Please select Member for this Task");
     } else {
+        playDropSound();
         let task = {
             "title": title.value,
             "assignedMember": selectedUsers,
@@ -31,7 +32,6 @@ async function addTask() {
         selectedUsers = [];
         document.getElementById("memberBox").innerHTML = "";
         document.getElementById("taskForm").reset();
-        playDropSound();
         displaySuccessMessage();
         setTimeout(init, 1500);
         setTimeout(hideSuccessMessage, 1500);

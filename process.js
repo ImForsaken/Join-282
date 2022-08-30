@@ -101,8 +101,34 @@ function closeNavBar() {
   `;
 }
 
+// audio stuff
+
+let AUDIO_DRAG = new Audio('audio/drag1.mp3');
+let AUDIO_DROP = new Audio('audio/drop1.mp3');
+
+function playDragSound() {
+    AUDIO_DRAG.play();
+}
+
+function playDropSound() {
+    AUDIO_DROP.play();
+}
 
 
+// help area
+
+function openHelp() {
+  document.getElementById('help-container').classList.remove('d-none');
+
+}
+
+function closeHelp() {
+  document.getElementById('help-container').classList.add('d-none');
+}
+
+function donotclose(event) {
+  event.stopPropagation();
+}
 
 
 
