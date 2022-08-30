@@ -86,6 +86,30 @@ async function deleteTaskDb() {
 
  // burgermenu
 
+
+function openNavBar() {
+  document.getElementById('navbar-container').classList.remove('d-none-mobile');
+  document.getElementById('navbar-button').innerHTML = `
+  <button onclick="closeNavBar()" class="getNavbar">...</button>
+  `;
+}
+
+function closeNavBar() {
+  document.getElementById('navbar-container').classList.add('d-none-mobile');
+  document.getElementById('navbar-button').innerHTML = `
+  <button onclick="openNavBar()" class="getNavbar">...</button>
+  `;
+}
+
+
+
+
+
+
+
+
+
+
  function openSideBar() {
     document.getElementById('burger-menu-open').classList.add ('d-none');
     document.getElementById('burger-menu-close').classList.remove ('d-none');

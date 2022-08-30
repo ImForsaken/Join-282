@@ -258,6 +258,11 @@ h1 {
     .inputManage {
         padding: 2vw;
     }
+
+    .backlogInfoCard {
+        width: 50%;
+        height: 69%;
+    }
 }
 
 @media (max-width: 700px) { 
@@ -272,8 +277,10 @@ h1 {
     }
 
     .navbar-mobile {
-        width: 18vw!important;
+        width: 100vw!important;
+        height: 98vh;
         align-items: center!important;
+        position: fixed;
     }
 
     .navbar-mobile-open {
@@ -351,7 +358,7 @@ h1 {
     }
 
     .contentContainerBacklog {
-        width: 77%;
+        width: 100%;
         margin: 0% 2%;
     }
 
@@ -389,5 +396,27 @@ h1 {
 
     .textarea {
         background-color: white;
+    }
+
+    .backlogInfoCard {
+        width: 90%;
+        height: 69%;
+    }
+
+    .getNavbar {
+        border-radius: 100%;
+        padding: 12px;
+        background-color: rgb(28, 45, 146);
+        color: white;
+        position: fixed;
+        top: 7px;
+        right: 7px;
+        width: 60px;
+        height: 60px;
+        border: 2px solid white;
+    }
+
+    .logo {
+        width: 20vw;
     }
 }
