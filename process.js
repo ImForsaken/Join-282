@@ -44,6 +44,7 @@ async function getTeam() {
 async function deleteAllData() {
     await backend.deleteItem('task');
     await backend.deleteItem('allBoardTasks');
+    initAllDbData();
 }
 
 async function deleteTaskDb() {

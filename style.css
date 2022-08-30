@@ -22,6 +22,11 @@
     min-width: max-content;
     z-index: 1;
 }
+
+.getNavbar {
+    display: none;
+}
+
 .container-fluid {
     display: flex;
     flex-direction: column;
@@ -30,6 +35,7 @@
 
 
 }
+
 .upperNavbar {
     display: flex;
     flex-direction: column;

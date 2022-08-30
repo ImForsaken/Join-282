@@ -87,10 +87,15 @@
                             <h2>Assigned to</h2>
                             <div>
                                 <div class="assignToBox">
-                                    <div class="d-none memberList" id="avatarPicker">
-                                        <img onclick="closeMemberList()" src="./img/cancel.png" class="closeMemberlist">
-                                        <div class="assignAbleMember" id="assignAbleMember">
+                                    <div id="transparentContainerAddTask" class="transparentContainerAddTask d-none"
+                                        onclick="closeMemberList()">
+                                        <div onclick="event.stopPropagation()" class="d-none memberList"
+                                            id="avatarPicker">
+                                            <img onclick="closeMemberList()" src="./img/cancel.png"
+                                                class="closeMemberlist">
+                                            <div class="assignAbleMember" id="assignAbleMember">
 
+                                            </div>
                                         </div>
                                     </div>
                                     <div id="memberBox" class="memberBox">

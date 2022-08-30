@@ -139,6 +139,16 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     margin-bottom: 10px;
 }
 
+.transparentContainerAddTask {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0px;
+    left: 0;
+    z-index: 1;
+    background: rgba(0,0,0,0.5);
+}
+
 .assignAbleMember {
     display: flex;
     flex-wrap: wrap;

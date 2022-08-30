@@ -399,13 +399,13 @@ h1 {
         margin: 0% 2%;
     }
 
-    .bodyContent {
-        padding: 0;
-    }
-
     .innerContainer {
         flex-direction: column;
         align-items: center;
+    }
+
+    .taskBox {
+        justify-content: center;
     }
 
     .backlogSettings {
@@ -452,6 +452,7 @@ h1 {
         height: 60px;
         border: 2px solid white;
         z-index: 1;
+        display: unset !important;
     }
 
     .logo {

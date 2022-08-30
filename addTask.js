@@ -64,10 +64,12 @@ function cancelTask() {
 function openMemberList() {
     renderAvatar();
     document.getElementById('avatarPicker').classList.remove('d-none');
+    document.getElementById('transparentContainerAddTask').classList.remove('d-none');
 }
 
 function closeMemberList() {
     document.getElementById('avatarPicker').classList.add('d-none');
+    document.getElementById('transparentContainerAddTask').classList.add('d-none');
 }
 
 function checkIfMemberSelected() {
