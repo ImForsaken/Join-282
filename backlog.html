@@ -14,6 +14,7 @@
     <script src="backlog.js"></script>
     <script src="log-in.js"></script>
     <script src="includeHTML.js"></script>
+    <script src="./html templates/task.js"></script>
 
 
     <!-- BOOTSTRAP -->
@@ -31,17 +32,19 @@
     <!-- LOCAL CSS -->
     <link rel="stylesheet" href="kevinstyle.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style-johannes.css">
 </head>
 
 <body onload="includeHTML(), initBacklogProcess(); customizeApp()">
     <div class="navAndBody">
+        <div class="" w3-include-html="html templates/help.html"></div>
         <div w3-include-html="html templates/navbar.html"></div>
         <div class="contentContainerBacklog">
             <div class="headContent">
                 <h1>Backlog</h1>
                 <p class="blue">Learning Management System Project</p>
             </div>
-            <div class="infoBar">
+            <div class="infoBar d-none-mobile">
                 <h2>ASSIGNED TO</h2>
                 <h2>CATEGORY</h2>
                 <h2>DETAILS</h2>

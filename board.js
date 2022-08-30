@@ -3,7 +3,32 @@ async function initBoard() {
     await renderTasksToBoard();
 }
 
-let stati = ['todo', 'in-progress', 'testing', 'done']
+function showDeleteArea() {
+    document.getElementById('deleteTaskArea').classList.remove('d-none');
+}
+
+function hideDeleteArea() {
+    document.getElementById('deleteTaskArea').classList.add('d-none');
+}
+
+function dragOverDeleteArea() {
+    document.getElementById('deleteTaskArea').classList.remove('deleteTaskArea');
+    document.getElementById('deleteTaskArea').classList.add('deleteTaskAreaHover');
+}
+
+function resetDeleteArea() {
+    document.getElementById('deleteTaskArea').classList.remove('deleteTaskAreaHover');
+    document.getElementById('deleteTaskArea').classList.add('deleteTaskArea');
+}
+
+
+async function deleteBoardTask() {
+    boardTasks.splice(currentDraggedElement, 1);
+    await setBoardTask();
+    await initBoardDB();
+    await initBoard();
+    playDropSound();
+}
 
 async function renderTasksToBoard() {
     document.getElementById('todo').innerHTML = '';
@@ -15,142 +40,26 @@ async function renderTasksToBoard() {
     for (let i = 0; i < boardTasks.length; i++) {
         const task = boardTasks[i];
         if (task['status'] == 'todo') {
-            document.getElementById('todo').innerHTML += /*html*/ `
-            <div draggable="true" ondragstart="startDragging(${i})" id="task-${i}" class="task-container">
-                <h3><b>${task['title']}</b></h3>
-                <div class="task-information-container">
-                    <div class="task-information-content">
-                        <div class="task-info-left-column"><b>Category: </b></div>
-                        <div class="task-info-right-column">${task['category']}</div>
-                    </div>
-                    <div class="task-information-content">
-                        <div class="task-info-left-column"><b>Urgency: </b></div>
-                        <div id="urgency-${i}" class="task-info-right-column"></div>
-                    </div>
-                    <div class="task-information-content">
-                        <div class="task-info-left-column"><b>From: </b></div>
-                        <div id="" class="task-info-right-column">${new Date(task['createdAt']).toLocaleDateString('eu-DE')}</div>
-                    </div>
-                    <div class="task-information-content">
-                        <div class="task-info-left-column"><b>Due: </b></div>
-                        <div id="" class="task-info-right-column">${new Date(task['date']).toLocaleDateString('eu-DE')}</div>
-                    </div>
-                    <div class="task-information-content">
-                        <div class="task-info-left-column"><b>Assigned to: </b></div>
-                        <div id="assigned-to-${i}" class="task-info-right-column assigned-to-list">
-
-                        </div>
-                    </div>
-                    <div class="task-description"><b>Description:</b><br> ${task['description']}</div>
-                </div>
-            </div>
-            `;
+            returnTaskHTML(i, task, 'todo');
             renderAssignedMembersForEachTask(i, task);
             renderUrgencyForEachTask(i, task);
         }
 
         // in-progress column
         if (task['status'] == 'in-progress') {
-            document.getElementById('in-progress').innerHTML += /*html*/ `
-            <div draggable="true" ondragstart="startDragging(${i})" id="task-${i}" class="task-container">
-                <h3><b>${task['title']}</b></h3>
-                <div class="task-information-container">
-                    <div class="task-information-content">
-                        <div class="task-info-left-column"><b>Category: </b></div>
-                        <div class="task-info-right-column">${task['category']}</div>
-                    </div>
-                    <div class="task-information-content">
-                        <div class="task-info-left-column"><b>Urgency: </b></div>
-                        <div id="urgency-${i}" class="task-info-right-column"></div>
-                    </div>
-                    <div class="task-information-content">
-                        <div class="task-info-left-column"><b>From: </b></div>
-                        <div id="" class="task-info-right-column">${new Date(task['createdAt']).toLocaleDateString('eu-DE')}</div>
-                    </div>
-                    <div class="task-information-content">
-                        <div class="task-info-left-column"><b>Due: </b></div>
-                        <div id="" class="task-info-right-column">${new Date(task['date']).toLocaleDateString('eu-DE')}</div>
-                    </div>
-                    <div class="task-information-content">
-                        <div class="task-info-left-column"><b>Assigned to: </b></div>
-                        <div id="assigned-to-${i}" class="task-info-right-column assigned-to-list">
-
-                        </div>
-                    </div>
-                    <div class="task-description"><b>Description:</b><br> ${task['description']}</div>
-                </div>
-            </div>
-            `;
+            returnTaskHTML(i, task, 'in-progress');
             renderAssignedMembersForEachTask(i, task);
             renderUrgencyForEachTask(i, task);
         }
         // // testing column
         if (task['status'] == 'testing') {
-            document.getElementById('testing').innerHTML += /*html*/ `
-                <div draggable="true" ondragstart="startDragging(${i})" id="task-${i}" class="task-container">
-                    <h3><b>${task['title']}</b></h3>
-                    <div class="task-information-container">
-                        <div class="task-information-content">
-                            <div class="task-info-left-column"><b>Category: </b></div>
-                            <div class="task-info-right-column">${task['category']}</div>
-                        </div>
-                        <div class="task-information-content">
-                            <div class="task-info-left-column"><b>Urgency: </b></div>
-                            <div id="urgency-${i}" class="task-info-right-column"></div>
-                        </div>
-                        <div class="task-information-content">
-                            <div class="task-info-left-column"><b>From: </b></div>
-                            <div id="" class="task-info-right-column">${new Date(task['createdAt']).toLocaleDateString('eu-DE')}</div>
-                        </div>
-                        <div class="task-information-content">
-                            <div class="task-info-left-column"><b>Due: </b></div>
-                            <div id="" class="task-info-right-column">${new Date(task['date']).toLocaleDateString('eu-DE')}</div>
-                        </div>
-                        <div class="task-information-content">
-                            <div class="task-info-left-column"><b>Assigned to: </b></div>
-                            <div id="assigned-to-${i}" class="task-info-right-column assigned-to-list">
-    
-                            </div>
-                        </div>
-                        <div class="task-description"><b>Description:</b><br> ${task['description']}</div>
-                    </div>
-                </div>
-                `;
+            returnTaskHTML(i, task, 'testing');
             renderAssignedMembersForEachTask(i, task);
             renderUrgencyForEachTask(i, task);
         }
         // // done column
         if (task['status'] == 'done') {
-            document.getElementById('done').innerHTML += /*html*/ `
-                <div draggable="true" ondragstart="startDragging(${i})" id="task-${i}" class="task-container">
-                    <h3><b>${task['title']}</b></h3>
-                    <div class="task-information-container">
-                        <div class="task-information-content">
-                            <div class="task-info-left-column"><b>Category: </b></div>
-                            <div class="task-info-right-column">${task['category']}</div>
-                        </div>
-                        <div class="task-information-content">
-                            <div class="task-info-left-column"><b>Urgency: </b></div>
-                            <div id="urgency-${i}" class="task-info-right-column"></div>
-                        </div>
-                        <div class="task-information-content">
-                            <div class="task-info-left-column"><b>From: </b></div>
-                            <div id="" class="task-info-right-column">${new Date(task['createdAt']).toLocaleDateString('eu-DE')}</div>
-                        </div>
-                        <div class="task-information-content">
-                            <div class="task-info-left-column"><b>Due: </b></div>
-                            <div id="" class="task-info-right-column">${new Date(task['date']).toLocaleDateString('eu-DE')}</div>
-                        </div>
-                        <div class="task-information-content ">
-                            <div class="task-info-left-column"><b>Assigned to: </b></div>
-                            <div id="assigned-to-${i}" class="task-info-right-column assigned-to-list">
-    
-                            </div>
-                        </div>
-                        <div class="task-description"><b>Description:</b><br> ${task['description']}</div>
-                    </div>
-                </div>
-                `;
+            returnTaskHTML(i, task, 'done');
             renderAssignedMembersForEachTask(i, task);
             renderUrgencyForEachTask(i, task);
         }
@@ -160,7 +69,7 @@ async function renderTasksToBoard() {
         document.getElementById('assigned-to-' + i).innerHTML = '';
         for (let j = 0; j < task['assignedMember'].length; j++) {
             const assignedMember = task['assignedMember'][j];
-            document.getElementById('assigned-to-' + i).innerHTML += `<div class="assigned-to-list-member"><b>${assignedMember['firstName']} ${assignedMember['lastName']}</b></div>`
+            document.getElementById('assigned-to-' + i).innerHTML += `<div class="assigned-to-list-member"><b>- ${assignedMember['firstName']} ${assignedMember['lastName']}</b></div>`
         }
     }
 
@@ -183,6 +92,7 @@ async function renderTasksToBoard() {
 
     function startDragging(id) {
         currentDraggedElement = id;
+        showDeleteArea();
     }
 
     function allowDrop(ev) {

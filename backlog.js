@@ -54,7 +54,7 @@ function backlogHTML(taskContent, i, category, description, date) {
                     <div id="assignedMember${i}" class="assignedMember">
                     </div>
             </div>
-            <div class="category"><b>Due Date</b><br><b>${date}</b></div>
+            <div class="category"><b>Due Date</b><br class="d-none-mobile"><b>${date}</b></div>
             <div class="category"><b>${category}</b></div>
             <div class="descriptionBacklogBox">
                 <textarea  onclick="event.stopPropagation()" class="scroll" rows="2" cols="3" id="description${i}">${description}</textarea>
@@ -185,6 +185,7 @@ async function pushTaskToBoard(i) {
         await setBoardTask();
         await setTask();
         await initBacklogProcess();
+        playDropSound();
     } else {
         alert('Canceled');
     }

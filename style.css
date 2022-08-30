@@ -8,6 +8,10 @@
 
 /* Navbar */
 
+.cursor-pointer {
+    cursor: pointer;
+}
+
 .navbar-main {
     background-color: #ffffff !important;
     height: 100vh;
@@ -16,6 +20,7 @@
     justify-content: space-between;
     width: max-content;
     min-width: max-content;
+    z-index: 1;
 }
 .container-fluid {
     display: flex;
@@ -64,7 +69,7 @@
     height: 48px;
     width: 48px;
     background-color: gray;
-    color:white;
+    color:rgb(217, 217, 217);
     font-size: larger;
     display: flex;
     justify-content: center;

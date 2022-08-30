@@ -27,7 +27,7 @@ function renderAvatar() {
    for (let i = 0; i < team.length; i++) {
     const icon = team[i].icon;
     assignBox.innerHTML += `
-    <p id="user-${i}" onclick="selectUser(${i})" class="avatar4">${icon}</p>
+    <p id="user-${i}" onclick="selectUser(${i})" class="avatar4 cursor-pointer">${icon}</p>
     `
    };
 };

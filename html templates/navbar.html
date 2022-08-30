@@ -1,19 +1,24 @@
-<nav class="navbar navbar-main navbar-expand-lg bg-light position-sticky">
-    <div class="container-fluid">
+<nav id="navbar-container" class="navbar navbar-main navbar-expand-lg bg-light position-sticky d-none-mobile">
+    <div id="navbar" class="container-fluid navbar-mobile">
         <div class="upperNavbar">
             <img class="logo" src="./img/logo.png">
-            <ul class="navbar-nav">
+            <!-- <img id="burger-menu-open" class="burger-menu only-mobile" src="./img/arrow-right.png" onclick="openSideBar();">
+            <img id="burger-menu-close" class="burger-menu only-mobile d-none" src="./img/arrow-left.png" onclick="closeSideBar();">
+             -->
+            <ul id="navbar-links" class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link nav-link-hover nav-link-hover2 border-radius-30px" href="board.html">Board</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link nav-link-hover nav-link-hover2 border-radius-30px" href="backlog.html">Backlog</a>
+                    <a class="nav-link nav-link-hover nav-link-hover2 border-radius-30px"
+                        href="backlog.html">Backlog</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link nav-link-hover nav-link-hover2 border-radius-30px" href="addTask.html">Add Task</a>
+                    <a class="nav-link nav-link-hover nav-link-hover2 border-radius-30px" href="addTask.html">Add
+                        Task</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link nav-link-hover nav-link-hover2 border-radius-30px" href="#">Help</a>
+                    <a class="nav-link nav-link-hover nav-link-hover2 border-radius-30px cursor-pointer" onclick="openHelp()">Help</a>
                 </li>
             </ul>
         </div>
@@ -24,3 +29,6 @@
     </div>
 </nav>
 
+<div id="navbar-button">
+    <button onclick="openNavBar()" class="getNavbar">...</button>
+</div>
