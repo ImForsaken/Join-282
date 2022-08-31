@@ -93,7 +93,12 @@ h1 {
 .column {
     background-color: rgb(228, 227, 249);
     width: 20vw;
-    height: 94%;
+    height: 93vh;
+}
+
+.scroll {
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .board-headline {
