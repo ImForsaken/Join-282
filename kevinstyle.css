@@ -44,7 +44,6 @@
     animation: success 0.5s ease-in;
 }
 
-
 @keyframes success {
     0% {
         transform: scale(0);
@@ -79,10 +78,6 @@
     border-radius: 10px;
 }
 
-/* .addTaskBoard input {
-    width: -webkit-fill-available;
-
-} */
 .taskBoard {
     justify-content: space-evenly;
     align-items: center;
@@ -116,7 +111,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     background-position: right 20px center;
     background-size: 25px;
     appearance: none;
-    /* filter: drop-shadow(0 0 1px black); */
 }
 
 /* arrow icon for inputs */
@@ -129,6 +123,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     background-size: 25px;
     appearance: none;
 }
+
 .arrow::after {
     border-left: 1px solid #3C1C78;
 }
@@ -189,11 +184,13 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .openMemberBtn {
     border: 2px solid transparent;
 }
+
 .openMemberBtn:hover {
     transform: scale(1.1);
     border-radius: 50%;
     border: 2px solid white;
 }
+
 .cancelButton {
     background-color: transparent;
     border: none;
@@ -233,6 +230,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .closeMemberlist:hover {
     transform: scale(1.1);
 }
+
 .avatar-selected {
     opacity: 1;
     border: 2px solid #3D49CA;
@@ -255,9 +253,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     display: unset; /*hides scrollbars for Chrome, Safari, and Opera */
   }
 
-
 /* BACKLOG */
-
 
 .contentContainerBacklog {
     display: flex;
@@ -283,17 +279,15 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     overflow-y: scroll; 
     height: 100%;
     padding: 15px;
-    /* overflow: inherit; */
 }
+
 .bodyContent::-webkit-scrollbar {
-    display: none; /*hides scrollbars for Chrome, Safari, and Opera */
+    display: none; 
   }
 
 .scroll::-webkit-scrollbar {
-    display: none; /*hides scrollbars for Chrome, Safari, and Opera */
+    display: none;
   }
-
-
 
 .taskContainerBacklog {
     max-height: fit-content;
@@ -315,6 +309,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     padding: 10px;
     height: 100%;
 }
+
 .taskBox {
     display: flex;
     align-items: center;
@@ -500,9 +495,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     scrollbar-width: none; /* for Firefox */
     overflow-y: scroll; 
 }
+
 .descriptionBox::-webkit-scrollbar {
     display: none;
 }
+
 .card-infos {
     flex-grow: 1;
     text-align: center;

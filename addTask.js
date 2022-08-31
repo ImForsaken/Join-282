@@ -35,7 +35,7 @@ async function addTask() {
         displaySuccessMessage();
         setTimeout(init, 1500);
         setTimeout(hideSuccessMessage, 1500);
-        
+
     };
 }
 
@@ -60,6 +60,7 @@ async function pushTaskToBackend(task) {
 function cancelTask() {
     document.getElementById("taskForm").reset();
 }
+
 
 function openMemberList() {
     renderAvatar();
