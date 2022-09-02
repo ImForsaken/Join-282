@@ -81,8 +81,11 @@ h1 {
     cursor: pointer;
 }
 
-/* ab hier das board */
+.error-text {
+    color:red;
+}
 
+/* ab hier das board */
 
 .board-container {
     display: flex;
@@ -93,12 +96,16 @@ h1 {
 .column {
     background-color: rgb(228, 227, 249);
     width: 20vw;
-    height: 94%;
+    height: 93vh;
+}
+
+.scroll {
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .board-headline {
     max-width: 20vw;
-    /* object-fit: contain; */
     font-size: 2.3vw;
     text-align: center;
     font-weight: bold;
@@ -123,7 +130,6 @@ h1 {
     text-align: justify;
     margin-bottom: 0px;
     max-width: 100%;
-
 }
 
 .task-container-subheadline {
@@ -158,11 +164,6 @@ h1 {
     border-radius: 10px;
     border: 4px solid red;
 }
-
-/* .position-sticky {
-    position: absolute;
-    top: 0px;
-} */
 
 .highlight {
     background-color: rgb(213, 213, 222);
@@ -260,6 +261,10 @@ h1 {
     padding: 8px;
 }
 
+.only-mobile {
+    display: none;
+}
+
 
 
 @media (max-width: 1224px) { 
@@ -303,13 +308,17 @@ h1 {
 }
 
 @media (max-width: 700px) { 
+    .only-mobile {
+        display:flex
+    }
+
     .board-container {
         flex-direction: column;
         align-items: center;
     }
 
     .column {
-        width: 78vw;
+        max-width: 78vw;
         /* text-align: center; */
     }
 

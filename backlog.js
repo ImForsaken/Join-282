@@ -12,7 +12,7 @@ async function initBacklogProcess() {
 function renderTasks() {
     let taskContent = document.getElementById('taskContent');
     taskContent.innerHTML = "";
-    for (let i = 0; i < allTasks.length; i++) {      
+    for (let i = 0; i < allTasks.length; i++) {
         renderTaskHTML(i, taskContent);
     }
 }
@@ -46,7 +46,7 @@ function getTaskMembers(i) {
         const lastName = allTasks[i].assignedMember[j].lastName;
         const email = allTasks[i].assignedMember[j].eMail;
         let icon = allTasks[i].assignedMember[j].icon;
- 
+
         assignedTo.innerHTML += `
         <div class="d-flex memberCardTag">
             <p class="avatar4">${icon}</p>
@@ -55,7 +55,7 @@ function getTaskMembers(i) {
                 <a href="${email}">${email}</a><br>
             </div>    
         </div>
-        `;      
+        `;
     };
 }
 
@@ -177,7 +177,7 @@ function getBorderColor(i, urgency) {
         document.getElementById('taskContainer' + i).style.borderLeft = "10px solid purple";
     }
     else if (urgency == "High") {
-        document.getElementById('taskContainer'+ i).style.borderLeft = "10px solid orange";
+        document.getElementById('taskContainer' + i).style.borderLeft = "10px solid orange";
     }
 }
 
@@ -206,7 +206,7 @@ function getTaskMembersforInfoCard(i) {
                 <p class="avatar4">${icon}</p>
             </div>
         </div>
-        `;      
+        `;
     };
 }
 
@@ -227,7 +227,7 @@ async function pushTaskToBoard(i) {
         await initAllDbData();
         allTasks[i].status = "todo";
         boardTasks.push(allTasks[i]);
-        allTasks.splice(i, 1); 
+        allTasks.splice(i, 1);
         await setBoardTask();
         await setTask();
         await initBacklogProcess();
@@ -235,7 +235,7 @@ async function pushTaskToBoard(i) {
     } else {
         alert('Canceled');
     }
-}
+};
 
 /**
  * Function to delete selected Task from Backend
@@ -245,15 +245,15 @@ async function pushTaskToBoard(i) {
 async function deleteTaskBacklog(i) {
 
     if (confirm("Are you sure?") == true) {
-    await initAllDbData();
-    allTasks.splice(i, 1);
-    await setBoardTask();
-    await setTask();
-    await initBacklogProcess();
-} else {
-    alert('Canceled');
-}
-}
+        await initAllDbData();
+        allTasks.splice(i, 1);
+        await setBoardTask();
+        await setTask();
+        await initBacklogProcess();
+    } else {
+        alert('Canceled');
+    }
+};
 
 /**
  * Function to edit selected Task from Backend

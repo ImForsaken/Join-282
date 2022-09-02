@@ -16,15 +16,21 @@ async function login(){
 function checkEmailMatchesPassword() {
     let loginemail = document.getElementById('login-email').value;
     let loginpassword = document.getElementById('login-password').value;
+    let loginvalid = false;
     for (let i = 0; i < team.length; i++) {
         const element = team[i];
         if (loginemail == element['eMail'] && loginpassword == element['password']) {
+            loginvalid = true;
             currentMember = element['eMail'];
             setCurrentMember('currentmember', currentMember);
             window.open('board.html', '_self');
         } else {
             alert('Login Daten fehlerhaft');
+            window.open('board.html', '_self');
         }
+    }
+    if (loginvalid == false) {
+        document.getElementById('login-error').classList.remove('d-none');
     }
  }
 
@@ -33,7 +39,7 @@ function checkEmailMatchesPassword() {
  * @param {string} key - Current User that Login in
  * @param {string} currentMember - Email of user who try to login
  */
- function setCurrentMember(key, currentMember) {
+function setCurrentMember(key, currentMember) {
         localStorage.setItem(key, currentMember);
       }
 
@@ -42,13 +48,13 @@ function checkEmailMatchesPassword() {
  * @param {string} key - Current logged in user
  * @returns - returns the Member of this process
  */
- function getCurrentMember(key) {
+function getCurrentMember(key) {
     return localStorage.getItem(key);
   }
 
-  /**
-   * Function to determine the User
-   */
-  function findOutWhoLoggedIn() {
+/**
+ * Function to determine the User
+ */
+function findOutWhoLoggedIn() {
     currentMember = getCurrentMember('currentmember');
   }
