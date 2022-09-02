@@ -81,6 +81,10 @@ h1 {
     cursor: pointer;
 }
 
+.error-text {
+    color:red;
+}
+
 /* ab hier das board */
 
 .board-container {

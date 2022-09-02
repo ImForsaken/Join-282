@@ -9,15 +9,18 @@ let currentMember; // this is the email of the current user, who just logged in 
  function checkEmailMatchesPassword() {
     let loginemail = document.getElementById('login-email').value;
     let loginpassword = document.getElementById('login-password').value;
+    let loginvalid = false;
     for (let i = 0; i < team.length; i++) {
         const element = team[i];
         if (loginemail == element['eMail'] && loginpassword == element['password']) {
+            loginvalid = true;
             currentMember = element['eMail'];
             setCurrentMember('currentmember', currentMember);
             window.open('board.html', '_self') // weiterleitung zum board
-        } else {
-            // alert('Login Daten fehlerhaft')
         }
+    }
+    if (loginvalid == false) {
+        document.getElementById('login-error').classList.remove('d-none')
     }
  }
 
