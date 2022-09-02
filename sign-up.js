@@ -1,3 +1,6 @@
+/**
+ * Oragnises the SignUp process
+ */
 async function signUp() {
     await getTeam();
     let email = document.getElementById('signup-email').value;
@@ -17,16 +20,5 @@ async function signUp() {
     await setTeam();
     currentMember = newUser['eMail'];
     setCurrentMember('currentmember', currentMember);
-    window.open('board.html', '_self') // weiterleitung zum board
+    window.open('board.html', '_self');
 }
-
-async function setTeam() {
-    await backend.setItem('team', JSON.stringify(team));
-}
-
-
-
-// function getarray(key) {
-//     return JSON.parse(localStorage.getItem(key));
-//   }
-

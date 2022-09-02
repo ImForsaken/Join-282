@@ -1,9 +1,14 @@
+/**
+ * Download all Backend data and renders Backlog Tasks
+ */
 async function initBacklogProcess() {
     await initAllDbData();
     renderTasks();
 }
 
-// Render HTML code as task container
+/**
+ * Render HTML code as task container
+ */
 function renderTasks() {
     let taskContent = document.getElementById('taskContent');
     taskContent.innerHTML = "";
@@ -12,23 +17,31 @@ function renderTasks() {
     }
 }
 
+/**
+ * Determine the current Task information and transfer it to other Functions
+ * 
+ * @param {number} i -index
+ */
 function renderTaskHTML(i) {
     let date = allTasks[i].date;
     let category = allTasks[i].category;
     let urgency = allTasks[i].urgency;
     let description = allTasks[i].description;
     switchMe = "taskContainer";
-    backlogHTML(taskContent, i, category, description, date);
-
+    backlogHTML(i, category, description, date);
     getTaskMembers(i);
     getBorderColor(i, urgency);
 }
 
+/**
+ * Displays all Information of assigned Members for this Task
+ * 
+ * @param {number} i - index
+ */
 function getTaskMembers(i) {
 
     for (let j = 0; j < allTasks[i].assignedMember.length; j++) {
         let assignedTo = document.getElementById('assignedMember' + i);
-        let avatarBox = document.getElementById('avatarBox' + i);
         const firstName = allTasks[i].assignedMember[j].firstName;
         const lastName = allTasks[i].assignedMember[j].lastName;
         const email = allTasks[i].assignedMember[j].eMail;
@@ -45,8 +58,17 @@ function getTaskMembers(i) {
         `;      
     };
 }
-//<div id="avatarBox${i}" class="avatarBox"></div>
-function backlogHTML(taskContent, i, category, description, date) {
+
+/**
+ * Renders the complete HTML of every Task
+ * 
+ * @param {number} i - index of current loop
+ * @param {string} category - Assigned Team
+ * @param {string} description - Description of the Task
+ * @param {string} date - Due date of Task
+ * @returns - Returns HTML code
+ */
+function backlogHTML(i, category, description, date) {
     return taskContent.innerHTML += `
     <div id="taskContainer${i}" class="taskContainerBacklog" onclick="openTaskInfoCard(${i})">
         <div class="innerContainer">
@@ -73,8 +95,12 @@ function backlogHTML(taskContent, i, category, description, date) {
     `;
 }
 
+/**
+ * Displays Task card with more detailed Informations
+ * 
+ * @param {number} i - index
+ */
 function openTaskInfoCard(i) {
-
 
     document.getElementById('backlogTaskInfoCard').classList.remove('d-none');
     let title = allTasks[i].title;
@@ -117,6 +143,11 @@ function openTaskInfoCard(i) {
     }
 }
 
+/**
+ * Changes the color of Taskcard Todo and the Background of Urgency container
+ * 
+ * @param {string} urgency - Task urgency level
+ */
 function getUrgencyBackground(urgency) {
     if (urgency == "Low") {
         document.getElementById('cardUrgency').style.backgroundColor = "green";
@@ -132,7 +163,12 @@ function getUrgencyBackground(urgency) {
     }
 }
 
-
+/**
+ * Determine the Task left border color to display its current urgency level
+ * 
+ * @param {number} i - index of current loop
+ * @param {string} urgency - Task urgency level
+ */
 function getBorderColor(i, urgency) {
     if (urgency == "Low") {
         document.getElementById('taskContainer' + i).style.borderLeft = "10px solid green";
@@ -143,9 +179,13 @@ function getBorderColor(i, urgency) {
     else if (urgency == "High") {
         document.getElementById('taskContainer'+ i).style.borderLeft = "10px solid orange";
     }
-
 }
 
+/**
+ * Renders all assigned Members for displayed Task
+ * 
+ * @param {number} i - Index of current loop
+ */
 function getTaskMembersforInfoCard(i) {
 
     for (let j = 0; j < allTasks[i].assignedMember.length; j++) {
@@ -170,11 +210,17 @@ function getTaskMembersforInfoCard(i) {
     };
 }
 
-
+/**
+ * Hides the Task info card
+ */
 function closeTaskInfoCard() {
     document.getElementById('backlogTaskInfoCard').classList.add('d-none');
 }
 
+/**
+ * 
+ * @param {number} i - Index of current loop
+ */
 async function pushTaskToBoard(i) {
 
     if (confirm("Are you sure?") == true) {
@@ -191,6 +237,11 @@ async function pushTaskToBoard(i) {
     }
 }
 
+/**
+ * Function to delete selected Task from Backend
+ * 
+ * @param {number} i - Index of current loop
+ */
 async function deleteTaskBacklog(i) {
 
     if (confirm("Are you sure?") == true) {
@@ -204,17 +255,21 @@ async function deleteTaskBacklog(i) {
 }
 }
 
-
+/**
+ * Function to edit selected Task from Backend
+ * 
+ * @param {number} i - Index of current loop
+ */
 async function editDescription(i) {
     if (confirm("Are you sure?") == true) {
-    await initAllDbData();
-    let description = document.getElementById('description' + i);
-    allTasks[i].description = description.value;
-    allTasks[i].lastEdit = new Date().getTime();
-    await setBoardTask();
-    await setTask();
-    await initBacklogProcess();
-} else {
-    alert('Canceled');
-}
+        await initAllDbData();
+        let description = document.getElementById('description' + i);
+        allTasks[i].description = description.value;
+        allTasks[i].lastEdit = new Date().getTime();
+        await setBoardTask();
+        await setTask();
+        await initBacklogProcess();
+    } else {
+        alert('Canceled');
+    }
 }

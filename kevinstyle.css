@@ -318,7 +318,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .taskBox {
     display: flex;
     align-items: center;
-    width: 33%;
 }
 
 .avatarBox {

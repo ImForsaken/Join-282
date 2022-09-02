@@ -1,4 +1,5 @@
 let team = [];
+let selectedUsers = [];
 
 // {
 //     'id': 0,
@@ -19,8 +20,9 @@ let team = [];
 //     'icon': 'JG'
 // }
 
-let selectedUsers = [];
-// BEACHTEN DAS IN DER VORSCHLAFE EINE CONSTANT 2 EINGEFÜGT WURDE - NACHHER ÄNDERN AUF TEAM.LENGTH ABER IMO TEAM NICHT ANGEPASST.
+/**
+ * Renders all Avatars that are pick able for new Tasks
+ */
 function renderAvatar() {
    let assignBox = document.getElementById('assignAbleMember');
    assignBox.innerHTML = "";
@@ -32,6 +34,9 @@ function renderAvatar() {
    };
 };
 
+/**
+ * Renders selected Member to Memberbox
+ */
 function assignedToBox() {
     memberBox = document.getElementById('memberBox');
     memberBox.innerHTML = "";
@@ -41,6 +46,11 @@ function assignedToBox() {
     };
 };
 
+/**
+ * Function that filters if the Array contains the selected user
+ * 
+ * @param {number} i - index of current loop
+ */
 function selectUser(i) {
     let user = document.getElementById('user-' + i);
     user.classList.toggle('avatar-selected');
@@ -52,8 +62,13 @@ function selectUser(i) {
 assignedToBox();
 };
 
+/**
+ * Makes the Avatar clickable to remove selected user
+ * 
+ * @param {number} i - index
+ */
 function unSelectUser(i){
-        selectedUsers.splice(i, 1);
-assignedToBox();
+    selectedUsers.splice(i, 1);
+    assignedToBox();
 }
 
