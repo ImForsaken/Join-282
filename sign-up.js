@@ -1,5 +1,5 @@
 /**
- * Oragnises the SignUp process
+ * Organises the SignUp process
  */
 async function signUp() {
     await getTeam();
