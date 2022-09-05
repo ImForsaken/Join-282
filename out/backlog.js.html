@@ -34,6 +34,7 @@ async function initBacklogProcess() {
     renderTasks();
 }
 
+
 /**
  * Render HTML code as task container
  */
@@ -44,6 +45,7 @@ function renderTasks() {
         renderTaskHTML(i, taskContent);
     }
 }
+
 
 /**
  * Determine the current Task information and transfer it to other Functions
@@ -60,6 +62,7 @@ function renderTaskHTML(i) {
     getTaskMembers(i);
     getBorderColor(i, urgency);
 }
+
 
 /**
  * Displays all Information of assigned Members for this Task
@@ -86,6 +89,7 @@ function getTaskMembers(i) {
         `;
     };
 }
+
 
 /**
  * Renders the complete HTML of every Task
@@ -123,6 +127,7 @@ function backlogHTML(i, category, description, date) {
     `;
 }
 
+
 /**
  * Displays Task card with more detailed Informations
  * 
@@ -139,7 +144,87 @@ function openTaskInfoCard(i) {
     let lastEdit = new Date(allTasks[i].lastEdit).toLocaleTimeString('eu-DE');
     infoCard = document.getElementById('backlogInfoCard');
     infoCard.innerHTML = "";
-    infoCard.innerHTML = `
+    infoCard.innerHTML = renderInfoCardHTML(title, date, description, urgency, category, lastEdit);
+    getUrgencyBackground(urgency);
+    getTaskMembersforInfoCard(i);
+    if (allTasks[i].lastEdit === "") {
+        let createdAt = new Date(allTasks[i].createdAt).toString()
+        document.getElementById('lastUpdate').innerHTML = `Task created: ${createdAt}`;
+    }
+}
+
+
+/**
+ * Changes the color of Taskcard Todo and the Background of Urgency container
+ * 
+ * @param {string} urgency - Task urgency level
+ */
+function getUrgencyBackground(urgency) {
+    if (urgency == "Low") {
+        document.getElementById('cardUrgency').style.backgroundColor = "green";
+        document.getElementById('todoUrgency').style.color = "green";
+    }
+    else if (urgency == "Mid") {
+        document.getElementById('cardUrgency').style.background = "purple";
+        document.getElementById('todoUrgency').style.color = "purple";
+    }
+    else if (urgency == "High") {
+        document.getElementById('cardUrgency').style.background = "orange";
+        document.getElementById('todoUrgency').style.color = "orange";
+    }
+}
+
+
+/**
+ * Determine the Task left border color to display its current urgency level
+ * 
+ * @param {number} i - index of current loop
+ * @param {string} urgency - Task urgency level
+ */
+function getBorderColor(i, urgency) {
+    if (urgency == "Low") {
+        document.getElementById('taskContainer' + i).style.borderLeft = "10px solid green";
+    }
+    else if (urgency == "Mid") {
+        document.getElementById('taskContainer' + i).style.borderLeft = "10px solid purple";
+    }
+    else if (urgency == "High") {
+        document.getElementById('taskContainer' + i).style.borderLeft = "10px solid orange";
+    }
+}
+
+
+/**
+ * Renders all assigned Members for displayed Task
+ * 
+ * @param {number} i - Index of current loop
+ */
+function getTaskMembersforInfoCard(i) {
+
+    for (let j = 0; j &lt; allTasks[i].assignedMember.length; j++) {
+        let assignedTo = document.getElementById('memberCardInfoContainer');
+        const firstName = allTasks[i].assignedMember[j].firstName;
+        const lastName = allTasks[i].assignedMember[j].lastName;
+        const email = allTasks[i].assignedMember[j].eMail;
+        const icon = allTasks[i].assignedMember[j].icon;
+        assignedTo.innerHTML += renderAssignedToHTML(firstName, lastName, email, icon);
+    };
+}
+
+
+/**
+ * Renders the Infocard HTML code
+ * 
+ * @param {string} title - Title of task
+ * @param {string} date - Due date of Task
+ * @param {string} description - Task description
+ * @param {string} urgency - Task urgency level
+ * @param {string} category - Task assigned Team
+ * @param {string} lastEdit - Last edit time of Task
+ * @returns HTML code
+ */
+function renderInfoCardHTML(title, date, description, urgency, category, lastEdit) {
+    return `
     &lt;div class="bCard text-bg-dark">
         &lt;img src="./img/logo.png" class="card-img" alt="Join">
         &lt;div class="card-img-overlay">
@@ -163,68 +248,20 @@ function openTaskInfoCard(i) {
         &lt;/div>
     &lt;/div>
     `;
-    getUrgencyBackground(urgency);
-    getTaskMembersforInfoCard(i);
-    if (allTasks[i].lastEdit === "") {
-        let createdAt = new Date(allTasks[i].createdAt).toString()
-        document.getElementById('lastUpdate').innerHTML = `Task created: ${createdAt}`;
-    }
 }
 
-/**
- * Changes the color of Taskcard Todo and the Background of Urgency container
- * 
- * @param {string} urgency - Task urgency level
- */
-function getUrgencyBackground(urgency) {
-    if (urgency == "Low") {
-        document.getElementById('cardUrgency').style.backgroundColor = "green";
-        document.getElementById('todoUrgency').style.color = "green";
-    }
-    else if (urgency == "Mid") {
-        document.getElementById('cardUrgency').style.background = "purple";
-        document.getElementById('todoUrgency').style.color = "purple";
-    }
-    else if (urgency == "High") {
-        document.getElementById('cardUrgency').style.background = "orange";
-        document.getElementById('todoUrgency').style.color = "orange";
-    }
-}
 
 /**
- * Determine the Task left border color to display its current urgency level
+ * Renders the HTML code and Information of an Task assigned Member
  * 
- * @param {number} i - index of current loop
- * @param {string} urgency - Task urgency level
+ * @param {string} firstName - First name of assigned Member
+ * @param {string} lastName - Last name of assigned Member
+ * @param {string} email - Email information of assigned Member
+ * @param {string} icon - Generated icon for assigned Member
+ * @returns HTML code
  */
-function getBorderColor(i, urgency) {
-    if (urgency == "Low") {
-        document.getElementById('taskContainer' + i).style.borderLeft = "10px solid green";
-    }
-    else if (urgency == "Mid") {
-        document.getElementById('taskContainer' + i).style.borderLeft = "10px solid purple";
-    }
-    else if (urgency == "High") {
-        document.getElementById('taskContainer' + i).style.borderLeft = "10px solid orange";
-    }
-}
-
-/**
- * Renders all assigned Members for displayed Task
- * 
- * @param {number} i - Index of current loop
- */
-function getTaskMembersforInfoCard(i) {
-
-    for (let j = 0; j &lt; allTasks[i].assignedMember.length; j++) {
-        let assignedTo = document.getElementById('memberCardInfoContainer');
-
-        const firstName = allTasks[i].assignedMember[j].firstName;
-        const lastName = allTasks[i].assignedMember[j].lastName;
-        const email = allTasks[i].assignedMember[j].eMail;
-        const icon = allTasks[i].assignedMember[j].icon;
-
-        assignedTo.innerHTML += `
+function renderAssignedToHTML(firstName, lastName, email, icon) {
+    return `
         &lt;div class="memberCardInfo">
             &lt;div>
                 &lt;b>${firstName} ${lastName}&lt;/b>&lt;br>
@@ -235,8 +272,8 @@ function getTaskMembersforInfoCard(i) {
             &lt;/div>
         &lt;/div>
         `;
-    };
 }
+
 
 /**
  * Hides the Task info card
@@ -245,12 +282,12 @@ function closeTaskInfoCard() {
     document.getElementById('backlogTaskInfoCard').classList.add('d-none');
 }
 
+
 /**
  * 
  * @param {number} i - Index of current loop
  */
 async function pushTaskToBoard(i) {
-
     if (confirm("Are you sure?") == true) {
         await initAllDbData();
         allTasks[i].status = "todo";
@@ -265,13 +302,13 @@ async function pushTaskToBoard(i) {
     }
 };
 
+
 /**
  * Function to delete selected Task from Backend
  * 
  * @param {number} i - Index of current loop
  */
 async function deleteTaskBacklog(i) {
-
     if (confirm("Are you sure?") == true) {
         await initAllDbData();
         allTasks.splice(i, 1);
@@ -282,6 +319,7 @@ async function deleteTaskBacklog(i) {
         alert('Canceled');
     }
 };
+
 
 /**
  * Function to edit selected Task from Backend
@@ -310,13 +348,13 @@ async function editDescription(i) {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#addTask">addTask</a></li><li><a href="global.html#allowDrop">allowDrop</a></li><li><a href="global.html#allTasks">allTasks</a></li><li><a href="global.html#assignedToBox">assignedToBox</a></li><li><a href="global.html#AUDIO_DRAG">AUDIO_DRAG</a></li><li><a href="global.html#backlogHTML">backlogHTML</a></li><li><a href="global.html#cancelTask">cancelTask</a></li><li><a href="global.html#checkEmailMatchesPassword">checkEmailMatchesPassword</a></li><li><a href="global.html#closeHelp">closeHelp</a></li><li><a href="global.html#closeMemberList">closeMemberList</a></li><li><a href="global.html#closeNavBar">closeNavBar</a></li><li><a href="global.html#closeSideBar">closeSideBar</a></li><li><a href="global.html#closeTaskInfoCard">closeTaskInfoCard</a></li><li><a href="global.html#currentDraggedElement">currentDraggedElement</a></li><li><a href="global.html#customizeApp">customizeApp</a></li><li><a href="global.html#deleteAllData">deleteAllData</a></li><li><a href="global.html#deleteBoardDb">deleteBoardDb</a></li><li><a href="global.html#deleteBoardTask">deleteBoardTask</a></li><li><a href="global.html#deleteTaskBacklog">deleteTaskBacklog</a></li><li><a href="global.html#deleteTaskDb">deleteTaskDb</a></li><li><a href="global.html#deleteTeam">deleteTeam</a></li><li><a href="global.html#displaySuccessMessage">displaySuccessMessage</a></li><li><a href="global.html#donotclose">donotclose</a></li><li><a href="global.html#dragOverDeleteArea">dragOverDeleteArea</a></li><li><a href="global.html#editDescription">editDescription</a></li><li><a href="global.html#findOutWhoLoggedIn">findOutWhoLoggedIn</a></li><li><a href="global.html#getBorderColor">getBorderColor</a></li><li><a href="global.html#getCurrentMember">getCurrentMember</a></li><li><a href="global.html#getTaskMembers">getTaskMembers</a></li><li><a href="global.html#getTaskMembersforInfoCard">getTaskMembersforInfoCard</a></li><li><a href="global.html#getTeam">getTeam</a></li><li><a href="global.html#getUrgencyBackground">getUrgencyBackground</a></li><li><a href="global.html#hideDeleteArea">hideDeleteArea</a></li><li><a href="global.html#hideSuccessMessage">hideSuccessMessage</a></li><li><a href="global.html#highlight">highlight</a></li><li><a href="global.html#init">init</a></li><li><a href="global.html#initAllDbData">initAllDbData</a></li><li><a href="global.html#initBacklogDB">initBacklogDB</a></li><li><a href="global.html#initBacklogProcess">initBacklogProcess</a></li><li><a href="global.html#initBoard">initBoard</a></li><li><a href="global.html#initBoardDB">initBoardDB</a></li><li><a href="global.html#loadJSONFromServer">loadJSONFromServer</a></li><li><a href="global.html#login">login</a></li><li><a href="global.html#moveTo">moveTo</a></li><li><a href="global.html#openHelp">openHelp</a></li><li><a href="global.html#openMemberList">openMemberList</a></li><li><a href="global.html#openNavBar">openNavBar</a></li><li><a href="global.html#openSideBar">openSideBar</a></li><li><a href="global.html#openTaskInfoCard">openTaskInfoCard</a></li><li><a href="global.html#playDragSound">playDragSound</a></li><li><a href="global.html#pushTaskToBackend">pushTaskToBackend</a></li><li><a href="global.html#pushTaskToBoard">pushTaskToBoard</a></li><li><a href="global.html#removeHighlight">removeHighlight</a></li><li><a href="global.html#renderAssignedMembersForEachTask">renderAssignedMembersForEachTask</a></li><li><a href="global.html#renderAvatar">renderAvatar</a></li><li><a href="global.html#renderTaskHTML">renderTaskHTML</a></li><li><a href="global.html#renderTasks">renderTasks</a></li><li><a href="global.html#renderTasksToBoard">renderTasksToBoard</a></li><li><a href="global.html#renderUrgencyForEachTask">renderUrgencyForEachTask</a></li><li><a href="global.html#resetDeleteArea">resetDeleteArea</a></li><li><a href="global.html#saveJSONToServer">saveJSONToServer</a></li><li><a href="global.html#selectUser">selectUser</a></li><li><a href="global.html#setBoardTask">setBoardTask</a></li><li><a href="global.html#setCurrentMember">setCurrentMember</a></li><li><a href="global.html#setTask">setTask</a></li><li><a href="global.html#setTeam">setTeam</a></li><li><a href="global.html#showDeleteArea">showDeleteArea</a></li><li><a href="global.html#signUp">signUp</a></li><li><a href="global.html#startDragging">startDragging</a></li><li><a href="global.html#unSelectUser">unSelectUser</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#addTask">addTask</a></li><li><a href="global.html#allowDrop">allowDrop</a></li><li><a href="global.html#allTasks">allTasks</a></li><li><a href="global.html#assignedToBox">assignedToBox</a></li><li><a href="global.html#AUDIO_DRAG">AUDIO_DRAG</a></li><li><a href="global.html#backlogHTML">backlogHTML</a></li><li><a href="global.html#cancelTask">cancelTask</a></li><li><a href="global.html#checkEmailMatchesPassword">checkEmailMatchesPassword</a></li><li><a href="global.html#closeHelp">closeHelp</a></li><li><a href="global.html#closeMemberList">closeMemberList</a></li><li><a href="global.html#closeNavBar">closeNavBar</a></li><li><a href="global.html#closeSideBar">closeSideBar</a></li><li><a href="global.html#closeTaskInfoCard">closeTaskInfoCard</a></li><li><a href="global.html#currentDraggedElement">currentDraggedElement</a></li><li><a href="global.html#customizeApp">customizeApp</a></li><li><a href="global.html#deleteAllData">deleteAllData</a></li><li><a href="global.html#deleteBoardDb">deleteBoardDb</a></li><li><a href="global.html#deleteBoardTask">deleteBoardTask</a></li><li><a href="global.html#deleteTaskBacklog">deleteTaskBacklog</a></li><li><a href="global.html#deleteTaskDb">deleteTaskDb</a></li><li><a href="global.html#deleteTeam">deleteTeam</a></li><li><a href="global.html#displaySuccessMessage">displaySuccessMessage</a></li><li><a href="global.html#donotclose">donotclose</a></li><li><a href="global.html#dragOverDeleteArea">dragOverDeleteArea</a></li><li><a href="global.html#editDescription">editDescription</a></li><li><a href="global.html#findOutWhoLoggedIn">findOutWhoLoggedIn</a></li><li><a href="global.html#getBorderColor">getBorderColor</a></li><li><a href="global.html#getCurrentMember">getCurrentMember</a></li><li><a href="global.html#getTaskMembers">getTaskMembers</a></li><li><a href="global.html#getTaskMembersforInfoCard">getTaskMembersforInfoCard</a></li><li><a href="global.html#getTeam">getTeam</a></li><li><a href="global.html#getUrgencyBackground">getUrgencyBackground</a></li><li><a href="global.html#hideDeleteArea">hideDeleteArea</a></li><li><a href="global.html#hideSuccessMessage">hideSuccessMessage</a></li><li><a href="global.html#highlight">highlight</a></li><li><a href="global.html#init">init</a></li><li><a href="global.html#initAllDbData">initAllDbData</a></li><li><a href="global.html#initBacklogDB">initBacklogDB</a></li><li><a href="global.html#initBacklogProcess">initBacklogProcess</a></li><li><a href="global.html#initBoard">initBoard</a></li><li><a href="global.html#initBoardDB">initBoardDB</a></li><li><a href="global.html#loadJSONFromServer">loadJSONFromServer</a></li><li><a href="global.html#login">login</a></li><li><a href="global.html#moveTo">moveTo</a></li><li><a href="global.html#openHelp">openHelp</a></li><li><a href="global.html#openMemberList">openMemberList</a></li><li><a href="global.html#openNavBar">openNavBar</a></li><li><a href="global.html#openSideBar">openSideBar</a></li><li><a href="global.html#openTaskInfoCard">openTaskInfoCard</a></li><li><a href="global.html#playDragSound">playDragSound</a></li><li><a href="global.html#pushTaskToBackend">pushTaskToBackend</a></li><li><a href="global.html#pushTaskToBoard">pushTaskToBoard</a></li><li><a href="global.html#removeHighlight">removeHighlight</a></li><li><a href="global.html#renderAssignedMembersForEachTask">renderAssignedMembersForEachTask</a></li><li><a href="global.html#renderAssignedToHTML">renderAssignedToHTML</a></li><li><a href="global.html#renderAvatar">renderAvatar</a></li><li><a href="global.html#renderInfoCardHTML">renderInfoCardHTML</a></li><li><a href="global.html#renderTaskHTML">renderTaskHTML</a></li><li><a href="global.html#renderTasks">renderTasks</a></li><li><a href="global.html#renderTasksToBoard">renderTasksToBoard</a></li><li><a href="global.html#renderUrgencyForEachTask">renderUrgencyForEachTask</a></li><li><a href="global.html#resetDeleteArea">resetDeleteArea</a></li><li><a href="global.html#saveJSONToServer">saveJSONToServer</a></li><li><a href="global.html#selectUser">selectUser</a></li><li><a href="global.html#setBoardTask">setBoardTask</a></li><li><a href="global.html#setCurrentMember">setCurrentMember</a></li><li><a href="global.html#setTask">setTask</a></li><li><a href="global.html#setTeam">setTeam</a></li><li><a href="global.html#showDeleteArea">showDeleteArea</a></li><li><a href="global.html#signUp">signUp</a></li><li><a href="global.html#startDragging">startDragging</a></li><li><a href="global.html#unSelectUser">unSelectUser</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Fri Sep 02 2022 15:29:33 GMT+0200 (Mitteleuropäische Sommerzeit)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Mon Sep 05 2022 16:28:03 GMT+0200 (Mitteleuropäische Sommerzeit)
 </footer>
 
 <script> prettyPrint(); </script>

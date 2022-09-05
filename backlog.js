@@ -193,7 +193,7 @@ function getTaskMembersforInfoCard(i) {
  * @param {string} urgency - Task urgency level
  * @param {string} category - Task assigned Team
  * @param {string} lastEdit - Last edit time of Task
- * @returns 
+ * @returns HTML code
  */
 function renderInfoCardHTML(title, date, description, urgency, category, lastEdit) {
     return `
@@ -230,7 +230,7 @@ function renderInfoCardHTML(title, date, description, urgency, category, lastEdi
  * @param {string} lastName - Last name of assigned Member
  * @param {string} email - Email information of assigned Member
  * @param {string} icon - Generated icon for assigned Member
- * @returns 
+ * @returns HTML code
  */
 function renderAssignedToHTML(firstName, lastName, email, icon) {
     return `

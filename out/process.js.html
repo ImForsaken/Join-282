@@ -32,11 +32,13 @@
 let allTasks = [];
 let boardTasks = [];
 
+
 /**
  * Audio files for dragging Tasks
  */
 let AUDIO_DRAG = new Audio('audio/drag1.mp3');
 let AUDIO_DROP = new Audio('audio/drop1.mp3');
+
 
 /**
  * Function to download all data from Backend
@@ -48,6 +50,8 @@ async function initAllDbData() {
     findOutWhoLoggedIn();
     customizeApp();
 }
+
+
 /**
  * download only Backlog database
  */
@@ -57,6 +61,8 @@ async function initBacklogDB() {
     allTasks = JSON.parse(backend.getItem('task')) || [];
     console.log('BACKLOGTASKS', allTasks);
 }
+
+
 /**
  * download only Board database
  */
@@ -66,6 +72,7 @@ async function initBoardDB() {
     boardTasks = JSON.parse(backend.getItem('allBoardTasks')) || [];
     console.log('boardTasks', boardTasks);
 }
+
 
 /**
  * download the Team array from backend
@@ -77,6 +84,7 @@ async function getTeam() {
   console.log('team:', team);
 }
 
+
 /**
  * delete all Backend data
  */
@@ -86,6 +94,7 @@ async function deleteAllData() {
     initAllDbData();
 }
 
+
 /**
  * delete backlog Tasks
  */
@@ -93,6 +102,7 @@ async function deleteTaskDb() {
     await backend.deleteItem('task');
     initAllDbData();
   }
+
 
 /**
  * delete board Tasks from Backend
@@ -102,6 +112,7 @@ async function deleteBoardDb() {
     initAllDbData();
   }
 
+
 /**
  * delete Team data from Backend
  */
@@ -109,6 +120,7 @@ async function deleteTeam() {
     await backend.deleteItem('team');
     initAllDbData();
   }
+
 
 /**
  * safes Backlogtasks on Backend
@@ -118,6 +130,7 @@ async function setTask() {
     await backend.setItem('task', allTasksAsText);
   }
 
+
 /**
  * safes Boardtasks on Backend
  */
@@ -126,6 +139,7 @@ async function setBoardTask() {
     await backend.setItem('allBoardTasks', boardTasksAsText);
   }
  
+
 /**
  * safes the Team array to backend
  */
@@ -133,6 +147,7 @@ async function setTeam() {
   teamAsText = JSON.stringify(team);
   await backend.setItem('team', teamAsText);
 }
+
 
 /**
  * after finding out who logged in an customizes the page with the individual data for that teammember
@@ -146,6 +161,8 @@ function customizeApp() {
         }
     }
  }
+
+
 /**
  * displays responsive Navbar
  */
@@ -155,6 +172,7 @@ function openNavBar() {
   &lt;button onclick="closeNavBar()" class="getNavbar">...&lt;/button>
   `;
 }
+
 
 /**
  * closes responsive Navbar
@@ -166,6 +184,7 @@ function closeNavBar() {
   `;
 }
 
+
 /**
  * Plays Audio while dragging Tasks on Board section
  */
@@ -173,9 +192,11 @@ function playDragSound() {
     AUDIO_DRAG.play();
 }
 
+
 function playDropSound() {
     AUDIO_DROP.play();
 }
+
 
 /**
  * Opens help section
@@ -184,6 +205,7 @@ function openHelp() {
   document.getElementById('help-container').classList.remove('d-none');
 }
 
+
 /**
  * Closes help section
  */
@@ -191,13 +213,15 @@ function closeHelp() {
   document.getElementById('help-container').classList.add('d-none');
 }
 
+
 /**
- * 
+ * Stop Event from loading
  * @param {*} event 
  */
 function donotclose(event) {
   event.stopPropagation();
 }
+
 
 /**
  * Displays invisible Sidebar
@@ -210,6 +234,7 @@ function openSideBar() {
   document.getElementById('navbar').classList.add ('navbar-mobile-open');
  }
 
+
  /**
  * Hides the Sidebar
  */
@@ -219,8 +244,7 @@ function openSideBar() {
   document.getElementById('navbar-links').classList.add('d-none-mobile');
   document.getElementById('navbar').classList.add ('navbar-mobile');
   document.getElementById('navbar').classList.remove ('navbar-mobile-open');
- }
-</code></pre>
+ }</code></pre>
         </article>
     </section>
 
@@ -230,13 +254,13 @@ function openSideBar() {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#addTask">addTask</a></li><li><a href="global.html#allowDrop">allowDrop</a></li><li><a href="global.html#allTasks">allTasks</a></li><li><a href="global.html#assignedToBox">assignedToBox</a></li><li><a href="global.html#AUDIO_DRAG">AUDIO_DRAG</a></li><li><a href="global.html#backlogHTML">backlogHTML</a></li><li><a href="global.html#cancelTask">cancelTask</a></li><li><a href="global.html#checkEmailMatchesPassword">checkEmailMatchesPassword</a></li><li><a href="global.html#closeHelp">closeHelp</a></li><li><a href="global.html#closeMemberList">closeMemberList</a></li><li><a href="global.html#closeNavBar">closeNavBar</a></li><li><a href="global.html#closeSideBar">closeSideBar</a></li><li><a href="global.html#closeTaskInfoCard">closeTaskInfoCard</a></li><li><a href="global.html#currentDraggedElement">currentDraggedElement</a></li><li><a href="global.html#customizeApp">customizeApp</a></li><li><a href="global.html#deleteAllData">deleteAllData</a></li><li><a href="global.html#deleteBoardDb">deleteBoardDb</a></li><li><a href="global.html#deleteBoardTask">deleteBoardTask</a></li><li><a href="global.html#deleteTaskBacklog">deleteTaskBacklog</a></li><li><a href="global.html#deleteTaskDb">deleteTaskDb</a></li><li><a href="global.html#deleteTeam">deleteTeam</a></li><li><a href="global.html#displaySuccessMessage">displaySuccessMessage</a></li><li><a href="global.html#donotclose">donotclose</a></li><li><a href="global.html#dragOverDeleteArea">dragOverDeleteArea</a></li><li><a href="global.html#editDescription">editDescription</a></li><li><a href="global.html#findOutWhoLoggedIn">findOutWhoLoggedIn</a></li><li><a href="global.html#getBorderColor">getBorderColor</a></li><li><a href="global.html#getCurrentMember">getCurrentMember</a></li><li><a href="global.html#getTaskMembers">getTaskMembers</a></li><li><a href="global.html#getTaskMembersforInfoCard">getTaskMembersforInfoCard</a></li><li><a href="global.html#getTeam">getTeam</a></li><li><a href="global.html#getUrgencyBackground">getUrgencyBackground</a></li><li><a href="global.html#hideDeleteArea">hideDeleteArea</a></li><li><a href="global.html#hideSuccessMessage">hideSuccessMessage</a></li><li><a href="global.html#highlight">highlight</a></li><li><a href="global.html#init">init</a></li><li><a href="global.html#initAllDbData">initAllDbData</a></li><li><a href="global.html#initBacklogDB">initBacklogDB</a></li><li><a href="global.html#initBacklogProcess">initBacklogProcess</a></li><li><a href="global.html#initBoard">initBoard</a></li><li><a href="global.html#initBoardDB">initBoardDB</a></li><li><a href="global.html#loadJSONFromServer">loadJSONFromServer</a></li><li><a href="global.html#login">login</a></li><li><a href="global.html#moveTo">moveTo</a></li><li><a href="global.html#openHelp">openHelp</a></li><li><a href="global.html#openMemberList">openMemberList</a></li><li><a href="global.html#openNavBar">openNavBar</a></li><li><a href="global.html#openSideBar">openSideBar</a></li><li><a href="global.html#openTaskInfoCard">openTaskInfoCard</a></li><li><a href="global.html#playDragSound">playDragSound</a></li><li><a href="global.html#pushTaskToBackend">pushTaskToBackend</a></li><li><a href="global.html#pushTaskToBoard">pushTaskToBoard</a></li><li><a href="global.html#removeHighlight">removeHighlight</a></li><li><a href="global.html#renderAssignedMembersForEachTask">renderAssignedMembersForEachTask</a></li><li><a href="global.html#renderAvatar">renderAvatar</a></li><li><a href="global.html#renderTaskHTML">renderTaskHTML</a></li><li><a href="global.html#renderTasks">renderTasks</a></li><li><a href="global.html#renderTasksToBoard">renderTasksToBoard</a></li><li><a href="global.html#renderUrgencyForEachTask">renderUrgencyForEachTask</a></li><li><a href="global.html#resetDeleteArea">resetDeleteArea</a></li><li><a href="global.html#saveJSONToServer">saveJSONToServer</a></li><li><a href="global.html#selectUser">selectUser</a></li><li><a href="global.html#setBoardTask">setBoardTask</a></li><li><a href="global.html#setCurrentMember">setCurrentMember</a></li><li><a href="global.html#setTask">setTask</a></li><li><a href="global.html#setTeam">setTeam</a></li><li><a href="global.html#showDeleteArea">showDeleteArea</a></li><li><a href="global.html#signUp">signUp</a></li><li><a href="global.html#startDragging">startDragging</a></li><li><a href="global.html#unSelectUser">unSelectUser</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#addTask">addTask</a></li><li><a href="global.html#allowDrop">allowDrop</a></li><li><a href="global.html#allTasks">allTasks</a></li><li><a href="global.html#assignedToBox">assignedToBox</a></li><li><a href="global.html#AUDIO_DRAG">AUDIO_DRAG</a></li><li><a href="global.html#backlogHTML">backlogHTML</a></li><li><a href="global.html#cancelTask">cancelTask</a></li><li><a href="global.html#checkEmailMatchesPassword">checkEmailMatchesPassword</a></li><li><a href="global.html#closeHelp">closeHelp</a></li><li><a href="global.html#closeMemberList">closeMemberList</a></li><li><a href="global.html#closeNavBar">closeNavBar</a></li><li><a href="global.html#closeSideBar">closeSideBar</a></li><li><a href="global.html#closeTaskInfoCard">closeTaskInfoCard</a></li><li><a href="global.html#currentDraggedElement">currentDraggedElement</a></li><li><a href="global.html#customizeApp">customizeApp</a></li><li><a href="global.html#deleteAllData">deleteAllData</a></li><li><a href="global.html#deleteBoardDb">deleteBoardDb</a></li><li><a href="global.html#deleteBoardTask">deleteBoardTask</a></li><li><a href="global.html#deleteTaskBacklog">deleteTaskBacklog</a></li><li><a href="global.html#deleteTaskDb">deleteTaskDb</a></li><li><a href="global.html#deleteTeam">deleteTeam</a></li><li><a href="global.html#displaySuccessMessage">displaySuccessMessage</a></li><li><a href="global.html#donotclose">donotclose</a></li><li><a href="global.html#dragOverDeleteArea">dragOverDeleteArea</a></li><li><a href="global.html#editDescription">editDescription</a></li><li><a href="global.html#findOutWhoLoggedIn">findOutWhoLoggedIn</a></li><li><a href="global.html#getBorderColor">getBorderColor</a></li><li><a href="global.html#getCurrentMember">getCurrentMember</a></li><li><a href="global.html#getTaskMembers">getTaskMembers</a></li><li><a href="global.html#getTaskMembersforInfoCard">getTaskMembersforInfoCard</a></li><li><a href="global.html#getTeam">getTeam</a></li><li><a href="global.html#getUrgencyBackground">getUrgencyBackground</a></li><li><a href="global.html#hideDeleteArea">hideDeleteArea</a></li><li><a href="global.html#hideSuccessMessage">hideSuccessMessage</a></li><li><a href="global.html#highlight">highlight</a></li><li><a href="global.html#init">init</a></li><li><a href="global.html#initAllDbData">initAllDbData</a></li><li><a href="global.html#initBacklogDB">initBacklogDB</a></li><li><a href="global.html#initBacklogProcess">initBacklogProcess</a></li><li><a href="global.html#initBoard">initBoard</a></li><li><a href="global.html#initBoardDB">initBoardDB</a></li><li><a href="global.html#loadJSONFromServer">loadJSONFromServer</a></li><li><a href="global.html#login">login</a></li><li><a href="global.html#moveTo">moveTo</a></li><li><a href="global.html#openHelp">openHelp</a></li><li><a href="global.html#openMemberList">openMemberList</a></li><li><a href="global.html#openNavBar">openNavBar</a></li><li><a href="global.html#openSideBar">openSideBar</a></li><li><a href="global.html#openTaskInfoCard">openTaskInfoCard</a></li><li><a href="global.html#playDragSound">playDragSound</a></li><li><a href="global.html#pushTaskToBackend">pushTaskToBackend</a></li><li><a href="global.html#pushTaskToBoard">pushTaskToBoard</a></li><li><a href="global.html#removeHighlight">removeHighlight</a></li><li><a href="global.html#renderAssignedMembersForEachTask">renderAssignedMembersForEachTask</a></li><li><a href="global.html#renderAssignedToHTML">renderAssignedToHTML</a></li><li><a href="global.html#renderAvatar">renderAvatar</a></li><li><a href="global.html#renderInfoCardHTML">renderInfoCardHTML</a></li><li><a href="global.html#renderTaskHTML">renderTaskHTML</a></li><li><a href="global.html#renderTasks">renderTasks</a></li><li><a href="global.html#renderTasksToBoard">renderTasksToBoard</a></li><li><a href="global.html#renderUrgencyForEachTask">renderUrgencyForEachTask</a></li><li><a href="global.html#resetDeleteArea">resetDeleteArea</a></li><li><a href="global.html#saveJSONToServer">saveJSONToServer</a></li><li><a href="global.html#selectUser">selectUser</a></li><li><a href="global.html#setBoardTask">setBoardTask</a></li><li><a href="global.html#setCurrentMember">setCurrentMember</a></li><li><a href="global.html#setTask">setTask</a></li><li><a href="global.html#setTeam">setTeam</a></li><li><a href="global.html#showDeleteArea">showDeleteArea</a></li><li><a href="global.html#signUp">signUp</a></li><li><a href="global.html#startDragging">startDragging</a></li><li><a href="global.html#unSelectUser">unSelectUser</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Fri Sep 02 2022 15:29:33 GMT+0200 (Mitteleuropäische Sommerzeit)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Mon Sep 05 2022 16:28:03 GMT+0200 (Mitteleuropäische Sommerzeit)
 </footer>
 
 <script> prettyPrint(); </script>

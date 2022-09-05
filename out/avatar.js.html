@@ -29,25 +29,6 @@
             <pre class="prettyprint source linenums"><code>let team = [];
 let selectedUsers = [];
 
-// {
-//     'id': 0,
-//     'firstName': 'Kevin',
-//     'lastName': 'Herbst',
-//     'eMail': 'KevinH@join.com',
-//     'src': './img/avatar0.jpg',
-//     'password': '654321',
-//     'icon': 'KH'
-// },
-// {
-//     'id': 1,
-//     'firstName': 'Johannes',
-//     'lastName': 'Günther',
-//     'eMail': 'JohannesG@join.com',
-//     'src': './img/avatar1.jpg',
-//     'password': '123456',
-//     'icon': 'JG'
-// }
-
 /**
  * Renders all Avatars that are pick able for new Tasks
  */
@@ -62,6 +43,7 @@ function renderAvatar() {
    };
 };
 
+
 /**
  * Renders selected Member to Memberbox
  */
@@ -73,6 +55,7 @@ function assignedToBox() {
         memberBox.innerHTML += `&lt;p onclick="unSelectUser(${i})" class="avatar4">${icon}&lt;/p>`
     };
 };
+
 
 /**
  * Function that filters if the Array contains the selected user
@@ -89,6 +72,7 @@ function selectUser(i) {
 };
 assignedToBox();
 };
+
 
 /**
  * Makes the Avatar clickable to remove selected user
@@ -110,13 +94,13 @@ function unSelectUser(i){
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#addTask">addTask</a></li><li><a href="global.html#allowDrop">allowDrop</a></li><li><a href="global.html#allTasks">allTasks</a></li><li><a href="global.html#assignedToBox">assignedToBox</a></li><li><a href="global.html#AUDIO_DRAG">AUDIO_DRAG</a></li><li><a href="global.html#backlogHTML">backlogHTML</a></li><li><a href="global.html#cancelTask">cancelTask</a></li><li><a href="global.html#checkEmailMatchesPassword">checkEmailMatchesPassword</a></li><li><a href="global.html#closeHelp">closeHelp</a></li><li><a href="global.html#closeMemberList">closeMemberList</a></li><li><a href="global.html#closeNavBar">closeNavBar</a></li><li><a href="global.html#closeSideBar">closeSideBar</a></li><li><a href="global.html#closeTaskInfoCard">closeTaskInfoCard</a></li><li><a href="global.html#currentDraggedElement">currentDraggedElement</a></li><li><a href="global.html#customizeApp">customizeApp</a></li><li><a href="global.html#deleteAllData">deleteAllData</a></li><li><a href="global.html#deleteBoardDb">deleteBoardDb</a></li><li><a href="global.html#deleteBoardTask">deleteBoardTask</a></li><li><a href="global.html#deleteTaskBacklog">deleteTaskBacklog</a></li><li><a href="global.html#deleteTaskDb">deleteTaskDb</a></li><li><a href="global.html#deleteTeam">deleteTeam</a></li><li><a href="global.html#displaySuccessMessage">displaySuccessMessage</a></li><li><a href="global.html#donotclose">donotclose</a></li><li><a href="global.html#dragOverDeleteArea">dragOverDeleteArea</a></li><li><a href="global.html#editDescription">editDescription</a></li><li><a href="global.html#findOutWhoLoggedIn">findOutWhoLoggedIn</a></li><li><a href="global.html#getBorderColor">getBorderColor</a></li><li><a href="global.html#getCurrentMember">getCurrentMember</a></li><li><a href="global.html#getTaskMembers">getTaskMembers</a></li><li><a href="global.html#getTaskMembersforInfoCard">getTaskMembersforInfoCard</a></li><li><a href="global.html#getTeam">getTeam</a></li><li><a href="global.html#getUrgencyBackground">getUrgencyBackground</a></li><li><a href="global.html#hideDeleteArea">hideDeleteArea</a></li><li><a href="global.html#hideSuccessMessage">hideSuccessMessage</a></li><li><a href="global.html#highlight">highlight</a></li><li><a href="global.html#init">init</a></li><li><a href="global.html#initAllDbData">initAllDbData</a></li><li><a href="global.html#initBacklogDB">initBacklogDB</a></li><li><a href="global.html#initBacklogProcess">initBacklogProcess</a></li><li><a href="global.html#initBoard">initBoard</a></li><li><a href="global.html#initBoardDB">initBoardDB</a></li><li><a href="global.html#loadJSONFromServer">loadJSONFromServer</a></li><li><a href="global.html#login">login</a></li><li><a href="global.html#moveTo">moveTo</a></li><li><a href="global.html#openHelp">openHelp</a></li><li><a href="global.html#openMemberList">openMemberList</a></li><li><a href="global.html#openNavBar">openNavBar</a></li><li><a href="global.html#openSideBar">openSideBar</a></li><li><a href="global.html#openTaskInfoCard">openTaskInfoCard</a></li><li><a href="global.html#playDragSound">playDragSound</a></li><li><a href="global.html#pushTaskToBackend">pushTaskToBackend</a></li><li><a href="global.html#pushTaskToBoard">pushTaskToBoard</a></li><li><a href="global.html#removeHighlight">removeHighlight</a></li><li><a href="global.html#renderAssignedMembersForEachTask">renderAssignedMembersForEachTask</a></li><li><a href="global.html#renderAvatar">renderAvatar</a></li><li><a href="global.html#renderTaskHTML">renderTaskHTML</a></li><li><a href="global.html#renderTasks">renderTasks</a></li><li><a href="global.html#renderTasksToBoard">renderTasksToBoard</a></li><li><a href="global.html#renderUrgencyForEachTask">renderUrgencyForEachTask</a></li><li><a href="global.html#resetDeleteArea">resetDeleteArea</a></li><li><a href="global.html#saveJSONToServer">saveJSONToServer</a></li><li><a href="global.html#selectUser">selectUser</a></li><li><a href="global.html#setBoardTask">setBoardTask</a></li><li><a href="global.html#setCurrentMember">setCurrentMember</a></li><li><a href="global.html#setTask">setTask</a></li><li><a href="global.html#setTeam">setTeam</a></li><li><a href="global.html#showDeleteArea">showDeleteArea</a></li><li><a href="global.html#signUp">signUp</a></li><li><a href="global.html#startDragging">startDragging</a></li><li><a href="global.html#unSelectUser">unSelectUser</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#addTask">addTask</a></li><li><a href="global.html#allowDrop">allowDrop</a></li><li><a href="global.html#allTasks">allTasks</a></li><li><a href="global.html#assignedToBox">assignedToBox</a></li><li><a href="global.html#AUDIO_DRAG">AUDIO_DRAG</a></li><li><a href="global.html#backlogHTML">backlogHTML</a></li><li><a href="global.html#cancelTask">cancelTask</a></li><li><a href="global.html#checkEmailMatchesPassword">checkEmailMatchesPassword</a></li><li><a href="global.html#closeHelp">closeHelp</a></li><li><a href="global.html#closeMemberList">closeMemberList</a></li><li><a href="global.html#closeNavBar">closeNavBar</a></li><li><a href="global.html#closeSideBar">closeSideBar</a></li><li><a href="global.html#closeTaskInfoCard">closeTaskInfoCard</a></li><li><a href="global.html#currentDraggedElement">currentDraggedElement</a></li><li><a href="global.html#customizeApp">customizeApp</a></li><li><a href="global.html#deleteAllData">deleteAllData</a></li><li><a href="global.html#deleteBoardDb">deleteBoardDb</a></li><li><a href="global.html#deleteBoardTask">deleteBoardTask</a></li><li><a href="global.html#deleteTaskBacklog">deleteTaskBacklog</a></li><li><a href="global.html#deleteTaskDb">deleteTaskDb</a></li><li><a href="global.html#deleteTeam">deleteTeam</a></li><li><a href="global.html#displaySuccessMessage">displaySuccessMessage</a></li><li><a href="global.html#donotclose">donotclose</a></li><li><a href="global.html#dragOverDeleteArea">dragOverDeleteArea</a></li><li><a href="global.html#editDescription">editDescription</a></li><li><a href="global.html#findOutWhoLoggedIn">findOutWhoLoggedIn</a></li><li><a href="global.html#getBorderColor">getBorderColor</a></li><li><a href="global.html#getCurrentMember">getCurrentMember</a></li><li><a href="global.html#getTaskMembers">getTaskMembers</a></li><li><a href="global.html#getTaskMembersforInfoCard">getTaskMembersforInfoCard</a></li><li><a href="global.html#getTeam">getTeam</a></li><li><a href="global.html#getUrgencyBackground">getUrgencyBackground</a></li><li><a href="global.html#hideDeleteArea">hideDeleteArea</a></li><li><a href="global.html#hideSuccessMessage">hideSuccessMessage</a></li><li><a href="global.html#highlight">highlight</a></li><li><a href="global.html#init">init</a></li><li><a href="global.html#initAllDbData">initAllDbData</a></li><li><a href="global.html#initBacklogDB">initBacklogDB</a></li><li><a href="global.html#initBacklogProcess">initBacklogProcess</a></li><li><a href="global.html#initBoard">initBoard</a></li><li><a href="global.html#initBoardDB">initBoardDB</a></li><li><a href="global.html#loadJSONFromServer">loadJSONFromServer</a></li><li><a href="global.html#login">login</a></li><li><a href="global.html#moveTo">moveTo</a></li><li><a href="global.html#openHelp">openHelp</a></li><li><a href="global.html#openMemberList">openMemberList</a></li><li><a href="global.html#openNavBar">openNavBar</a></li><li><a href="global.html#openSideBar">openSideBar</a></li><li><a href="global.html#openTaskInfoCard">openTaskInfoCard</a></li><li><a href="global.html#playDragSound">playDragSound</a></li><li><a href="global.html#pushTaskToBackend">pushTaskToBackend</a></li><li><a href="global.html#pushTaskToBoard">pushTaskToBoard</a></li><li><a href="global.html#removeHighlight">removeHighlight</a></li><li><a href="global.html#renderAssignedMembersForEachTask">renderAssignedMembersForEachTask</a></li><li><a href="global.html#renderAssignedToHTML">renderAssignedToHTML</a></li><li><a href="global.html#renderAvatar">renderAvatar</a></li><li><a href="global.html#renderInfoCardHTML">renderInfoCardHTML</a></li><li><a href="global.html#renderTaskHTML">renderTaskHTML</a></li><li><a href="global.html#renderTasks">renderTasks</a></li><li><a href="global.html#renderTasksToBoard">renderTasksToBoard</a></li><li><a href="global.html#renderUrgencyForEachTask">renderUrgencyForEachTask</a></li><li><a href="global.html#resetDeleteArea">resetDeleteArea</a></li><li><a href="global.html#saveJSONToServer">saveJSONToServer</a></li><li><a href="global.html#selectUser">selectUser</a></li><li><a href="global.html#setBoardTask">setBoardTask</a></li><li><a href="global.html#setCurrentMember">setCurrentMember</a></li><li><a href="global.html#setTask">setTask</a></li><li><a href="global.html#setTeam">setTeam</a></li><li><a href="global.html#showDeleteArea">showDeleteArea</a></li><li><a href="global.html#signUp">signUp</a></li><li><a href="global.html#startDragging">startDragging</a></li><li><a href="global.html#unSelectUser">unSelectUser</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Fri Sep 02 2022 15:29:33 GMT+0200 (Mitteleuropäische Sommerzeit)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Mon Sep 05 2022 16:28:03 GMT+0200 (Mitteleuropäische Sommerzeit)
 </footer>
 
 <script> prettyPrint(); </script>
