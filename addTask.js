@@ -6,6 +6,7 @@ async function init() {
     renderAvatar();
 }
 
+
 /**
  * Function that manages the process of creating a new Task
  */
@@ -43,6 +44,7 @@ async function addTask() {
     };
 }
 
+
 /**
  * Unhides success container
  */
@@ -52,6 +54,7 @@ function displaySuccessMessage() {
     success.classList.remove('d-none');
 }
 
+
 /**
  * Hides success container
  */
@@ -60,6 +63,7 @@ function hideSuccessMessage() {
     success.innerHTML = "";
     success.classList.add('d-none');
 }
+
 
 /**
  * Function safes the new Task to the Backend
@@ -72,12 +76,14 @@ async function pushTaskToBackend(task) {
     await setTask();
 }
 
+
 /**
  * Clears Form inputs
  */
 function cancelTask() {
     document.getElementById("taskForm").reset();
 }
+
 
 /**
  * Unhides Memberlist for Task creation
@@ -88,6 +94,7 @@ function openMemberList() {
     document.getElementById('transparentContainerAddTask').classList.remove('d-none');
 }
 
+
 /**
  * Hides Memberlist for Task creation
  */
@@ -95,10 +102,3 @@ function closeMemberList() {
     document.getElementById('avatarPicker').classList.add('d-none');
     document.getElementById('transparentContainerAddTask').classList.add('d-none');
 }
-
-// /**
-//  * 
-//  */
-// function checkIfMemberSelected() {
-//     memberList = document.getElementById('avatarPicker').innerHTML;
-// }

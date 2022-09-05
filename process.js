@@ -4,11 +4,13 @@
 let allTasks = [];
 let boardTasks = [];
 
+
 /**
  * Audio files for dragging Tasks
  */
 let AUDIO_DRAG = new Audio('audio/drag1.mp3');
 let AUDIO_DROP = new Audio('audio/drop1.mp3');
+
 
 /**
  * Function to download all data from Backend
@@ -20,6 +22,8 @@ async function initAllDbData() {
     findOutWhoLoggedIn();
     customizeApp();
 }
+
+
 /**
  * download only Backlog database
  */
@@ -29,6 +33,8 @@ async function initBacklogDB() {
     allTasks = JSON.parse(backend.getItem('task')) || [];
     console.log('BACKLOGTASKS', allTasks);
 }
+
+
 /**
  * download only Board database
  */
@@ -38,6 +44,7 @@ async function initBoardDB() {
     boardTasks = JSON.parse(backend.getItem('allBoardTasks')) || [];
     console.log('boardTasks', boardTasks);
 }
+
 
 /**
  * download the Team array from backend
@@ -49,6 +56,7 @@ async function getTeam() {
   console.log('team:', team);
 }
 
+
 /**
  * delete all Backend data
  */
@@ -58,6 +66,7 @@ async function deleteAllData() {
     initAllDbData();
 }
 
+
 /**
  * delete backlog Tasks
  */
@@ -65,6 +74,7 @@ async function deleteTaskDb() {
     await backend.deleteItem('task');
     initAllDbData();
   }
+
 
 /**
  * delete board Tasks from Backend
@@ -74,6 +84,7 @@ async function deleteBoardDb() {
     initAllDbData();
   }
 
+
 /**
  * delete Team data from Backend
  */
@@ -81,6 +92,7 @@ async function deleteTeam() {
     await backend.deleteItem('team');
     initAllDbData();
   }
+
 
 /**
  * safes Backlogtasks on Backend
@@ -90,6 +102,7 @@ async function setTask() {
     await backend.setItem('task', allTasksAsText);
   }
 
+
 /**
  * safes Boardtasks on Backend
  */
@@ -98,6 +111,7 @@ async function setBoardTask() {
     await backend.setItem('allBoardTasks', boardTasksAsText);
   }
  
+
 /**
  * safes the Team array to backend
  */
@@ -105,6 +119,7 @@ async function setTeam() {
   teamAsText = JSON.stringify(team);
   await backend.setItem('team', teamAsText);
 }
+
 
 /**
  * after finding out who logged in an customizes the page with the individual data for that teammember
@@ -118,6 +133,8 @@ function customizeApp() {
         }
     }
  }
+
+
 /**
  * displays responsive Navbar
  */
@@ -127,6 +144,7 @@ function openNavBar() {
   <button onclick="closeNavBar()" class="getNavbar">...</button>
   `;
 }
+
 
 /**
  * closes responsive Navbar
@@ -138,6 +156,7 @@ function closeNavBar() {
   `;
 }
 
+
 /**
  * Plays Audio while dragging Tasks on Board section
  */
@@ -145,9 +164,11 @@ function playDragSound() {
     AUDIO_DRAG.play();
 }
 
+
 function playDropSound() {
     AUDIO_DROP.play();
 }
+
 
 /**
  * Opens help section
@@ -156,6 +177,7 @@ function openHelp() {
   document.getElementById('help-container').classList.remove('d-none');
 }
 
+
 /**
  * Closes help section
  */
@@ -163,13 +185,15 @@ function closeHelp() {
   document.getElementById('help-container').classList.add('d-none');
 }
 
+
 /**
- * 
+ * Stop Event from loading
  * @param {*} event 
  */
 function donotclose(event) {
   event.stopPropagation();
 }
+
 
 /**
  * Displays invisible Sidebar
@@ -181,6 +205,7 @@ function openSideBar() {
   document.getElementById('navbar').classList.remove ('navbar-mobile');
   document.getElementById('navbar').classList.add ('navbar-mobile-open');
  }
+
 
  /**
  * Hides the Sidebar

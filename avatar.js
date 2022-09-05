@@ -1,25 +1,6 @@
 let team = [];
 let selectedUsers = [];
 
-// {
-//     'id': 0,
-//     'firstName': 'Kevin',
-//     'lastName': 'Herbst',
-//     'eMail': 'KevinH@join.com',
-//     'src': './img/avatar0.jpg',
-//     'password': '654321',
-//     'icon': 'KH'
-// },
-// {
-//     'id': 1,
-//     'firstName': 'Johannes',
-//     'lastName': 'Günther',
-//     'eMail': 'JohannesG@join.com',
-//     'src': './img/avatar1.jpg',
-//     'password': '123456',
-//     'icon': 'JG'
-// }
-
 /**
  * Renders all Avatars that are pick able for new Tasks
  */
@@ -34,6 +15,7 @@ function renderAvatar() {
    };
 };
 
+
 /**
  * Renders selected Member to Memberbox
  */
@@ -45,6 +27,7 @@ function assignedToBox() {
         memberBox.innerHTML += `<p onclick="unSelectUser(${i})" class="avatar4">${icon}</p>`
     };
 };
+
 
 /**
  * Function that filters if the Array contains the selected user
@@ -61,6 +44,7 @@ function selectUser(i) {
 };
 assignedToBox();
 };
+
 
 /**
  * Makes the Avatar clickable to remove selected user
