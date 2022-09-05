@@ -87,11 +87,11 @@ function backlogHTML(i, category, description, date) {
             </div>
             <div class="backlogSettings">
             
-                <button class="pushBacklogButton" id="push${i}" onclick="pushTaskToBoard(${i}), event.stopPropagation()"></button>
+                <button class="pushBacklogButton" id="push${i}" onclick="openPushDialog(${i}), event.stopPropagation()" title="Move Task to Board"></button>
                 
-                <button class="editBacklogButton" id="edit${i}" onclick="editDescription(${i}), event.stopPropagation()"></button>
+                <button class="editBacklogButton" id="edit${i}" onclick="openEditDialog(${i}), event.stopPropagation()" title="Submit Edit"></button>
 
-                <button class="deleteBacklogTaskButton"  id="delete${i}" onclick="deleteTaskBacklog(${i}), event.stopPropagation()"></button>
+                <button class="deleteBacklogTaskButton"  id="delete${i}" onclick="openDeleteDialog(${i}), event.stopPropagation()" title="Delete Task"></button>
 
             </div>
         </div
@@ -260,7 +260,6 @@ function closeTaskInfoCard() {
  * @param {number} i - Index of current loop
  */
 async function pushTaskToBoard(i) {
-    if (confirm("Are you sure?") == true) {
         await initAllDbData();
         allTasks[i].status = "todo";
         boardTasks.push(allTasks[i]);
@@ -269,9 +268,6 @@ async function pushTaskToBoard(i) {
         await setTask();
         await initBacklogProcess();
         playDropSound();
-    } else {
-        alert('Canceled');
-    }
 };
 
 
@@ -281,15 +277,11 @@ async function pushTaskToBoard(i) {
  * @param {number} i - Index of current loop
  */
 async function deleteTaskBacklog(i) {
-    if (confirm("Are you sure?") == true) {
         await initAllDbData();
         allTasks.splice(i, 1);
         await setBoardTask();
         await setTask();
         await initBacklogProcess();
-    } else {
-        alert('Canceled');
-    }
 };
 
 
@@ -299,7 +291,6 @@ async function deleteTaskBacklog(i) {
  * @param {number} i - Index of current loop
  */
 async function editDescription(i) {
-    if (confirm("Are you sure?") == true) {
         await initAllDbData();
         let description = document.getElementById('description' + i);
         allTasks[i].description = description.value;
@@ -307,7 +298,66 @@ async function editDescription(i) {
         await setBoardTask();
         await setTask();
         await initBacklogProcess();
-    } else {
-        alert('Canceled');
-    }
 }
+
+
+function openPushDialog(i) {
+    document.getElementById('actionDialog').classList.remove('d-none');
+    document.getElementById('dialogBox').innerHTML = renderPushHTML(i);
+}
+
+function openEditDialog(i) {
+    document.getElementById('actionDialog').classList.remove('d-none');
+    document.getElementById('dialogBox').innerHTML = renderEditHTML(i);
+}
+
+
+function openDeleteDialog(i) {
+    document.getElementById('actionDialog').classList.remove('d-none');
+    document.getElementById('dialogBox').innerHTML = renderDeleteHTML(i);
+}
+
+
+function closeActionDialog() {
+    document.getElementById('actionDialog').classList.add('d-none');
+}
+
+
+function renderPushHTML(i) {
+    return `
+    <div class="yesBox" id="yesBox">
+        <p><b>Are you sure that you want to push this Task to the Board?</b></p>
+        <button id="yesButton" onclick="pushTaskToBoard(${i})" type="button" class="btn btn-primary">Yes</button>
+    </div>
+    <div class="cancelBox" id="cancelBox">
+        <button onclick="closeActionDialog()" id="cancelButton" type="button" class="btn btn-primary cancelButton btnCancel">Cancel</button>
+    </div>
+    `;
+}
+
+
+function renderDeleteHTML(i) {
+    return `
+    <div class="yesBox" id="yesBox">
+        <p><b>Are you sure that you want to delete this Task?</b></p>
+        <button id="yesButton" onclick="deleteTaskBacklog(${i})" type="button" class="btn btn-primary">Yes</button>
+    </div>
+    <div class="cancelBox" id="cancelBox">
+        <button onclick="closeActionDialog()" id="cancelButton" type="button" class="btn btn-primary cancelButton btnCancel">Cancel</button>
+    </div>
+    `;
+}
+
+
+function renderEditHTML(i) {
+    return `
+    <div class="yesBox" id="yesBox">
+        <p><b>Are you sure that you want to safe the Edit?</b></p>
+        <button id="yesButton" onclick="editDescription(${i})" type="button" class="btn btn-primary">Yes</button>
+    </div>
+    <div class="cancelBox" id="cancelBox">
+        <button onclick="closeActionDialog()" id="cancelButton" type="button" class="btn btn-primary cancelButton btnCancel">Cancel</button>
+    </div>
+    `;
+}
+
