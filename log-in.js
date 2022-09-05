@@ -1,6 +1,7 @@
 // this is the email of the current user, who just logged in or signed up
 let currentMember; 
 
+
 /**
  * Function to gather Information of user who logging in
  */
@@ -10,9 +11,10 @@ async function login(){
     checkEmailMatchesPassword();
  }
 
- /**
-  * Determines if submited data is right
-  */
+
+/**
+ * Determines if submited data is right
+ */
 function checkEmailMatchesPassword() {
     let loginemail = document.getElementById('login-email').value;
     let loginpassword = document.getElementById('login-password').value;
@@ -34,6 +36,7 @@ function checkEmailMatchesPassword() {
     }
  }
 
+
 /**
  * 
  * @param {string} key - Current User that Login in
@@ -43,6 +46,7 @@ function setCurrentMember(key, currentMember) {
         localStorage.setItem(key, currentMember);
       }
 
+
 /**
  * 
  * @param {string} key - Current logged in user
@@ -51,6 +55,7 @@ function setCurrentMember(key, currentMember) {
 function getCurrentMember(key) {
     return localStorage.getItem(key);
   }
+
 
 /**
  * Function to determine the User

@@ -3,6 +3,7 @@
  */
 let currentDraggedElement;
 
+
 /**
  * Downloads and Render all Boardtaks on Board
  */
@@ -11,6 +12,7 @@ async function initBoard() {
     await renderTasksToBoard();
 }
 
+
 /**
  * Displays the delete Container on the Board
  */
@@ -18,12 +20,14 @@ function showDeleteArea() {
     document.getElementById('deleteTaskArea').classList.remove('d-none');
 }
 
+
 /**
  * Hides delete Container
  */
 function hideDeleteArea() {
     document.getElementById('deleteTaskArea').classList.add('d-none');
 }
+
 
 /**
  * Displays delete Container on Board HTML
@@ -33,6 +37,7 @@ function dragOverDeleteArea() {
     document.getElementById('deleteTaskArea').classList.add('deleteTaskAreaHover');
 }
 
+
 /**
  * Makes element delete able
  */
@@ -40,6 +45,7 @@ function resetDeleteArea() {
     document.getElementById('deleteTaskArea').classList.remove('deleteTaskAreaHover');
     document.getElementById('deleteTaskArea').classList.add('deleteTaskArea');
 }
+
 
 /**
  * Deletes selected Boardtask
@@ -52,6 +58,7 @@ async function deleteBoardTask() {
     playDropSound();
 }
 
+
 /**
  * Render all Boardtasks to columns
  */
@@ -60,8 +67,6 @@ async function renderTasksToBoard() {
     document.getElementById('in-progress').innerHTML = '';
     document.getElementById('testing').innerHTML = '';
     document.getElementById('done').innerHTML = '';
-
-
     for (let i = 0; i < boardTasks.length; i++) {
         const task = boardTasks[i];
 
@@ -91,6 +96,7 @@ async function renderTasksToBoard() {
     }
 }
 
+
 /**
  * Renders all Member which has been assigned to the Task
  * 
@@ -104,6 +110,7 @@ function renderAssignedMembersForEachTask(i, task) {
             document.getElementById('assigned-to-' + i).innerHTML += `<div class="assigned-to-list-member"><b>- ${assignedMember['firstName']} ${assignedMember['lastName']}</b></div>`
         }
     }
+
 
 /**
  * Adding urgency colors to Taskcontainers
@@ -137,6 +144,8 @@ function startDragging(id) {
         currentDraggedElement = id;
         showDeleteArea();
     }
+
+
 /**
  * Prevents transfered event
  * 
@@ -145,6 +154,7 @@ function startDragging(id) {
 function allowDrop(ev) {
         ev.preventDefault();
     }
+
 
 /**
  * Enable that element can be moved to another container and changes tasks status
@@ -159,6 +169,7 @@ async function moveTo(category) {
         renderTasksToBoard();
     }
 
+    
 /**
  * Highlights the Column of current selected Taskcontainer
  * 
@@ -168,6 +179,7 @@ function highlight(category) {
         document.getElementById(category).classList.add('highlight');
     }
 
+    
 /**
  * Removes highlight class from highlighted column
  * 
