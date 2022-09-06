@@ -9,6 +9,8 @@
     <title>JOIN-282</title>
 
     <link rel="stylesheet" href="style-johannes.css">
+    <!-- <link rel="stylesheet" href="kevinstyle.css">
+    <link rel="stylesheet" href="style.css"> -->
 
     <script src="mini_backend.js"></script>
     <script src="script.js"></script>
@@ -27,17 +29,17 @@
 <body onload="getTeam()">
     <div class="bgr1">
         <h1>WELCOME TO JOIN</h1>
-        <form class="login-container" onsubmit="login(); return false">
+        <form id="log-in-form" class="login-container" onsubmit="login(); return false">
             <h3>Please log-in</h3>
             <span class="login-text">Enter your e-mail</span>
-            <span id="login-error" class="error-text d-none">E-Mail does not match password</span>
+            <span id="login-error" class="error-text d-none">E-Mail does not match password! Please try again!</span>
             <input id="login-email" required type="email" placeholder="Your e-mail" class="input">
             <span class="login-text">Enter your password</span>
             <input id="login-password" required type="password" placeholder="Your password" class="input">
             <button class="login-button">LOGIN</button>
         </form>
 
-        <form class="login-container" onsubmit="signUp(); return false">
+        <form id="sign-up-form" class="login-container" onsubmit="signUp(); return false">
             <h3>You're new to this page? Create an account!</h3>
             <span class="login-text">Enter your e-mail</span>
             <input id="signup-email" required type="email" placeholder="Your e-mail" class="input">
@@ -46,7 +48,7 @@
             <span class="login-text">Enter your last name</span>
             <input id="signup-last-name" type="name" required minlength="2" class="input" placeholder="Last name">
             <span class="login-text">Set up password</span>
-            <input id="sign-up-password" type="password" placeholder="Your password" class="input">
+            <input id="sign-up-password" type="password" required minlength="5" placeholder="Your password" class="input">
             <button class="login-button">CREATE</button>
         </form>
     </div>

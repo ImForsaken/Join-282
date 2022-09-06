@@ -26,9 +26,6 @@ function checkEmailMatchesPassword() {
             currentMember = element['eMail'];
             setCurrentMember('currentmember', currentMember);
             window.open('board.html', '_self');
-        } else {
-            alert('Login Daten fehlerhaft');
-            window.open('board.html', '_self');
         }
     }
     if (loginvalid == false) {
