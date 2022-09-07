@@ -256,6 +256,7 @@ function closeTaskInfoCard() {
 
 
 /**
+ * Manages the Process to move the Task to the Board
  * 
  * @param {number} i - Index of current loop
  */
@@ -269,6 +270,7 @@ async function pushTaskToBoard(i) {
         await initBacklogProcess();
         playDropSound();
         closeActionDialog();
+        playDropSound();
         showBacklogSuccess('saved');
 };
 
@@ -285,6 +287,7 @@ async function deleteTaskBacklog(i) {
         await setTask();
         await initBacklogProcess();
         closeActionDialog();
+        playDropSound();
         showBacklogSuccess('deleted');
 };
 
@@ -303,6 +306,7 @@ async function editDescription(i) {
         await setTask();
         await initBacklogProcess();
         closeActionDialog();
+        playDropSound();
         showBacklogSuccess('edited');
 }
 

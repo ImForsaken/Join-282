@@ -29,6 +29,7 @@
 <body onload="getTeam()">
     <div class="bgr1">
         <h1>WELCOME TO JOIN</h1>
+        <h2 class="loginH2">Learning Management System Project</h2>
         <form id="log-in-form" class="login-container" onsubmit="login(); return false">
             <h3>Please log-in</h3>
             <span class="login-text">Enter your e-mail</span>
@@ -38,19 +39,12 @@
             <input id="login-password" required type="password" placeholder="Your password" class="input">
             <button class="login-button">LOGIN</button>
         </form>
-
-        <form id="sign-up-form" class="login-container" onsubmit="signUp(); return false">
-            <h3>You're new to this page? Create an account!</h3>
-            <span class="login-text">Enter your e-mail</span>
-            <input id="signup-email" required type="email" placeholder="Your e-mail" class="input">
-            <span class="login-text">Enter your first name</span>
-            <input id="signup-first-name" type="name" required minlength="2" class="input" placeholder="First name">
-            <span class="login-text">Enter your last name</span>
-            <input id="signup-last-name" type="name" required minlength="2" class="input" placeholder="Last name">
-            <span class="login-text">Set up password</span>
-            <input id="sign-up-password" type="password" required minlength="5" placeholder="Your password" class="input">
-            <button class="login-button">CREATE</button>
-        </form>
+        <div class="registerPage">
+            <h2>New?</h2>
+            <h3>Register for free!</h3>
+            <button onclick="location.href = './signUp.html';" id="registerRedirectButton"
+                class="registerRedirectButton">Go!</button>
+        </div>
     </div>
 </body>
 

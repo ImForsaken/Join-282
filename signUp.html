@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" href="/favicon.png" type="image/png">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JOIN-282</title>
+
+    <link rel="stylesheet" href="style-johannes.css">
+    <!-- <link rel="stylesheet" href="kevinstyle.css">
+    <link rel="stylesheet" href="style.css"> -->
+
+    <script src="mini_backend.js"></script>
+    <script src="script.js"></script>
+    <script src="avatar.js"></script>
+    <script src="sign-up.js"></script>
+    <script src="log-in.js"></script>
+    <script src="process.js"></script>
+    <script src="includeHTML.js"></script>
+
+    <script>
+        setURL('https://gruppe-282.developerakademie.net/smallest_backend_ever');
+    </script>
+
+</head>
+
+<body onload="getTeam()">
+    <div class="bgr1">
+        <form id="sign-up-form" class="login-container" onsubmit="signUp(); return false">
+            <h3>You're new to this page? Create an account!</h3>
+            <span class="login-text">Enter your e-mail</span>
+            <input id="signup-email" required type="email" placeholder="Your e-mail" class="input">
+            <span class="login-text">Enter your first name</span>
+            <input id="signup-first-name" type="name" required minlength="2" class="input" placeholder="First name">
+            <span class="login-text">Enter your last name</span>
+            <input id="signup-last-name" type="name" required minlength="2" class="input" placeholder="Last name">
+            <span class="login-text">Set up password</span>
+            <input id="sign-up-password" type="password" required minlength="5" placeholder="Your password"
+                class="input">
+            <button class="login-button">CREATE</button>
+        </form>
+    </div>
+</body>
+
+</html>
