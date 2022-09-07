@@ -268,6 +268,8 @@ async function pushTaskToBoard(i) {
         await setTask();
         await initBacklogProcess();
         playDropSound();
+        closeActionDialog();
+        showBacklogSuccess('saved');
 };
 
 
@@ -282,6 +284,8 @@ async function deleteTaskBacklog(i) {
         await setBoardTask();
         await setTask();
         await initBacklogProcess();
+        closeActionDialog();
+        showBacklogSuccess('deleted');
 };
 
 
@@ -298,31 +302,72 @@ async function editDescription(i) {
         await setBoardTask();
         await setTask();
         await initBacklogProcess();
+        closeActionDialog();
+        showBacklogSuccess('edited');
 }
 
 
+/**
+ * Displays a success Message after changes on object
+ * 
+ * @param {string} action - Contains the action definition of pressed Button
+ */
+function showBacklogSuccess(action) {
+    let success = document.getElementById('successBacklog');
+    success.innerHTML = '';
+    success.classList.remove('d-none');
+    success.innerHTML = `Task successfully ${action}!`;
+    setTimeout(() => {success.classList.add('d-none');}, 2000);
+}
+
+
+/**
+ * Displays the Pushdialog
+ * 
+ * @param {number} i - Index of current loop
+ */
 function openPushDialog(i) {
     document.getElementById('actionDialog').classList.remove('d-none');
     document.getElementById('dialogBox').innerHTML = renderPushHTML(i);
 }
 
+
+/**
+ * Displays the Editdialog
+ * 
+ * @param {number} i - Index of current loop
+ */
 function openEditDialog(i) {
     document.getElementById('actionDialog').classList.remove('d-none');
     document.getElementById('dialogBox').innerHTML = renderEditHTML(i);
 }
 
 
+/**
+ * Displays the Editdialog
+ * 
+ * @param {number} i -Index of current loop
+ */
 function openDeleteDialog(i) {
     document.getElementById('actionDialog').classList.remove('d-none');
     document.getElementById('dialogBox').innerHTML = renderDeleteHTML(i);
 }
 
 
+/**
+ * Hides the Actiondialog
+ */
 function closeActionDialog() {
     document.getElementById('actionDialog').classList.add('d-none');
 }
 
 
+/**
+ * Renders the Push HTML content
+ * 
+ * @param {number} i - Index of current loop
+ * @returns 
+ */
 function renderPushHTML(i) {
     return `
     <div class="yesBox" id="yesBox">
@@ -336,6 +381,12 @@ function renderPushHTML(i) {
 }
 
 
+/**
+ * Renders the Delete HTML content
+ * 
+ * @param {number} i - Index of current loop
+ * @returns 
+ */
 function renderDeleteHTML(i) {
     return `
     <div class="yesBox" id="yesBox">
@@ -349,6 +400,13 @@ function renderDeleteHTML(i) {
 }
 
 
+
+/**
+ * Renders the Edit HTML content
+ * 
+ * @param {number} i - Index of current loop
+ * @returns 
+ */
 function renderEditHTML(i) {
     return `
     <div class="yesBox" id="yesBox">
