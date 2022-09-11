@@ -114,7 +114,7 @@ function openTaskInfoCard(i) {
     let urgency = allTasks[i].urgency;
     let category = allTasks[i].category;
     let lastEdit = new Date(allTasks[i].lastEdit).toLocaleTimeString('eu-DE');
-    infoCard = document.getElementById('backlogInfoCard');
+    infoCard = document.getElementById('backlogTaskInfoCard');
     infoCard.innerHTML = "";
     infoCard.innerHTML = renderInfoCardHTML(title, date, description, urgency, category, lastEdit);
     getUrgencyBackground(urgency);
@@ -197,31 +197,28 @@ function getTaskMembersforInfoCard(i) {
  */
 function renderInfoCardHTML(title, date, description, urgency, category, lastEdit) {
     return `
-    <div class="bCard text-bg-dark">
-        <div class="card-img-overlay">
+    <div class="bCard text-bg-dark" onclick="event.stopPropagation()">
+        <div>
             <h3 class="card-title">${title}</h3>
             <p class="card-text1" id="cardUrgency">${urgency}</p>
-            <div  class="bCardBottom">
-                <div class="card-text cardTextContainer">
-                    <h4 id="todoUrgency"><b>Todo:</b></h4>
-                    <div class="descriptionBox">
-                        ${description}
-                    </div>
-                </div>
-                <div>
-                    <div class="card-infos" id="cardInfos">
-                        <div class="cardTeamInfos">
-                            <p class="card-text2">This Task is assigned to the</p>
-                            <h2><b>${category} Team</b></h2>
-                        </div>
-                    </div>
-                    <div class="memberCardInfoContainer" id="memberCardInfoContainer">
-                    </div>
-                    <p class="card-text3" id="lastUpdate">Last edit: ${lastEdit}</p>
-                </div>
+            <h4 id="todoUrgency"><b>Todo:</b></h4>
+            <div class="card-text cardTextContainer">
+
+                    ${description}
+
             </div>
         </div>
+        <div class="card-infos" id="cardInfos">
+            <div class="cardTeamInfos">
+                <p class="card-text2">This Task is assigned to the</p>
+                <h2><b>${category} Team</b></h2>
+            </div>
+       
+            <div class="memberCardInfoContainer" id="memberCardInfoContainer"></div>
+            <p class="card-text3" id="lastUpdate">Last edit: ${lastEdit}</p>
+        </div>
     </div>
+
     `;
 }
 

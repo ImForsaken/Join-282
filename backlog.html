@@ -46,8 +46,13 @@
     <div class="navAndBody">
         <div class="" w3-include-html="html templates/help.html"></div>
         <div w3-include-html="html templates/navbar.html"></div>
-        <div class="contentContainerBacklog">
 
+        <div class="contentContainerBacklog">
+            <div class="backlogTaskInfoCard d-none" id="backlogTaskInfoCard" onclick="closeTaskInfoCard()">
+                <!-- <div class="backlogInfoCard" id="backlogInfoCard" onclick="event.stopPropagation()">
+    
+                </div> -->
+            </div>
             <div class="headContent">
                 <h1>Backlog</h1>
                 <p class="blue">Learning Management System Project</p>
@@ -59,11 +64,7 @@
             </div>
             <div class="bodyContent" id="taskContent">
             </div>
-            <div class="backlogTaskInfoCard d-none" id="backlogTaskInfoCard" onclick="closeTaskInfoCard()">
-                <div class="backlogInfoCard" id="backlogInfoCard" onclick="event.stopPropagation()">
 
-                </div>
-            </div>
         </div>
     </div>
 </body>

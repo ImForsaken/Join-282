@@ -472,24 +472,33 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .backlogTaskInfoCard {
-    background: rgba(0, 0, 0, 0.5);
-    width: 100vw;
-    height: 100vh;
+    /* background: rgba(0, 0, 0, 0.5);
     position: fixed;
     top: 0;
     right: 0;
     left: 0;
     bottom: 0;
-    z-index: 4;
+    z-index: 4; */
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+    bottom: 0;
 }
 
-.backlogInfoCard {
-    width: 50%;
-    height: max-content;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.fixedBg {
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
 }
 
 .bCard{
@@ -497,6 +506,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     border: 1px solid black;
     animation: zoomCard 0.2s normal;
     background-color: #dddde7 !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: max-content;
+    width: 50%;
+    min-height: 50%;
 }
 
 @keyframes zoomCard {
@@ -537,25 +552,37 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     word-break: break-all;
 }
 
-.bCardBottom {
+/* .bCardBottom {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
     overflow: hidden;
-}
+} */
 
 .cardTextContainer {
     display: flex;
     flex-direction: column;
     padding: 5px;
+    max-height: 200px;
+    word-wrap: break-word;
+    padding: 10px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    overflow-y: scroll;
+    color: black;
+    font-weight: bold;
 }
 
+.cardTextContainer::-webkit-scrollbar {
+    display: none;
+}
+/*
 .descriptionBox {
     word-wrap: break-word;
     padding: 10px;
-    -ms-overflow-style: none; /* for Internet Explorer, Edge */
-    scrollbar-width: none; /* for Firefox */
+    -ms-overflow-style: none;
+    scrollbar-width: none;  
     overflow-y: scroll; 
     color: black;
     font-weight: bold;
@@ -563,7 +590,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .descriptionBox::-webkit-scrollbar {
     display: none;
-}
+} 
+*/
 
 .card-infos {
     text-align: center;
@@ -587,6 +615,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .card-text3 {
     padding: 5px;
     margin-bottom: 0;
+    text-align: start;
 }
 .cardTeamInfos {
     display: flex;
@@ -602,11 +631,25 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .memberCardInfoContainer {
     overflow-x: hidden;
     overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    max-height: 200px;
+    word-wrap: break-word;
+    padding: 10px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    overflow-y: scroll;
+    color: black;
+    font-weight: bold;
+    text-align: start;
+}
+
+.memberCardInfoContainer::-webkit-scrollbar {
+    display: none;
 }
 
 .memberCardInfo {
-    background-color: #f4f3fb;
-    opacity: 0.978;
     color: black;
     display: flex;
     justify-content: space-between;
