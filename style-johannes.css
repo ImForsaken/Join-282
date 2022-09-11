@@ -26,10 +26,13 @@ h1 {
     display: none;
 }
 
-.d-none {
+/* .d-none {
     display: none!important;
-}
+} */
 
+.opacity {
+    opacity: 1;
+}
 
 .bgr1 {
     background-color: white;
@@ -202,6 +205,11 @@ h1 {
     border: 4px solid orange;
 }
 
+.width100 {
+    width: 100%;
+    height: 100vh;
+}
+
 .border-red  {
     border-radius: 10px;
     border: 4px solid red;
@@ -240,38 +248,30 @@ h1 {
 .task-info-right-column {
     width: 50%;
     text-align: left;
+    word-break: break-word;
 }
 
 .deleteTaskArea {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100vw;
-    height: 15vh;
-    z-index: 3;
+    height: 10vh;
     background-color: rgba(245, 40, 40, 0.464);
     display: flex;
     justify-content: center;
     align-items: center;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
 }
 
 .deleteTaskAreaHover {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100vw;
-    height: 15vh;
-    z-index: 3;
     background-color: rgba(188, 28, 28, 0.895);
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .deleteTaskIcon {
     padding: 24px;
     background-color: rgba(242, 214, 214, 0.464);
     border-radius: 100%;
+    height: inherit;
 }
 
 .bgr-grey {
@@ -327,7 +327,7 @@ h1 {
     }
     
     .task-info-right-column {
-        width: 99%;
+        width: 100%;
         text-align: left;
     }
 
@@ -343,10 +343,6 @@ h1 {
         padding: 2vw;
     }
 
-    .backlogInfoCard {
-        width: 50%;
-        height: 69%;
-    }
 }
 
 @media (max-width: 700px) { 

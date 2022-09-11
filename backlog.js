@@ -198,25 +198,28 @@ function getTaskMembersforInfoCard(i) {
 function renderInfoCardHTML(title, date, description, urgency, category, lastEdit) {
     return `
     <div class="bCard text-bg-dark">
-        <img src="./img/logo.png" class="card-img" alt="Join">
         <div class="card-img-overlay">
             <h3 class="card-title">${title}</h3>
-            <div class="card-text cardTextContainer">
-                <h4 id="todoUrgency"><b>Todo:</b></h4>
-                <div class="descriptionBox">
-                    ${description}
+            <p class="card-text1" id="cardUrgency">${urgency}</p>
+            <div  class="bCardBottom">
+                <div class="card-text cardTextContainer">
+                    <h4 id="todoUrgency"><b>Todo:</b></h4>
+                    <div class="descriptionBox">
+                        ${description}
+                    </div>
+                </div>
+                <div>
+                    <div class="card-infos" id="cardInfos">
+                        <div class="cardTeamInfos">
+                            <p class="card-text2">This Task is assigned to the</p>
+                            <h2><b>${category} Team</b></h2>
+                        </div>
+                    </div>
+                    <div class="memberCardInfoContainer" id="memberCardInfoContainer">
+                    </div>
+                    <p class="card-text3" id="lastUpdate">Last edit: ${lastEdit}</p>
                 </div>
             </div>
-            <div class="card-infos" id="cardInfos">
-                <p class="card-text1" id="cardUrgency">${urgency}</p>
-                <p class="card-text2">This Task is assigned to the:</p>
-                <div class="cardTeamInfos">
-                    <h2><b>${category} Team</b></h2>
-                </div>
-            </div>
-            <div class="memberCardInfoContainer" id="memberCardInfoContainer">
-            </div>
-            <p class="card-text3" id="lastUpdate">Last edit: ${lastEdit}</p>
         </div>
     </div>
     `;

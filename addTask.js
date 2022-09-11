@@ -40,7 +40,7 @@ async function addTask() {
         document.getElementById("taskForm").reset();
         displaySuccessMessage();
         setTimeout(init, 1500);
-        setTimeout(hideSuccessMessage, 1500);
+        setTimeout(hideSuccessMessage, 2000);
     };
 }
 

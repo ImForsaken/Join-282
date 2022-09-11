@@ -39,6 +39,8 @@
 
 .successBox {
     position: absolute;
+    width: 40%;
+    text-align: center;
     animation: success 0.5s ease-in;
 }
 
@@ -208,7 +210,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .memberList {
     width: 300px;
-    background-color: #1e3190;
+    background-color: #F3F3FA;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -442,9 +444,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .pushBacklogButton:hover {
-    transform: scale(1.35);
-    background-color: green;
-    border-radius: 10%;
+    transform: scale(1.1);
 }
 
 .editBacklogButton {
@@ -455,9 +455,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .editBacklogButton:hover {
-    transform: scale(1.35);
-    background-color: #2B2CA6;
-    border-radius: 10%;
+    transform: scale(1.1);
 }
 
 .deleteBacklogTaskButton {
@@ -470,9 +468,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .deleteBacklogTaskButton:hover {
-    transform: scale(1.35);
-    background-color: red;
-    border-radius: 10%;
+    transform: scale(1.04);
 }
 
 .backlogTaskInfoCard {
@@ -488,23 +484,19 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .backlogInfoCard {
-    width: 40%;
-    height: 50%;
+    width: 50%;
+    height: max-content;
     position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    margin: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .bCard{
-    background-color: #1f3291 !important;
-    width: 100%;
-    height: 100%;
     border-radius: 10px;
     border: 1px solid black;
     animation: zoomCard 0.2s normal;
+    background-color: #dddde7 !important;
 }
 
 @keyframes zoomCard {
@@ -526,14 +518,17 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   }
 
 .card-img {
+    object-fit: scale-down;
+    opacity: 0.5;
     height: 100%;
-    width: 100%;
-    object-fit: none;
+    background-color: blue;
 }
 
 .card-img-overlay {
-    display: flex;
-    flex-direction: column;
+    position: unset;
+    height: max-content;
+    padding: 0;
+    border-radius: 0;
 }
 
 .card-title {
@@ -542,20 +537,28 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     word-break: break-all;
 }
 
+.bCardBottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    overflow: hidden;
+}
+
 .cardTextContainer {
     display: flex;
     flex-direction: column;
-    max-height: 40%;
     padding: 5px;
 }
 
 .descriptionBox {
-    width: 100%;
     word-wrap: break-word;
     padding: 10px;
     -ms-overflow-style: none; /* for Internet Explorer, Edge */
     scrollbar-width: none; /* for Firefox */
     overflow-y: scroll; 
+    color: black;
+    font-weight: bold;
 }
 
 .descriptionBox::-webkit-scrollbar {
@@ -563,7 +566,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .card-infos {
-    flex-grow: 1;
     text-align: center;
 }
 
@@ -575,12 +577,21 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     text-align: center;
     width: 100%;
     font-weight: bold;   
+    margin-bottom: 0;
 }
 
+.card-text2 {
+    margin-bottom: 0;
+}
+
+.card-text3 {
+    padding: 5px;
+    margin-bottom: 0;
+}
 .cardTeamInfos {
     display: flex;
-    justify-content: center;
     border: 1px solid black;
+    flex-direction: column;
     background-color: black;
 }
 
@@ -604,9 +615,4 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .memberCardInfoBox p {
     margin-bottom: 0px !important;
-}
-
-.card-text3 {
-    padding: 5px;
-    margin-bottom: 0;
 }

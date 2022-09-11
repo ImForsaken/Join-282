@@ -38,37 +38,38 @@
     <div class="navAndBody">
         <div class="" w3-include-html="html templates/help.html"></div>
         <div w3-include-html="html templates/navbar.html"></div>
-        <div class="board-container">
-            <div class="task-content">
-                <div class="board-headline">TO DO</div>
-                <div ondragstart="playDragSound()" ondrop="moveTo('todo'); playDropSound()"
-                    ondragleave="removeHighlight('todo')" ondragover="allowDrop(event); highlight('todo')" id="todo"
-                    class="column padding4px scroll">
+        <div class="width100">
+            <div class="board-container">
+                <div class="task-content">
+                    <div class="board-headline">TO DO</div>
+                    <div ondragstart="playDragSound()" ondrop="moveTo('todo'); playDropSound()"
+                        ondragleave="removeHighlight('todo')" ondragover="allowDrop(event); highlight('todo')" id="todo"
+                        class="column padding4px scroll">
+                    </div>
+                </div>
+                <div class="task-content">
+                    <div class="board-headline">IN PROGRESS</div>
+                    <div ondragstart="playDragSound()" ondrop="moveTo('in-progress') ; playDropSound()"
+                        ondragleave="removeHighlight('in-progress')"
+                        ondragover="allowDrop(event); highlight('in-progress')" id="in-progress"
+                        class="column padding4px scroll">
+                    </div>
+                </div>
+                <div class="task-content">
+                    <div class="board-headline">TESTING</div>
+                    <div ondragstart="playDragSound()" ondrop="moveTo('testing') ; playDropSound()"
+                        ondragleave="removeHighlight('testing')" ondragover="allowDrop(event); highlight('testing')"
+                        id="testing" class="column padding4px scroll">
+                    </div>
+                </div>
+                <div class="task-content">
+                    <div class="board-headline">DONE</div>
+                    <div ondragstart="playDragSound()" ondrop="moveTo('done') ; playDropSound()"
+                        ondragleave="removeHighlight('done')" ondragover="allowDrop(event); highlight('done')" id="done"
+                        class="column padding4px scroll">
+                    </div>
                 </div>
             </div>
-            <div class="task-content">
-                <div class="board-headline">IN PROGRESS</div>
-                <div ondragstart="playDragSound()" ondrop="moveTo('in-progress') ; playDropSound()"
-                    ondragleave="removeHighlight('in-progress')" ondragover="allowDrop(event); highlight('in-progress')"
-                    id="in-progress" class="column padding4px scroll">
-                </div>
-            </div>
-            <div class="task-content">
-                <div class="board-headline">TESTING</div>
-                <div ondragstart="playDragSound()" ondrop="moveTo('testing') ; playDropSound()"
-                    ondragleave="removeHighlight('testing')" ondragover="allowDrop(event); highlight('testing')"
-                    id="testing" class="column padding4px scroll">
-
-                </div>
-            </div>
-            <div class="task-content">
-                <div class="board-headline">DONE</div>
-                <div ondragstart="playDragSound()" ondrop="moveTo('done') ; playDropSound()"
-                    ondragleave="removeHighlight('done')" ondragover="allowDrop(event); highlight('done')" id="done"
-                    class="column padding4px scroll">
-                </div>
-            </div>
-
             <div ondragover="allowDrop(event); dragOverDeleteArea()" ondragleave="resetDeleteArea()"
                 ondrop="deleteBoardTask()" id="deleteTaskArea" class="deleteTaskArea d-none">
                 <img class="deleteTaskIcon" src="./img/trash.png">
