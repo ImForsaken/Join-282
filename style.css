@@ -120,6 +120,14 @@ h2 {
     margin-left: 5px;
 }
 
+.zIndex2 {
+    z-index: 2;
+}
+
+.zIndex-2 {
+    z-index: -2;
+}
+
 /* AVATAR PICKER */
 
 /* AvatarpickerCSS */

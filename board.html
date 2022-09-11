@@ -69,11 +69,13 @@
                         class="column padding4px scroll">
                     </div>
                 </div>
+                <div ondragover="allowDrop(event); dragOverDeleteArea()" ondragleave="resetDeleteArea()"
+                    ondrop="deleteBoardTask()" id="deleteTaskArea" class="deleteTaskArea d-none">
+                    <img ondragstart="event.preventDefault();
+                    event.stopPropagation();" class="deleteTaskIcon" src="./img/trash.png">
+                </div>
             </div>
-            <div ondragover="allowDrop(event); dragOverDeleteArea()" ondragleave="resetDeleteArea()"
-                ondrop="deleteBoardTask()" id="deleteTaskArea" class="deleteTaskArea d-none">
-                <img class="deleteTaskIcon" src="./img/trash.png">
-            </div>
+
         </div>
     </div>
 </body>

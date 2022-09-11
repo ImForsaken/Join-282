@@ -264,6 +264,7 @@ function closeTaskInfoCard() {
  * @param {number} i - Index of current loop
  */
 async function pushTaskToBoard(i) {
+        disableBacklogActionButton()
         await initAllDbData();
         allTasks[i].status = "todo";
         boardTasks.push(allTasks[i]);
@@ -276,6 +277,14 @@ async function pushTaskToBoard(i) {
         playDropSound();
         showBacklogSuccess('saved');
 };
+
+
+/**
+ * Removes the possibility to push more then 1 Task at the same time to the Board
+ */
+function disableBacklogActionButton() {
+    document.getElementById('yesButton').disabled = true;
+}
 
 
 /**

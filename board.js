@@ -26,6 +26,7 @@ function showDeleteArea() {
  */
 function hideDeleteArea() {
     document.getElementById('deleteTaskArea').classList.add('d-none');
+
 }
 
 
