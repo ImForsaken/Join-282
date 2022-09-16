@@ -34,6 +34,11 @@ function checkEmailMatchesPassword() {
  }
 
 
+function guestLogin() {
+    setCurrentMember('currentmember', 'guest@join.de');
+    window.open('board.html', '_self');
+}
+
 /**
  * 
  * @param {string} key - Current User that Login in

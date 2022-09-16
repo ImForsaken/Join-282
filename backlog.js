@@ -201,12 +201,8 @@ function renderInfoCardHTML(title, date, description, urgency, category, lastEdi
         <div>
             <h3 class="card-title">${title}</h3>
             <p class="card-text1" id="cardUrgency">${urgency}</p>
-            <h4 id="todoUrgency"><b>Todo:</b></h4>
-            <div class="card-text cardTextContainer">
-
-                    ${description}
-
-            </div>
+            <h4 id="todoUrgency" style="padding: 5px;"><b>Todo:</b></h4>
+            <div class="card-text cardTextContainer">${description}</div>
         </div>
         <div class="card-infos" id="cardInfos">
             <div class="cardTeamInfos">

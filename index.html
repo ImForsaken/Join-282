@@ -28,22 +28,31 @@
 
 <body onload="getTeam()">
     <div class="bgr1">
-        <h1>WELCOME TO JOIN</h1>
-        <h2 class="loginH2">Learning Management System Project</h2>
-        <form id="log-in-form" class="login-container" onsubmit="login(); return false">
-            <h3>Please log-in</h3>
-            <span class="login-text">Enter your e-mail</span>
-            <span id="login-error" class="error-text d-none">E-Mail does not match password! Please try again!</span>
-            <input id="login-email" required type="email" placeholder="Your e-mail" class="input">
-            <span class="login-text">Enter your password</span>
-            <input id="login-password" required type="password" placeholder="Your password" class="input">
-            <button class="login-button">LOGIN</button>
-        </form>
-        <div class="registerPage">
-            <h2>New?</h2>
-            <h3>Register for free!</h3>
-            <button onclick="location.href = './signUp.html';" id="registerRedirectButton"
-                class="registerRedirectButton">Go!</button>
+        <div class="contentLoginContainer">
+            <div class="loginHeadContainer">
+                <div class="headIn">
+                    <h1>WELCOME TO JOIN</h1>
+                    <img src="./img/logo.png">
+                </div>
+                <h2 class="loginH2">Learning Management System Project</h2>
+            </div>
+            <form id="log-in-form" class="login-container" onsubmit="login(); return false">
+                <h3>Please log-in</h3>
+                <span class="login-text">Enter your e-mail</span>
+                <span id="login-error" class="error-text d-none">E-Mail does not match password! Please try
+                    again!</span>
+                <input id="login-email" required type="email" placeholder="Your e-mail" class="input">
+                <span class="login-text">Enter your password</span>
+                <input id="login-password" required type="password" placeholder="Your password" class="input">
+                <button class="login-button">LOGIN</button>
+            </form>
+            <button onclick="guestLogin()" class="login-button">Login as guest</button>
+            <div class="registerPage">
+                <h2>New?</h2>
+                <h3>Register for free!</h3>
+                <button onclick="location.href = './signUp.html';" id="registerRedirectButton"
+                    class="registerRedirectButton">Go!</button>
+            </div>
         </div>
     </div>
 </body>

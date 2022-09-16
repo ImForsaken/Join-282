@@ -1,5 +1,8 @@
-/* addTask */
+* {
+    box-sizing: border-box;
+}
 
+/* addTask */
 
 .inputfield {
     display: block;
@@ -154,7 +157,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .assignAbleMember p:hover {
     transform: scale(1.1);
-    border-radius: 50%;
     border: 2px solid white;
 }
 
@@ -225,17 +227,21 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .closeMemberlist {
-    margin: 5px 0px 5px;
+    margin: 10px 0px 10px;
+    border: 2px solid transparent;
+    height: 48px;
+    width: 48px;
 }
 
 .closeMemberlist:hover {
     transform: scale(1.1);
+    border: 2px solid black;
+    border-radius: 50%;
 }
 
 .avatar-selected {
     opacity: 1;
     border: 2px solid #3D49CA;
-
 }
 
 .memberBox {
@@ -616,6 +622,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     padding: 5px;
     margin-bottom: 0;
     text-align: start;
+    color: #2B2CA6;
+    font-weight: bold;
 }
 .cardTeamInfos {
     display: flex;
