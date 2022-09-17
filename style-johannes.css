@@ -35,8 +35,7 @@ h1 {
 }
 
 .bgr1 {
-    background-image: url(./img/kanban.jpg);
-    background-position: center;
+    background-color: azure;
     height: 100vh;
     width: 100vw;
     display: flex;
@@ -51,10 +50,12 @@ h1 {
     background-color: rgb(228, 227, 249);
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .headIn {
     display: flex;
+    justify-content: center;
 }
 
 .headIn img{
@@ -75,6 +76,22 @@ h1 {
     max-width: 800px;
     color: rgb(28, 45, 146);
     padding: 10px;
+    width: 100%;
+}
+
+.login-container2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: rgb(228, 227, 249);
+    border-radius: 10px;
+    padding: 2px 6px;
+    margin: 12px 0px;
+    max-width: 800px;
+    color: rgb(28, 45, 146);
+    padding: 10px;
+    width: 100%;
 }
 
 .registerPage {
@@ -90,11 +107,6 @@ h1 {
     margin: 20px;
     border-radius: 10px;
     box-shadow: 1px 0px 6px 0px rgb(0 0 0 / 20%);
-}
-
-.registerPage:hover {
-    box-shadow: -2px 0px 6px 0px rgb(255 153 0 / 20%);
-    transform: scale(1.2);
 }
 
 .registerRedirectButton {
@@ -121,11 +133,11 @@ h1 {
 .input {
     border-radius: 10px;
     border: 2px grey solid;
-    width: 90%;
     margin-bottom: 4px;
     max-width: 500px;
     text-align: center;
     padding: 2px;
+    width: 100%;
 }
 
 .login-button {
@@ -134,15 +146,41 @@ h1 {
     background-color: #2B2CA6 !important;
     color: white;
     font-size: x-large;
-    padding: 6px 70px;
+    padding: 10px;
     margin-top: 8px;
-    margin-bottom: 8px;
+    width: 100%;
 }
 
 .login-button:hover {
     background-color: #1919d9 !important;
-
     cursor: pointer;
+}
+
+.login-button2 {
+    border: none;
+    border-radius: 10px;
+    background-color: #2B2CA6 !important;
+    color: white;
+    font-size: x-large;
+    padding: 10px;
+    margin-bottom: 8px;
+    width: 100%;
+}
+
+.login-button2:hover {
+    background-color: #1919d9 !important;
+    cursor: pointer;
+}
+
+.register-button {
+    border: none;
+    border-radius: 10px;
+    background-color: #2B2CA6 !important;
+    color: white;
+    font-size: x-large;
+    padding: 10px;
+    margin-top: 8px;
+    width: 65%;
 }
 
 .error-text {
@@ -395,10 +433,17 @@ h1 {
 
 }
 
-@media (max-width: 700px) {
-    .login-button {
-        width: 92%;
+@media (max-width: 840px) {
+    .login-container2 {
+        width: 60%;
     }
+
+    .register-button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 700px) {
 
     .only-mobile {
         display: flex
@@ -596,4 +641,56 @@ h1 {
     .column {
         width: 100%;
     }
+
+    .contentLoginContainer {
+        text-align: center;
+    }
+
+    .headIn {
+        display: unset;
+    }
+
+    .headIn h1 {
+        margin: 0;
+    }
+    
+    .headIn img {
+        display: none;
+    }
+
+    .login-container {
+        margin: 0;
+        width: 60%;
+    }
+
+    .login-container h3 {
+        margin: 0;
+    }
+
+    .login-container2 {
+        margin: 0;
+        width: 60%;
+    }
+
+    .login-button {
+        padding: 0;
+    }
+
+    .login-button2 {
+        width: 60%;
+        padding: 0;
+    }
+}
+
+@media (max-width:380px) {
+
+    .contentLoginContainer {
+        padding: 0;
+        margin: 5px;
+    }
+
+    .register-button {
+        width: unset;
+    }
+
 }
