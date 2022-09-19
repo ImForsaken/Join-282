@@ -158,21 +158,6 @@ function closeNavBar() {
 
 
 /**
- * Plays Audio while dragging Tasks on Board section
- */
-function playDragSound() {
-    AUDIO_DRAG.play();
-    AUDIO_DRAG.volume = 0.1;
-}
-
-
-function playDropSound() {
-    AUDIO_DROP.play();
-    AUDIO_DROP.volume = 0.1;
-}
-
-
-/**
  * Opens help section
  */
 function openHelp() {

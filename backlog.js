@@ -265,9 +265,7 @@ async function pushTaskToBoard(i) {
         await setBoardTask();
         await setTask();
         await initBacklogProcess();
-        playDropSound();
         closeActionDialog();
-        playDropSound();
         showBacklogSuccess('saved');
 };
 
@@ -292,7 +290,6 @@ async function deleteTaskBacklog(i) {
         await setTask();
         await initBacklogProcess();
         closeActionDialog();
-        playDropSound();
         showBacklogSuccess('deleted');
 };
 
@@ -311,7 +308,6 @@ async function editDescription(i) {
         await setTask();
         await initBacklogProcess();
         closeActionDialog();
-        playDropSound();
         showBacklogSuccess('edited');
 }
 

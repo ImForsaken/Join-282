@@ -59,7 +59,6 @@ async function deleteBoardTask() {
     await setBoardTask();
     await initBoardDB();
     await initBoard();
-    playDropSound();
 }
 
 
