@@ -6,13 +6,6 @@ let boardTasks = [];
 
 
 /**
- * Audio files for dragging Tasks
- */
-let AUDIO_DRAG = new Audio('audio/drag1.mp3');
-let AUDIO_DROP = new Audio('audio/drop1.mp3');
-
-
-/**
  * Function to download all data from Backend
  */
 async function initAllDbData() {
@@ -28,10 +21,10 @@ async function initAllDbData() {
  * download only Backlog database
  */
 async function initBacklogDB() {    
-    setURL('https://gruppe-282.developerakademie.net/smallest_backend_ever');
+    setURL('https://kevin-herbst.developerakademie.net/smallest_backend_ever');
     await downloadFromServer();
     allTasks = JSON.parse(backend.getItem('task')) || [];
-    console.log('BACKLOGTASKS', allTasks);
+    // console.log('BACKLOGTASKS', allTasks);
 }
 
 
@@ -39,10 +32,10 @@ async function initBacklogDB() {
  * download only Board database
  */
 async function initBoardDB() {
-    setURL('https://gruppe-282.developerakademie.net/smallest_backend_ever');
+    setURL('https://kevin-herbst.developerakademie.net/smallest_backend_ever');
     await downloadFromServer();
     boardTasks = JSON.parse(backend.getItem('allBoardTasks')) || [];
-    console.log('boardTasks', boardTasks);
+    // console.log('boardTasks', boardTasks);
 }
 
 
@@ -50,10 +43,10 @@ async function initBoardDB() {
  * download the Team array from backend
  */
 async function getTeam() {
-  setURL('https://gruppe-282.developerakademie.net/smallest_backend_ever');
+  setURL('https://kevin-herbst.developerakademie.net/smallest_backend_ever');
   await downloadFromServer();
   team = JSON.parse(backend.getItem('team'));
-  console.log('team:', team);
+  // console.log('team:', team);
 }
 
 
@@ -139,21 +132,12 @@ function customizeApp() {
  * displays responsive Navbar
  */
 function openNavBar() {
-  document.getElementById('navbar-container').classList.remove('d-none-mobile');
-  document.getElementById('navbar-button').innerHTML = `
-  <button onclick="closeNavBar()" class="getNavbar">...</button>
-  `;
-}
-
-
-/**
- * closes responsive Navbar
- */
-function closeNavBar() {
-  document.getElementById('navbar-container').classList.add('d-none-mobile');
-  document.getElementById('navbar-button').innerHTML = `
-  <button onclick="openNavBar()" class="getNavbar">...</button>
-  `;
+  let dnone = document.getElementById('navbar-container');
+  if(dnone.classList.contains('d-none-mobile')) {
+    dnone.classList.remove('d-none-mobile')
+  } else {
+    dnone.classList.add('d-none-mobile')
+  }
 }
 
 

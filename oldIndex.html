@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" href="./favicon.png" type="image/png">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JOIN-282</title>
+
+    <link rel="stylesheet" href="style-johannes.css">
+    <!-- <link rel="stylesheet" href="kevinstyle.css">
+    <link rel="stylesheet" href="style.css"> -->
+
+    <script src="mini_backend.js"></script>
+    <script src="script.js"></script>
+    <script src="avatar.js"></script>
+    <script src="sign-up.js"></script>
+    <script src="log-in.js"></script>
+    <script src="process.js"></script>
+    <script src="includeHTML.js"></script>
+
+    <script>
+        setURL('https://gruppe-282.developerakademie.net/smallest_backend_ever');
+    </script>
+
+</head>
+
+<body onload="getTeam()">
+    <div class="bgr1">
+        <div class="contentLoginContainer">
+            <div class="loginHeadContainer">
+                <div class="headIn">
+                    <h1>WELCOME TO JOIN</h1>
+                    <img src="./img/logo.png">
+                </div>
+                <h2 class="loginH2">Learning Management System Project</h2>
+            </div>
+            <form id="log-in-form" class="login-container" onsubmit="login(); return false">
+                <h3>Please log-in</h3>
+                <span class="login-text">Enter your e-mail</span>
+                <span id="login-error" class="error-text d-none">E-Mail does not match password! Please try
+                    again!</span>
+                <input id="login-email" required type="email" placeholder="Your e-mail" class="input">
+                <span class="login-text">Enter your password</span>
+                <input id="login-password" required type="password" placeholder="Your password" class="input">
+                <button class="login-button">LOGIN</button>
+            </form>
+            <button onclick="guestLogin()" class="login-button2">Login as guest</button>
+            <div class="registerPage">
+                <h2>New?</h2>
+                <h3>Register for free!</h3>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

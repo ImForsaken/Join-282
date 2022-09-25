@@ -23,9 +23,6 @@
     z-index: 1;
 }
 
-.getNavbar {
-    display: none;
-}
 
 .container-fluid {
     display: flex;

@@ -1,7 +1,204 @@
-body {
-  font-family: 'Source Sans Pro', sans-serif;
-  background-color: #1d243d;
-  padding: 0;
-  margin: 0;
+* {
+  text-decoration: none;
   box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+  font-family: 'PT Sans', sans-serif !important;
+}
+
+body {
+  display: flex;
+}
+
+body p {
+  margin: 0;
+}
+
+h1 {
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.loginLeftSide {
+  width: 50%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginHeadBox {
+  margin-bottom: 20px;
+}
+
+.loginHeadBox p{
+  color: rgb(141, 143, 146);
+}
+
+.d-none {
+  display: none;
+}
+
+.formLogin {
+  display: flex;
+  flex-direction: column;
+}
+
+.loginbox {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+  gap: 5px;
+}
+
+.error-text {
+  color: red;
+  margin-bottom: 5px;
+}
+
+.loginInput {
+  height: 50px;
+  border-radius: 8px;
+  border: 2px solid rgb(219,222,226);
+  padding: 15px;
+}
+
+.loginButton {
+  background-color: #2B2CA6;
+  height: 45px;
+  font-size: 20px;
+  color: white;
+  border-radius: 8px;
+  margin-bottom: 5px;
+}
+
+.loginButton:hover {
+  background-color: #3838f0;
+  cursor: pointer;
+}
+
+.loginButton2 {
+    background-color: #767677;
+    height: 45px;
+    font-size: 20px;
+    color: white;
+    border-radius: 8px;
+}
+
+.loginButton2:hover {
+  background-color: #a3a3a3;
+  cursor: pointer;
+}
+
+.loginBottomBox {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  margin-top: 30px;
+  color: rgb(141, 143, 146);
+}
+
+.registerRedirectButton {
+  font-weight: bold;
+  color: blue;
+}
+
+.registerRedirectButton:hover {
+  cursor: pointer;
+}
+
+.loginRightSide {
+  width: 50%;
+  height: 100vh;
+  background-color: #2B2CA6 !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* REGISTER PAGE CSS*/
+
+.formRegister {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.registerHeadBox {
+  margin-bottom: 15px;
+}
+
+.registerBox {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+  gap: 5px;
+}
+
+.registerInput {
+  height: 50px;
+  border-radius: 8px;
+  border: 2px solid rgb(219,222,226);
+  padding: 15px;
+}
+
+.registerButton {
+  background-color: #2B2CA6;
+  height: 45px;
+  font-size: 20px;
+  color: white;
+  border-radius: 8px;
+  margin-bottom: 5px;
+}
+
+.registerButton:hover {
+  background-color: #3838f0;
+  cursor: pointer;
+}
+
+.backButton {
+  background-color: #767677;
+  font-size: 20px;
+  padding: 10px;
+  color: white;
+  border-radius: 8px;
+}
+
+.backButton:hover {
+  background-color: #a3a3a3;
+  cursor: pointer;
+}
+
+@media (max-width: 700px) {
+  .loginContainer {
+    margin: 5px;
+  }
+}
+
+@media (max-width: 680px) {
+
+}
+
+@media (max-width: 630px) {
+  body {
+    flex-direction: column;
+    height: 100vh;
+  }
+
+  .loginRightSide {
+    padding: 10px;
+   width: auto;
+   height: auto;
+  }
+  
+  .loginLeftSide {
+    width: 100%;
+  }
+}
+
+@media (max-width: 310px) {
+  .loginHeadBox {
+    text-align: center;
+  }
 }
