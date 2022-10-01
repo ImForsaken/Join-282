@@ -2,50 +2,55 @@
 <html lang="en">
 
 <head>
-    <link rel="icon" href="/favicon.png" type="image/png">
+    <link rel="icon" href="./favicon.png" type="image/png">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JOIN-282</title>
-
-    <link rel="stylesheet" href="style-johannes.css">
-    <!-- <link rel="stylesheet" href="kevinstyle.css">
-    <link rel="stylesheet" href="style.css"> -->
-
+    <title>Join login</title>
+    <link rel="stylesheet" href="indexLogin.css">
     <script src="mini_backend.js"></script>
-    <script src="script.js"></script>
     <script src="avatar.js"></script>
     <script src="sign-up.js"></script>
     <script src="log-in.js"></script>
     <script src="process.js"></script>
     <script src="includeHTML.js"></script>
-
-    <script>
-        setURL('https://gruppe-282.developerakademie.net/smallest_backend_ever');
-    </script>
-
 </head>
 
 <body onload="getTeam()">
-    <div class="bgr1">
-        <h1>WELCOME TO JOIN</h1>
-        <h2 class="loginH2">Learning Management System Project</h2>
-        <form id="log-in-form" class="login-container" onsubmit="login(); return false">
-            <h3>Please log-in</h3>
-            <span class="login-text">Enter your e-mail</span>
-            <span id="login-error" class="error-text d-none">E-Mail does not match password! Please try again!</span>
-            <input id="login-email" required type="email" placeholder="Your e-mail" class="input">
-            <span class="login-text">Enter your password</span>
-            <input id="login-password" required type="password" placeholder="Your password" class="input">
-            <button class="login-button">LOGIN</button>
-        </form>
-        <div class="registerPage">
-            <h2>New?</h2>
-            <h3>Register for free!</h3>
-            <button onclick="location.href = './signUp.html';" id="registerRedirectButton"
-                class="registerRedirectButton">Go!</button>
+    <div class="loginLeftSide">
+        <div class="loginContainer">
+            <div class="loginHeadBox">
+                <h1>Welcome to Join</h1>
+                <p>Welcome back! Please enter your details.</p>
+            </div>
+            <form id="log-in-form" class="formLogin" onsubmit="login(); return false">
+                <div class="loginbox">
+                    <span id="login-error" class="error-text d-none">Login doesnt exist! Please try
+                        again!</span>
+                    <span class=""><b>Email</b></span>
+                    <input id="login-email" required type="email" placeholder="Enter your email" class="loginInput">
+                </div>
+                <div class="loginbox">
+                    <span class=""><b>Password</b></span>
+                    <input id="login-password" required type="password" placeholder="Enter your password"
+                        class="loginInput">
+                </div>
+                <button class="loginButton">Sign in</button>
+                <button onclick="guestLogin()" class="loginButton2">Login as guest</button>
+
+            </form>
+            <div class="loginBottomBox">
+                <p>Don´t have an account?</p>
+                <a onclick="location.href = './signUp.html';" id="registerRedirectButton"
+                    class="registerRedirectButton">Sign up</a>
+            </div>
         </div>
     </div>
+
+    <div class="loginRightSide">
+        <img src="./img/joinlogo.png">
+    </div>
+
 </body>
 
 </html>

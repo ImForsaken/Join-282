@@ -17,7 +17,9 @@ async function initBoard() {
  * Displays the delete Container on the Board
  */
 function showDeleteArea() {
-    document.getElementById('deleteTaskArea').classList.remove('d-none');
+    setTimeout(() => {
+        document.getElementById('deleteTaskArea').classList.remove('d-none');
+    }, 100);
 }
 
 
@@ -25,8 +27,9 @@ function showDeleteArea() {
  * Hides delete Container
  */
 function hideDeleteArea() {
-    document.getElementById('deleteTaskArea').classList.add('d-none');
-
+    setTimeout(() => {
+        document.getElementById('deleteTaskArea').classList.add('d-none');
+    }, 100);
 }
 
 
@@ -54,7 +57,6 @@ function resetDeleteArea() {
 async function deleteBoardTask() {
     boardTasks.splice(currentDraggedElement, 1);
     await setBoardTask();
-    await initBoardDB();
     await initBoard();
 }
 

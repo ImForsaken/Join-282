@@ -18,6 +18,7 @@ async function login(){
 function checkEmailMatchesPassword() {
     let loginemail = document.getElementById('login-email').value;
     let loginpassword = document.getElementById('login-password').value;
+    let display = document.getElementById('login-error');
     let loginvalid = false;
     for (let i = 0; i < team.length; i++) {
         const element = team[i];
@@ -29,10 +30,18 @@ function checkEmailMatchesPassword() {
         }
     }
     if (loginvalid == false) {
-        document.getElementById('login-error').classList.remove('d-none');
+            display.classList.remove('d-none');
+        setTimeout(() => {
+            display.classList.add('d-none');
+        }, 2500);
     }
  }
 
+
+function guestLogin() {
+    setCurrentMember('currentmember', 'guest@join.de');
+    window.open('board.html', '_self');
+}
 
 /**
  * 

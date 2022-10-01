@@ -12,10 +12,14 @@ async function initBacklogProcess() {
  */
 function renderTasks() {
     let taskContent = document.getElementById('taskContent');
+    if(allTasks.length >= 1) {
     taskContent.innerHTML = "";
     for (let i = 0; i < allTasks.length; i++) {
         renderTaskHTML(i, taskContent);
-    }
+    } 
+}else {
+    taskContent.innerHTML = `<p class="emptyBacklogMsg">Backlog is empty</p>`;
+}
 }
 
 
@@ -89,7 +93,7 @@ function backlogHTML(i, category, description, date) {
             
                 <button class="pushBacklogButton" id="push${i}" onclick="openPushDialog(${i}), event.stopPropagation()" title="Move Task to Board"></button>
                 
-                <button class="editBacklogButton" id="edit${i}" onclick="openEditDialog(${i}), event.stopPropagation()" title="Submit Edit"></button>
+                <button class="editBacklogButton" id="edit${i}" onclick="openEditDialog(${i}), event.stopPropagation()" title="Save changes"></button>
 
                 <button class="deleteBacklogTaskButton"  id="delete${i}" onclick="openDeleteDialog(${i}), event.stopPropagation()" title="Delete Task"></button>
 
@@ -201,12 +205,8 @@ function renderInfoCardHTML(title, date, description, urgency, category, lastEdi
         <div>
             <h3 class="card-title">${title}</h3>
             <p class="card-text1" id="cardUrgency">${urgency}</p>
-            <h4 id="todoUrgency"><b>Todo:</b></h4>
-            <div class="card-text cardTextContainer">
-
-                    ${description}
-
-            </div>
+            <h4 id="todoUrgency" style="padding: 5px;"><b>Todo:</b></h4>
+            <div class="card-text cardTextContainer">${description}</div>
         </div>
         <div class="card-infos" id="cardInfos">
             <div class="cardTeamInfos">
@@ -269,9 +269,7 @@ async function pushTaskToBoard(i) {
         await setBoardTask();
         await setTask();
         await initBacklogProcess();
-        playDropSound();
         closeActionDialog();
-        playDropSound();
         showBacklogSuccess('saved');
 };
 
@@ -296,7 +294,6 @@ async function deleteTaskBacklog(i) {
         await setTask();
         await initBacklogProcess();
         closeActionDialog();
-        playDropSound();
         showBacklogSuccess('deleted');
 };
 
@@ -315,7 +312,6 @@ async function editDescription(i) {
         await setTask();
         await initBacklogProcess();
         closeActionDialog();
-        playDropSound();
         showBacklogSuccess('edited');
 }
 

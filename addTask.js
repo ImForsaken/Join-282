@@ -22,7 +22,6 @@ async function addTask() {
     if (selectedUsers.length === 0) {
         alert("Please select Member for this Task");
     } else {
-        playDropSound();
         let task = {
             "title": title.value,
             "assignedMember": selectedUsers,

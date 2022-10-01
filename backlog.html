@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <link rel="icon" href="/favicon.png" type="image/png">
+    <link rel="icon" href="./favicon.png" type="image/png">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,20 +38,14 @@
 
 <body onload="includeHTML(), initBacklogProcess(); customizeApp()">
     <div onclick="closeActionDialog()" class="actionDialog d-none" id="actionDialog">
-        <div class="dialogBox" id="dialogBox" onclick="event.stopPropagation()">
-        </div>
+        <div class="dialogBox" id="dialogBox" onclick="event.stopPropagation()"></div>
     </div>
-    <div id="successBacklog" class="alert alert-success successBacklog d-none" role="alert">
-    </div>
+    <div id="successBacklog" class="alert alert-success successBacklog d-none" role="alert"></div>
     <div class="navAndBody">
         <div class="" w3-include-html="html templates/help.html"></div>
         <div w3-include-html="html templates/navbar.html"></div>
-
         <div class="contentContainerBacklog">
             <div class="backlogTaskInfoCard d-none" id="backlogTaskInfoCard" onclick="closeTaskInfoCard()">
-                <!-- <div class="backlogInfoCard" id="backlogInfoCard" onclick="event.stopPropagation()">
-    
-                </div> -->
             </div>
             <div class="headContent">
                 <h1>Backlog</h1>
@@ -64,7 +58,6 @@
             </div>
             <div class="bodyContent" id="taskContent">
             </div>
-
         </div>
     </div>
 </body>
