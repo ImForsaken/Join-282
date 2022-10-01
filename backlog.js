@@ -12,10 +12,14 @@ async function initBacklogProcess() {
  */
 function renderTasks() {
     let taskContent = document.getElementById('taskContent');
+    if(allTasks.length >= 1) {
     taskContent.innerHTML = "";
     for (let i = 0; i < allTasks.length; i++) {
         renderTaskHTML(i, taskContent);
-    }
+    } 
+}else {
+    taskContent.innerHTML = `<p class="emptyBacklogMsg">Backlog is empty</p>`;
+}
 }
 
 
@@ -89,7 +93,7 @@ function backlogHTML(i, category, description, date) {
             
                 <button class="pushBacklogButton" id="push${i}" onclick="openPushDialog(${i}), event.stopPropagation()" title="Move Task to Board"></button>
                 
-                <button class="editBacklogButton" id="edit${i}" onclick="openEditDialog(${i}), event.stopPropagation()" title="Submit Edit"></button>
+                <button class="editBacklogButton" id="edit${i}" onclick="openEditDialog(${i}), event.stopPropagation()" title="Save changes"></button>
 
                 <button class="deleteBacklogTaskButton"  id="delete${i}" onclick="openDeleteDialog(${i}), event.stopPropagation()" title="Delete Task"></button>
 

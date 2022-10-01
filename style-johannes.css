@@ -563,6 +563,11 @@ h1 {
         justify-content: center;
     }
 
+    .bCard {
+        width: 90%;
+        max-width: unset;
+    }
+
     .backlogSettings {
         flex-direction: row;
         width: 50vw;
@@ -597,7 +602,7 @@ h1 {
 
     .getNavbar {
         border-radius: 10px;
-        background-color: rgb(151 151 151);
+        background-color: rgb(255 255 255);
         position: fixed;
         top: 2px;
         right: 2px;
@@ -606,7 +611,7 @@ h1 {
     }
 
     .help-content {
-        width: 99vw;
+        width: 90%;
     }
 }
 

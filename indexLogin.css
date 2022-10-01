@@ -64,6 +64,11 @@ h1 {
   padding: 15px;
 }
 
+.loginInput::placeholder {
+    color: rgb(170, 170, 170);
+    opacity: 1;
+}
+
 .loginButton {
   background-color: #2B2CA6;
   height: 45px;
@@ -143,6 +148,11 @@ h1 {
   padding: 15px;
 }
 
+.registerInput::placeholder {
+  color: rgb(170, 170, 170);
+  opacity: 1;
+}
+
 .registerButton {
   background-color: #2B2CA6;
   height: 45px;
@@ -160,7 +170,7 @@ h1 {
 .backButton {
   background-color: #767677;
   font-size: 20px;
-  padding: 10px;
+  height: 45px;
   color: white;
   border-radius: 8px;
 }
