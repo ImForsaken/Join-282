@@ -16,22 +16,22 @@ let AUDIO_DROP = new Audio('audio/drop1.mp3');
  * Function to download all data from Backend
  */
 async function initAllDbData() {
-    await initBacklogDB();
-    await initBoardDB();
-    await getTeam();
-    findOutWhoLoggedIn();
-    customizeApp();
+  await initBacklogDB();
+  await initBoardDB();
+  await getTeam();
+  findOutWhoLoggedIn();
+  customizeApp();
 }
 
 
 /**
  * download only Backlog database
  */
-async function initBacklogDB() {    
-    setURL('https://gruppe-282.developerakademie.net/smallest_backend_ever');
-    await downloadFromServer();
-    allTasks = JSON.parse(backend.getItem('task')) || [];
-    console.log('BACKLOGTASKS', allTasks);
+async function initBacklogDB() {
+  setURL('https://gruppe-282.developerakademie.net/smallest_backend_ever');
+  await downloadFromServer();
+  allTasks = JSON.parse(backend.getItem('task')) || [];
+  console.log('BACKLOGTASKS', allTasks);
 }
 
 
@@ -39,10 +39,10 @@ async function initBacklogDB() {
  * download only Board database
  */
 async function initBoardDB() {
-    setURL('https://gruppe-282.developerakademie.net/smallest_backend_ever');
-    await downloadFromServer();
-    boardTasks = JSON.parse(backend.getItem('allBoardTasks')) || [];
-    console.log('boardTasks', boardTasks);
+  setURL('https://gruppe-282.developerakademie.net/smallest_backend_ever');
+  await downloadFromServer();
+  boardTasks = JSON.parse(backend.getItem('allBoardTasks')) || [];
+  console.log('boardTasks', boardTasks);
 }
 
 
@@ -61,9 +61,9 @@ async function getTeam() {
  * delete all Backend data
  */
 async function deleteAllData() {
-    await backend.deleteItem('task');
-    await backend.deleteItem('allBoardTasks');
-    initAllDbData();
+  await backend.deleteItem('task');
+  await backend.deleteItem('allBoardTasks');
+  initAllDbData();
 }
 
 
@@ -71,46 +71,46 @@ async function deleteAllData() {
  * delete backlog Tasks
  */
 async function deleteTaskDb() {
-    await backend.deleteItem('task');
-    initAllDbData();
-  }
+  await backend.deleteItem('task');
+  initAllDbData();
+}
 
 
 /**
  * delete board Tasks from Backend
  */
-async function deleteBoardDb() {
-    await backend.deleteItem('allBoardTasks');
-    initAllDbData();
-  }
+async function deleteBoardDb(test) {
+  await backend.deleteItem(test);
+  initAllDbData();
+}
 
 
 /**
  * delete Team data from Backend
  */
 async function deleteTeam() {
-    await backend.deleteItem('team');
-    initAllDbData();
-  }
+  await backend.deleteItem('team');
+  initAllDbData();
+}
 
 
 /**
  * safes Backlogtasks on Backend
  */
 async function setTask() {
-    allTasksAsText = JSON.stringify(allTasks);
-    await backend.setItem('task', allTasksAsText);
-  }
+  allTasksAsText = JSON.stringify(allTasks);
+  await backend.setItem('task', allTasksAsText);
+}
 
 
 /**
  * safes Boardtasks on Backend
  */
 async function setBoardTask() {
-    boardTasksAsText = JSON.stringify(boardTasks);
-    await backend.setItem('allBoardTasks', boardTasksAsText);
-  }
- 
+  boardTasksAsText = JSON.stringify(boardTasks);
+  await backend.setItem('allBoardTasks', boardTasksAsText);
+}
+
 
 /**
  * safes the Team array to backend
@@ -123,16 +123,16 @@ async function setTeam() {
 
 /**
  * after finding out who logged in an customizes the page with the individual data for that teammember
- */  
+ */
 function customizeApp() {
-    for (let i = 0; i < team.length; i++) {
-        const element = team[i];
-        if (element['eMail'] == currentMember) {
-            let icon = element['icon'];
-            document.getElementById('member-icon').innerHTML = icon;
-        }
+  for (let i = 0; i < team.length; i++) {
+    const element = team[i];
+    if (element['eMail'] == currentMember) {
+      let icon = element['icon'];
+      document.getElementById('member-icon').innerHTML = icon;
     }
- }
+  }
+}
 
 
 /**
@@ -161,14 +161,14 @@ function closeNavBar() {
  * Plays Audio while dragging Tasks on Board section
  */
 function playDragSound() {
-    AUDIO_DRAG.play();
-    AUDIO_DRAG.volume = 0.1;
+  AUDIO_DRAG.play();
+  AUDIO_DRAG.volume = 0.1;
 }
 
 
 function playDropSound() {
-    AUDIO_DROP.play();
-    AUDIO_DROP.volume = 0.1;
+  AUDIO_DROP.play();
+  AUDIO_DROP.volume = 0.1;
 }
 
 
@@ -201,21 +201,21 @@ function donotclose(event) {
  * Displays invisible Sidebar
  */
 function openSideBar() {
-  document.getElementById('burger-menu-open').classList.add ('d-none');
-  document.getElementById('burger-menu-close').classList.remove ('d-none');
+  document.getElementById('burger-menu-open').classList.add('d-none');
+  document.getElementById('burger-menu-close').classList.remove('d-none');
   document.getElementById('navbar-links').classList.remove('d-none-mobile');
-  document.getElementById('navbar').classList.remove ('navbar-mobile');
-  document.getElementById('navbar').classList.add ('navbar-mobile-open');
- }
+  document.getElementById('navbar').classList.remove('navbar-mobile');
+  document.getElementById('navbar').classList.add('navbar-mobile-open');
+}
 
 
- /**
- * Hides the Sidebar
- */
- function closeSideBar() {
-  document.getElementById('burger-menu-open').classList.remove ('d-none');
-  document.getElementById('burger-menu-close').classList.add ('d-none');
+/**
+* Hides the Sidebar
+*/
+function closeSideBar() {
+  document.getElementById('burger-menu-open').classList.remove('d-none');
+  document.getElementById('burger-menu-close').classList.add('d-none');
   document.getElementById('navbar-links').classList.add('d-none-mobile');
-  document.getElementById('navbar').classList.add ('navbar-mobile');
-  document.getElementById('navbar').classList.remove ('navbar-mobile-open');
- }
+  document.getElementById('navbar').classList.add('navbar-mobile');
+  document.getElementById('navbar').classList.remove('navbar-mobile-open');
+}

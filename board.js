@@ -56,7 +56,6 @@ async function deleteBoardTask() {
     await setBoardTask();
     await initBoardDB();
     await initBoard();
-    playDropSound();
 }
 
 
@@ -105,12 +104,12 @@ async function renderTasksToBoard() {
  * @param {string} task - object Team information
  */
 function renderAssignedMembersForEachTask(i, task) {
-        document.getElementById('assigned-to-' + i).innerHTML = '';
-        for (let j = 0; j < task['assignedMember'].length; j++) {
-            const assignedMember = task['assignedMember'][j];
-            document.getElementById('assigned-to-' + i).innerHTML += `<div class="assigned-to-list-member"><b>- ${assignedMember['firstName']} ${assignedMember['lastName']}</b></div>`
-        }
+    document.getElementById('assigned-to-' + i).innerHTML = '';
+    for (let j = 0; j < task['assignedMember'].length; j++) {
+        const assignedMember = task['assignedMember'][j];
+        document.getElementById('assigned-to-' + i).innerHTML += `<div class="assigned-to-list-member"><b>- ${assignedMember['firstName']} ${assignedMember['lastName']}</b></div>`
     }
+}
 
 
 /**
@@ -120,21 +119,21 @@ function renderAssignedMembersForEachTask(i, task) {
  * @param {string} task - object urgency information
  */
 function renderUrgencyForEachTask(i, task) {
-        if (task['urgency'] == 'Low') {
-            document.getElementById('urgency-' + i).innerHTML = `<div class="green"><b>LOW</b></div>`;
-            document.getElementById('task-' + i).classList.add('border-green');
-        }
-
-        if (task['urgency'] == 'Mid') {
-            document.getElementById('urgency-' + i).innerHTML = `<div class="orange"><b>MID</b></div>`;
-            document.getElementById('task-' + i).classList.add('border-orange');
-        }
-
-        if (task['urgency'] == 'High') {
-            document.getElementById('urgency-' + i).innerHTML = `<div class="red"><b>HIGH</b></div>`;
-            document.getElementById('task-' + i).classList.add('border-red');
-        }
+    if (task['urgency'] == 'Low') {
+        document.getElementById('urgency-' + i).innerHTML = `<div class="green"><b>LOW</b></div>`;
+        document.getElementById('task-' + i).classList.add('border-green');
     }
+
+    if (task['urgency'] == 'Mid') {
+        document.getElementById('urgency-' + i).innerHTML = `<div class="orange"><b>MID</b></div>`;
+        document.getElementById('task-' + i).classList.add('border-orange');
+    }
+
+    if (task['urgency'] == 'High') {
+        document.getElementById('urgency-' + i).innerHTML = `<div class="red"><b>HIGH</b></div>`;
+        document.getElementById('task-' + i).classList.add('border-red');
+    }
+}
 
 
 /**
@@ -142,9 +141,9 @@ function renderUrgencyForEachTask(i, task) {
  * @param {number} id - id of currently dragged element
  */
 function startDragging(id) {
-        currentDraggedElement = id;
-        showDeleteArea();
-    }
+    currentDraggedElement = id;
+    showDeleteArea();
+}
 
 
 /**
@@ -153,8 +152,8 @@ function startDragging(id) {
  * @param {event} ev - event information
  */
 function allowDrop(ev) {
-        ev.preventDefault();
-    }
+    ev.preventDefault();
+}
 
 
 /**
@@ -163,29 +162,29 @@ function allowDrop(ev) {
  * @param {string} category - current status of selected element
  */
 async function moveTo(category) {
-        boardTasks[currentDraggedElement]['status'] = category;
-        await setBoardTask();
-        await setTask();
-        removeHighlight(category);
-        renderTasksToBoard();
-    }
+    boardTasks[currentDraggedElement]['status'] = category;
+    await setBoardTask();
+    await setTask();
+    removeHighlight(category);
+    renderTasksToBoard();
+}
 
-    
+
 /**
  * Highlights the Column of current selected Taskcontainer
  * 
  * @param {string} category - current category of selected element
  */
 function highlight(category) {
-        document.getElementById(category).classList.add('highlight');
-    }
+    document.getElementById(category).classList.add('highlight');
+}
 
-    
+
 /**
  * Removes highlight class from highlighted column
  * 
  * @param {string} category - current category of selected element
  */
 function removeHighlight(category) {
-        document.getElementById(category).classList.remove('highlight');
-    }
+    document.getElementById(category).classList.remove('highlight');
+}
